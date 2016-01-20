@@ -1,0 +1,66 @@
+---
+output:
+  md_document:
+    variant: markdown_github
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, echo = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "README-"
+)
+```
+
+Kootenay Lake Exploitation Study Data
+
+An R package of data for the Kootenay Lake Large Trout Exploitation Study
+
+```
+Data sets in package ‘klexdatr’:
+
+capture                          Fish Capture Data
+deployment                       Receiver Deployment Data
+depth                            Acoustic Depth Dat
+detection                        Acoustic Detection Data
+recapture                        Fish Recapture Data
+section                          Section Data
+station                          Station Data
+```
+
+```{r}
+library(dplyr)
+library(lexr)
+library(klexdatr)
+
+qlex <- input_lex_data("klexdatr")
+check_lex_data(qlex)
+
+print(qlex)
+
+plot(qlex)
+```
+
+## Installation
+
+Then execute the following code at the R terminal:
+``` r
+# install.packages("devtools")
+devtools::install_github("poissonconsulting/klexdatr")
+```
+## Acknowledgements
+
+This project was primarily funded by the Habitat Conservation Trust Foundation.
+
+<img src="hctf.tif" />
+
+The Habitat Conservation Trust Foundation was created by an act of the legislature to preserve, restore and enhance key areas of habitat for fish and wildlife throughout British Columbia.
+Anglers, hunters, trappers and guides contribute to the projects of the Foundation through licence surcharges.  Tax deductible donations to assist in the work of the Foundation are also welcomed.
+
+### Need FWCP logo
+
+This Project was partially funded by the Fish and Wildlife Compensation Program on behalf of its program partners BC Hydro, the Province of B.C.,  Fisheries and Oceans Canada, First Nations and the public who work together to conserve and enhance fish and wildlife impacted by the construction of BC Hydro dams.
+ 
+Annual operation and maintenance for VR2W arrays used in this study were completed by Ministry of Forests, Lands and Natural Resource Operations (MFLNRO) and funded by the Fish and Wildlife Compensation Program (FWCP) in conjunction with the Bonneville Power Administration (BPA) through the Northwest Power and Conservation Council’s Fish and Wildlife Program, in co-operation with the Idaho Department of Fish and Game (IDFG), and the Kootenai Tribe of Idaho (KTOI).
