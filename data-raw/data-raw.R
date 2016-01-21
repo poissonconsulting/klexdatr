@@ -102,7 +102,6 @@ deployment %<>% filter(Receiver > 10) %>% filter(!Receiver %in% 3228:3231)
 deployment$Receiver %<>% factor()
 
 lexr:::plot_lex_deployment(deployment)
-warning("need to fix dates times deployment")
 use_data(deployment, overwrite = TRUE)
 
 acoustic_tag <- read_csv(file.path(dir, "qryKLESAcousticTag22Dec2015.txt"))
@@ -244,8 +243,8 @@ recapture %<>% rename(SectionRecapture = Section)
 warning("need to get recap locations")
 recapture$SectionRecapture <- section@data$Section[1]
 
-use_data(recapture, overwrite = TRUE)
 lexr:::plot_lex_recapture(recapture)
+use_data(recapture, overwrite = TRUE)
 
 capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
                     Reward1 = TBarTag1Reward, Reward2 = TBarTag2Reward,
@@ -275,8 +274,8 @@ detection %<>% filter(DateTimeDetection > DateTimeReceiverIn, DateTimeDetection 
 
 detection %<>% select(DateTimeDetection, Capture, Receiver, Detections)
 
-use_data(detection, overwrite = TRUE)
 lexr:::plot_lex_detection(detection)
+use_data(detection, overwrite = TRUE)
 
 depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw22Dec2015.txt"))
 
@@ -298,14 +297,14 @@ depth %<>% filter(DateTimeDepth > DateTimeReceiverIn, DateTimeDepth < DateTimeRe
 
 depth %<>% select(DateTimeDepth, Capture, Receiver, Depth)
 
-use_data(depth, overwrite = TRUE)
 lexr:::plot_lex_depth(depth)
+use_data(depth, overwrite = TRUE)
 
 capture %<>% select(-AcousticTag)
 capture %<>% rename(SectionCapture = Section)
 
-use_data(capture, overwrite = TRUE)
 lexr:::plot_lex_capture(capture)
+use_data(capture, overwrite = TRUE)
 
 section@data %<>% select(-EastingSection, -NorthingSection)
 section@data <- as.data.frame(bind_cols(
@@ -315,5 +314,5 @@ section@data <- as.data.frame(bind_cols(
 section <- section[order(section@data$EastingSection,
                          section@data$NorthingSection),]
 
-use_data(section, overwrite = TRUE)
 lexr:::plot_lex_section(section)
+use_data(section, overwrite = TRUE)
