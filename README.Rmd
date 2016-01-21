@@ -35,12 +35,12 @@ library(dplyr)
 library(lexr)
 library(klexdatr)
 
-qlex <- input_lex_data("klexdatr")
-#check_lex_data(qlex)
+lex <- input_lex_data("klexdatr")
+#check_lex_data(lex)
 
-print(qlex)
+print(lex)
 
-plot(qlex)
+plot(lex)
 ```
 
 ## Installation
@@ -54,7 +54,7 @@ devtools::install_github("poissonconsulting/klexdatr")
 
 This project was primarily funded by the Habitat Conservation Trust Foundation.
 
-<img src="hctf.tif" />
+<img src="hctf.tif" width="50%" />
 
 The Habitat Conservation Trust Foundation was created by an act of the legislature to preserve, restore and enhance key areas of habitat for fish and wildlife throughout British Columbia.
 Anglers, hunters, trappers and guides contribute to the projects of the Foundation through licence surcharges.  Tax deductible donations to assist in the work of the Foundation are also welcomed.

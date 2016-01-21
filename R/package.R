@@ -1,7 +1,7 @@
-#' Quesnel Lake Exploitation Study Data
+#' Kootenay Lake Exploitation Study Data
 #'
-#' For a description of the available data sets type \code{data(package = "qlexdatr")}.
+#' For a description of the available data sets type \code{data(package = "klexdatr")}.
 #'
 #' @docType package
-#' @name qlexdatr
+#' @name klexdatr
 NULL

@@ -28,10 +28,10 @@ library(dplyr)
 library(lexr)
 library(klexdatr)
 
-qlex <- input_lex_data("klexdatr")
-#check_lex_data(qlex)
+lex <- input_lex_data("klexdatr")
+#check_lex_data(lex)
 
-print(qlex)
+print(lex)
 #> $section
 #> Source: local data frame [34 x 5]
 #> 
@@ -158,7 +158,7 @@ print(qlex)
 #> attr(,"class")
 #> [1] "lex_data"
 
-plot(qlex)
+plot(lex)
 #> Regions defined for each Polygons
 ```
 
@@ -179,7 +179,7 @@ Acknowledgements
 
 This project was primarily funded by the Habitat Conservation Trust Foundation.
 
-<img src="hctf.tif" />
+<img src="hctf.tif" width="50%" />
 
 The Habitat Conservation Trust Foundation was created by an act of the legislature to preserve, restore and enhance key areas of habitat for fish and wildlife throughout British Columbia. Anglers, hunters, trappers and guides contribute to the projects of the Foundation through licence surcharges. Tax deductible donations to assist in the work of the Foundation are also welcomed.
 

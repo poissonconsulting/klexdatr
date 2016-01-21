@@ -1,4 +1,4 @@
 library(testthat)
-library(qlexdatr)
+library(klexdatr)
 
-test_check("qlexdatr")
+test_check("klexdatr")
