@@ -62,6 +62,8 @@ deployment %<>% mutate(Station = SiteName2015,
   mutate(DateTimeReceiverIn = with_tz(DateTimeReceiverIn, tz_analysis),
          DateTimeReceiverOut = with_tz(DateTimeReceiverOut, tz_analysis))
 
+deployment %<>% filter(InYear %in% firstYear:lastYear | OutYear %in% firstYear:lastYear)
+
 station <- select(deployment, Station, EastingStation = Xn83z11u, NorthingStation = Yn83z11u)
 
 station %<>% group_by(Station) %>% summarise(EastingStation = mean(EastingStation), NorthingStation = mean(NorthingStation)) %>% ungroup()
@@ -78,12 +80,17 @@ station@data[,c("EastingStation", "NorthingStation")] <- coordinates(station)
 station <- bind_cols(station@data, select(sp::over(station, section), Section)) %>%
   filter(!is.na(Section))
 
-station %<>% arrange(Section, EastingStation, NorthingStation)
+station %<>% filter(!Station %in% c("Lardeau River", "Duncan Lardeau Confluence",
+                                    "Boat Launch Area", "Spillway Pool", "Creston Delta",
+                                    "RKM162", "RKM155", "RKM 147", "RKM140"))
+
+
+station %<>% arrange(Section, NorthingStation, EastingStation)
 station$Station %<>% factor(., levels = .)
 station %<>%  select(Station, Section, EastingStation, NorthingStation)
 
-use_data(station, overwrite = TRUE)
 lexr:::plot_lex_station(station, section)
+use_data(station, overwrite = TRUE)
 
 deployment %<>% filter(Station %in% station$Station)
 
@@ -92,9 +99,9 @@ deployment %<>% select(Station, Receiver = RecNbr, DateTimeReceiverIn, DateTimeR
 
 deployment$Receiver %<>% factor()
 
+lexr:::plot_lex_deployment(deployment)
 warning("need to fix dates times deployment")
 use_data(deployment, overwrite = TRUE)
-lexr:::plot_lex_deployment(deployment)
 
 acoustic_tag <- read_csv(file.path(dir, "qryKLESAcousticTag22Dec2015.txt"))
 acoustic_tag %<>% filter(!is.na(TagLife))
