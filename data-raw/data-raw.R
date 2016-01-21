@@ -97,6 +97,8 @@ deployment %<>% filter(Station %in% station$Station)
 deployment$Station %<>% factor(., levels = levels(station$Station))
 deployment %<>% select(Station, Receiver = RecNbr, DateTimeReceiverIn, DateTimeReceiverOut) %>% as.tbl() %>% verify(DateTimeReceiverIn < DateTimeReceiverOut)
 
+# filter overlapping deployments
+deployment %<>% filter(Receiver > 10) %>% filter(!Receiver %in% 3228:3231)
 deployment$Receiver %<>% factor()
 
 lexr:::plot_lex_deployment(deployment)
@@ -142,7 +144,7 @@ capture %<>% mutate(CaptureX = Xn83z11u,
 
 levels(capture$Species) <- species
 
-capture %<>% filter(MortalityYN == "No")
+capture %<>% filter(MortalityYN != "Yes")
 capture %<>% filter(Length > 0)
 
 is.na(capture$Weight[capture$WeigthType != "Measured"]) <- TRUE
@@ -303,6 +305,7 @@ capture %<>% select(-AcousticTag)
 capture %<>% rename(SectionCapture = Section)
 
 use_data(capture, overwrite = TRUE)
+lexr:::plot_lex_capture(capture)
 
 section@data %<>% select(-EastingSection, -NorthingSection)
 section@data <- as.data.frame(bind_cols(
