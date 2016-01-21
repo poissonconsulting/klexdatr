@@ -18,23 +18,23 @@ rm(list = ls())
 
 dir <- path.expand("~/Dropbox/Data")
 dir %<>% file.path(basename(getwd())) %>%
-  file.path("20160114")
+  file.path("20151222")
 
-firstYear <- 2013
+firstYear <- 2008
 lastYear <- 2015
-epsg_data <- 26910
+epsg_data <- 26911
 epsg_analysis <- 3005 # bc albers
 tz_data <- "PST8PDT"
 tz_analysis <- "Etc/GMT+8"
-species <- list("Bull Trout" = "BT", "Lake Trout" = "LT", "Rainbow Trout" = "RB")
+species <- list("Bull Trout" = "BT", "Rainbow Trout" = "RB")
 
-section <- readOGR(dsn = file.path(dir, "shape"), layer = "quesarray2015section")
+section <- readOGR(dsn = file.path(dir, "Shape"), layer = "array2015section")
 section %<>% spTransform(CRS(paste0("+init=epsg:", epsg_analysis)))
 
-section@data %<>% select(Section = SECTIONID, WATERBODY) %>% check_key("Section")
+section@data %<>% select(Section = SECTNBR) %>% check_key("Section")
 
 # filter out wanted sections
-section <- section[section@data$Section %in% c(1,9:39),]
+section <- section[section@data$Section %in% c(1:34),]
 
 section@data <- as.data.frame(bind_cols(
   section@data, select(as.data.frame(gCentroid(section, byid = TRUE)),
@@ -46,27 +46,27 @@ section <- section[order(section@data$EastingSection,
 section@data$Section %<>% sprintf("%02d", .) %>% paste0("S", .) %>%
   factor(., levels = .)
 
-section@data$Habitat <- factor(NA, levels = c("Lentic", "Lotic"))
-section@data$Habitat[grepl("Lake", section@data$WATERBODY)] <- "Lentic"
-section@data$Habitat[grepl("Creek|River", section@data$WATERBODY)] <- "Lotic"
+section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
+section@data$Habitat[section@data$Section %in% c("S01", "S02", "S05", "S06", "S19", "S33", "S34")] <- "Lotic"
 
 section$Bounded <- TRUE
-section$Bounded[section$Section %in% c("S01", "S39")] <- FALSE
+section$Bounded[section$Section %in% c("S19", "S34")] <- FALSE
 section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
-lexr:::plot_section(section)
+lexr:::plot_lex_section(section)
 
-deployment <- read_csv(file.path(dir, "qryQUESReceiversAnalysis01Jan2016.txt"))
+deployment <- read_csv(file.path(dir, "qryKLESReceiversAnalysis22Dec2015.txt"))
 
-deployment %<>% mutate(Station = VUEStationName,
-                       DateTimeReceiverIn = ISOdate(InYear, InMonth, InDay, InHour, InMinute, InSecond, tz = tz_data),
-                       DateTimeReceiverOut = ISOdate(OutYear, OutMonth, OutDay, OutHour, OutMinute, OutSecond, tz = tz_data)) %>%
+deployment %<>% mutate(Station = SiteName2015,
+                       DateTimeReceiverIn = ISOdate(InYear, InMonth, InDay, tz = tz_data),
+                       DateTimeReceiverOut = ISOdate(OutYear, OutMonth, OutDay, , tz = tz_data)) %>%
   mutate(DateTimeReceiverIn = with_tz(DateTimeReceiverIn, tz_analysis),
          DateTimeReceiverOut = with_tz(DateTimeReceiverOut, tz_analysis))
 
-deployment %<>% filter(LocType == "Same")
+station <- select(deployment, Station, EastingStation = Xn83z11u, NorthingStation = Yn83z11u)
 
-station <- select(deployment, Station, EastingStation = Xn83z10u, NorthingStation = Yn83z10u) %>% unique() %>% check_key("Station") %>%
-  as.data.frame()
+station %<>% group_by(Station) %>% summarise(EastingStation = mean(EastingStation), NorthingStation = mean(NorthingStation)) %>% ungroup()
+
+station %<>% check_key("Station") %>% as.data.frame()
 
 station <- SpatialPointsDataFrame(select(station, EastingStation, NorthingStation),
                                   station,
@@ -83,7 +83,7 @@ station$Station %<>% factor(., levels = .)
 station %<>%  select(Station, Section, EastingStation, NorthingStation)
 
 use_data(station, overwrite = TRUE)
-lexr:::plot_station(station, section)
+lexr:::plot_lex_station(station, section)
 
 deployment %<>% filter(Station %in% station$Station)
 
@@ -92,18 +92,19 @@ deployment %<>% select(Station, Receiver = RecNbr, DateTimeReceiverIn, DateTimeR
 
 deployment$Receiver %<>% factor()
 
+warning("need to fix dates times deployment")
 use_data(deployment, overwrite = TRUE)
-lexr:::plot_deployment(deployment)
+lexr:::plot_lex_deployment(deployment)
 
-acoustic_tag <- read_csv(file.path(dir, "qryQUESAcousticTagAnalysis21Dec2015.txt"))
+acoustic_tag <- read_csv(file.path(dir, "qryKLESAcousticTag22Dec2015.txt"))
 acoustic_tag %<>% filter(!is.na(TagLife))
 acoustic_tag %<>% select(AcousticTag = TagIDNbr, TagLife, DepthRangeTag = Range_m) %>%
   mutate(TagLife = as.integer(TagLife))
 
-capture <- read_csv(file.path(dir, "qryQUESCaptureAnalysis21Dec2015.txt"))
+capture <- read_csv(file.path(dir, "qryKLESCaptureAnalysis22Dec2015.txt"))
 
 capture %<>% mutate(
-  DateTimeCapture = ISOdate(CapYear, CapMonth, CapDay, CapHour, CapMin, CapSec, tz = tz_data)) %>%
+  DateTimeCapture = ISOdate(CapYear, CapMonth, CapDay, CapHour, CapMinute, tz = tz_data)) %>%
   mutate(DateTimeCapture = with_tz(DateTimeCapture, tz_analysis))
 
 capture %<>% rename(AcousticTag = TagIDNbr) %>%
@@ -127,8 +128,8 @@ capture %<>% ddply(.(AcousticTag), adjust_taglife)
 
 capture %<>% mutate(DateTimeTagExpire = DateTimeCapture + days(TagLife))
 
-capture %<>% mutate(CaptureX = Xn83z10u,
-                    CaptureY = Yn83z10u,
+capture %<>% mutate(CaptureX = Xn83z11u,
+                    CaptureY = Yn83z11u,
                     Species = factor(Species),
                     Length = as.integer(Length))
 
@@ -141,13 +142,13 @@ is.na(capture$Weight[capture$WeigthType != "Measured"]) <- TRUE
 
 capture %<>% select(Capture = CaptureID, DateTimeCapture, Species, AcousticTag,
                     Length, Weight,
-                    TBarTag1 = TBarTag01, TBarTag1Reward, TBarTag2 = TBarTag02, TBarTag2Reward,
+                    TBarTag1, TBarTag1Reward, TBarTag2, TBarTag2Reward,
                     DateTimeTagExpire, DepthRangeTag, CaptureX, CaptureY)
 
 is.na(capture$TBarTag1[capture$TBarTag1 < 0]) <- TRUE
-is.na(capture$TBarTag2[capture$TBarTag2 < 0]) <- TRUE
+is.na(capture$TBarTag2[!is.na(capture$TBarTag2) & capture$TBarTag2 < 0]) <- TRUE
 is.na(capture$TBarTag1Reward[capture$TBarTag1Reward < 0]) <- TRUE
-is.na(capture$TBarTag2Reward[capture$TBarTag2Reward < 0]) <- TRUE
+is.na(capture$TBarTag2Reward[!is.na(capture$TBarTag2Reward) & capture$TBarTag2Reward < 0]) <- TRUE
 
 capture %<>% filter(!is.na(TBarTag1) | !is.na(TBarTag2))
 
@@ -161,7 +162,7 @@ reward <- capture$TBarTag2Reward[capture$Switch]
 capture$TBarTag2Reward[capture$Switch] <- capture$TBarTag1Reward[capture$Switch]
 capture$TBarTag1Reward[capture$Switch] <- reward
 
-capture %<>% select(-Switch) %>% verify(!is.na(TBarTag1)) %>% verify(TBarTag1Reward > TBarTag2Reward) %>% as.data.frame()
+capture %<>% select(-Switch) %>% verify(!is.na(TBarTag1)) %>% verify(is.na(TBarTag2Reward) | TBarTag1Reward >= TBarTag2Reward) %>% as.data.frame()
 
 capture <- SpatialPointsDataFrame(select(capture, CaptureX, CaptureY),
                                   select(capture, -CaptureX, -CaptureY),
@@ -173,17 +174,24 @@ capture@data[,c("CaptureX", "CaptureY")] <- coordinates(capture)
 capture <- bind_cols(capture@data, select(sp::over(capture, section), Section)) %>%
   filter(!is.na(Section))
 
-recapture <- read_csv(file.path(dir, "qryQUESRecaptureAnalysis21Dec2015.txt"))
+recapture <- read_csv(file.path(dir, "qryKLESRecaptureAnalysis22Dec2015.txt"))
 
 recapture %<>% mutate(
   DateTimeRecapture = ISOdate(ReCapYear, ReCapMonth, ReCapDay, tz = tz_analysis))
 
+warning("need to add column as some tags not removed")
+warning("need to add coordinates for recaps")
+recapture$TagsRemoved <- TRUE
+recapture$Xn83z11u <- 0
+recapture$Yn83z11u <- 0
+
 recapture %<>% select(DateTimeRecapture,
-                      Released, TagsRemoved = TagRemoved,
+                      Released, TagsRemoved,
                       TBarTag1Recap, TBarTag2Recap,
-                      RecaptureX = Xn83z10u, RecaptureY = Yn83z10u,
-                      Capture = CaptureID, RecaptureDBID = ReCaptureID) %>%
+                      RecaptureX = Xn83z11u, RecaptureY = Yn83z11u,
+                      Capture = CaptureID, RecaptureDBID = RecaptureID) %>%
   as.data.frame()
+
 
 recapture <- SpatialPointsDataFrame(select(recapture, RecaptureX, RecaptureY),
                                     recapture,
@@ -202,8 +210,8 @@ recapture$TagsRemoved %<>% factor()
 levels(recapture$TagsRemoved) <- list("FALSE" = "No", "TRUE" = "Yes")
 recapture$TagsRemoved %<>% as.logical()
 
-is.na(recapture$TBarTag1Recap[recapture$TBarTag1Recap < 0]) <- TRUE
-is.na(recapture$TBarTag2Recap[recapture$TBarTag2Recap < 0]) <- TRUE
+is.na(recapture$TBarTag1Recap[!is.na(recapture$TBarTag1Recap) & recapture$TBarTag1Recap < 0]) <- TRUE
+is.na(recapture$TBarTag2Recap[!is.na(recapture$TBarTag2Recap) & recapture$TBarTag2Recap < 0]) <- TRUE
 
 recapture %<>% inner_join(select(capture, -Section), by = "Capture") %>%
   verify(DateTimeRecapture > DateTimeCapture)
@@ -224,18 +232,21 @@ recapture$Released[is.na(recapture$Released)] <- FALSE
 
 recapture %<>% rename(SectionRecapture = Section)
 
+warning("need to get recap locations")
+recapture$SectionRecapture <- section@data$Section[1]
+
 use_data(recapture, overwrite = TRUE)
-lexr:::plot_recapture(recapture)
+lexr:::plot_lex_recapture(recapture)
 
 capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
                     Reward1 = TBarTag1Reward, Reward2 = TBarTag2Reward,
                     DateTimeTagExpire, DepthRangeTag, AcousticTag)
 capture$DepthRangeTag %<>% as.integer()
 
-detection <- read_csv(file.path(dir, "qryQUESVueDetectionsRaw21Dec2015.txt"))
+detection <- read_csv(file.path(dir, "qryKLESVueDetectionRaw22Dec2015.txt"))
 
 detection %<>% mutate(
-  DateTimeDetection = ISOdate(YearLMT, MonthLMT, DatLMT, HourLMT, tz = tz_data)) %>%
+  DateTimeDetection = ISOdate(YearLMT, MonthLMT, DayLMT, HourLMT, tz = tz_data)) %>%
   mutate(DateTimeDetection = with_tz(DateTimeDetection, tz_analysis))
 
 detection %<>% rename(AcousticTag = TagIDNbr,
@@ -256,14 +267,12 @@ detection %<>% filter(DateTimeDetection > DateTimeReceiverIn, DateTimeDetection 
 detection %<>% select(DateTimeDetection, Capture, Receiver, Detections)
 
 use_data(detection, overwrite = TRUE)
-lexr:::plot_detection(detection)
+lexr:::plot_lex_detection(detection)
 
-depth <- read_csv(file.path(dir, "qryQUESVueDepthRaw21Dec2015.txt"))
-
-check_key(depth, c("YearLMT", "MonthLMT", "DatLMT", "HourLMT", "MinLMT", "SecLMT", "CaptureID", "Receiver"))
+depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw22Dec2015.txt"))
 
 depth %<>% mutate(
-  DateTimeDepth = ISOdate(YearLMT, MonthLMT, DatLMT, HourLMT, MinLMT, SecLMT, tz = tz_data)) %>%
+  DateTimeDepth = ISOdate(YearLMT, MonthLMT, DayLMT, HourLMT, MinLMT, SecLMT, tz = tz_data)) %>%
   mutate(DateTimeDepth = with_tz(DateTimeDepth, tz_analysis))
 
 depth %<>% mutate(Receiver = RecNbr) %>%
@@ -281,14 +290,12 @@ depth %<>% filter(DateTimeDepth > DateTimeReceiverIn, DateTimeDepth < DateTimeRe
 depth %<>% select(DateTimeDepth, Capture, Receiver, Depth)
 
 use_data(depth, overwrite = TRUE)
-lexr:::plot_depth(depth)
+lexr:::plot_lex_depth(depth)
 
 capture %<>% select(-AcousticTag)
 capture %<>% rename(SectionCapture = Section)
 
 use_data(capture, overwrite = TRUE)
-
-section %<>% raster::crop(extent(c(1295000, 1381700, 835000, 894696.5)))
 
 section@data %<>% select(-EastingSection, -NorthingSection)
 section@data <- as.data.frame(bind_cols(
@@ -299,4 +306,4 @@ section <- section[order(section@data$EastingSection,
                          section@data$NorthingSection),]
 
 use_data(section, overwrite = TRUE)
-lexr:::plot_section(section)
+lexr:::plot_lex_section(section)

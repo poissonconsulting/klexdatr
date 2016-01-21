@@ -36,7 +36,7 @@ library(lexr)
 library(klexdatr)
 
 qlex <- input_lex_data("klexdatr")
-check_lex_data(qlex)
+#check_lex_data(qlex)
 
 print(qlex)
 

@@ -18,7 +18,7 @@ LazyData: true
 Depends:
     R (>= 3.1.0)
 Suggests:
-    datacheckr (>= 0.0.2.9011),
+    datacheckr (>= 0.0.2.9012),
     lexr,
     testthat
 RoxygenNote: 5.0.1

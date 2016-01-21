@@ -41,8 +41,8 @@ test_that("data", {
          Species = factor(""),
          Length = c(200L, 1000L),
          Weight = c(0.5, 10, NA),
-         Reward1 = c(1L, 10L, 100L),
-         Reward2 = c(1L, 10L, 100L),
+         Reward1 = c(0L, 10L, 100L),
+         Reward2 = c(0L, 10L, 100L, NA),
          DateTimeTagExpire = Sys.time(),
          DepthRangeTag = c(1L, NA)),
     key = c("Capture")))
