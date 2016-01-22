@@ -285,7 +285,7 @@ depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw21Jan2016.txt"))
 
 depth %<>% mutate(
   DateTimeDepth = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, MinUTC, SecUTC, tz = "UTC")) %>%
-  mutate(DateTimeDepth = with_tz(DateTimeDepth, tz_analysis))
+  mutate(DateTimeDepth = with_tz(DateTimeDepth, tz_analysis), Depth_m = as.numeric(Depth_m))
 
 depth %<>% mutate(Receiver = RecNbr) %>%
   rename(AcousticTag = TagIDNbr, Depth = Depth_m)

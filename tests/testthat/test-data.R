@@ -84,7 +84,7 @@ test_that("data", {
     list(DateTimeDepth = Sys.time(),
          Capture = factor(1),
          Receiver = factor(1),
-         Depth = c(0L, 255L)),
+         Depth = c(0, 255)),
     key = c("DateTimeDepth", "Capture", "Receiver")))
 
   expect_df(datacheckr::check_join(depth, capture, "Capture"))
