@@ -236,10 +236,6 @@ capture %<>% arrange(Species, DateTimeCapture, Capture)
 capture$Capture %<>% sprintf("%03d", .) %>% paste0("F", .) %>% factor(., levels = .)
 recapture$Capture %<>% sprintf("%03d", .) %>% paste0("F", .) %>% factor(., levels = levels(capture$Capture))
 
-recapture$TagsRemoved[is.na(recapture$TagsRemoved)] <- TRUE
-recapture$Released[is.na(recapture$Released)] <- FALSE
-recapture$Public[is.na(recapture$Released)] <- TRUE
-
 lexr:::plot_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
 
