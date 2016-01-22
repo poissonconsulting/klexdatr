@@ -50,96 +50,96 @@ print(lex)
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
-#> Source: local data frame [47 x 4]
+#> Source: local data frame [32 x 4]
 #> 
-#>                      Station Section EastingStation NorthingStation
-#>                       (fctr)  (fctr)          (dbl)           (dbl)
-#> 1             Gerrard Bridge     S02        1616869        648570.7
-#> 2         Gerrard Scafolding     S02        1617116        648578.0
-#> 3        Lardeau R. at Mobbs     S02        1617346        648516.6
-#> 4              Lardeau River     S01        1642880        622350.2
-#> 5  Duncan Lardeau Confluence     S01        1643548        621751.5
-#> 6                   West Arm     S19        1648336        552145.1
-#> 7             Duncan-Forebay     S04        1643633        623415.9
-#> 8           Boat Launch Area     S05        1643434        622169.7
-#> 9       Duncan-Tailout Point     S05        1643457        622354.6
-#> 10             Spillway Pool     S05        1643669        622512.6
-#> ..                       ...     ...            ...             ...
+#>                        Station Section EastingStation NorthingStation
+#>                         (fctr)  (fctr)          (dbl)           (dbl)
+#> 1          Lardeau R. at Mobbs     S02        1617346        648516.6
+#> 2               Gerrard Bridge     S02        1616869        648570.7
+#> 3           Gerrard Scafolding     S02        1617116        648578.0
+#> 4               Duncan-Forebay     S04        1643633        623415.9
+#> 5         Duncan-Tailout Point     S05        1643457        622354.6
+#> 6                Lardeau Delta     S07        1646121        613307.2
+#> 7                    Fry Creek     S09        1649731        602375.6
+#> 8  Kaslo - Shutty Bench - West     S11        1651302        595868.6
+#> 9  Kaslo - Shutty Bench - East     S11        1650824        595948.8
+#> 10       Boathouse in West Arm     S20        1651422        553386.0
+#> ..                         ...     ...            ...             ...
 #> 
 #> $deployment
-#> Source: local data frame [462 x 4]
+#> Source: local data frame [288 x 4]
 #> 
-#>                              Station Receiver  DateTimeReceiverIn
-#>                               (fctr)   (fctr)              (time)
-#> 1                   Pilot Point East     2727 2003-04-01 12:00:00
-#> 2                   Pilot Point West     2727 2004-04-22 11:00:00
-#> 3                    Redman Point ME     2728 2003-04-01 12:00:00
-#> 4                    Redman Point ME     2728 2004-05-06 11:00:00
-#> 5                    Pilot Point Mid     2729 2003-04-01 12:00:00
-#> 6                   Pilot Point East     2729 2004-04-22 11:00:00
-#> 7                   Pilot Point West     2730 2003-04-01 12:00:00
-#> 8                 Mountain Shores MW     2730 2004-04-22 11:00:00
-#> 9  Coffee Creek - Power Lines - East     2731 2003-04-01 12:00:00
-#> 10                Mountain Shores MW     2724 2003-04-01 12:00:00
-#> ..                               ...      ...                 ...
+#>                                Station Receiver  DateTimeReceiverIn
+#>                                 (fctr)   (fctr)              (time)
+#> 1                        Lardeau Delta     6095 2007-08-26 11:00:00
+#> 2          Kaslo - Shutty Bench - West     4348 2007-03-06 12:00:00
+#> 3          Kaslo - Shutty Bench - East     5306 2007-03-06 12:00:00
+#> 4    Coffee Creek - Power Lines - East     6093 2007-02-28 12:00:00
+#> 5  Coffee Creek - Power Lines - Middle     5308 2007-02-28 12:00:00
+#> 6    Coffee Creek - Power Lines - West     5309 2007-02-28 12:00:00
+#> 7                     Pilot Point West     5298 2007-03-02 12:00:00
+#> 8                      Pilot Point Mid     2726 2007-02-28 12:00:00
+#> 9                     Pilot Point East     5301 2007-08-30 11:00:00
+#> 10                        Crawford Bay     5299 2007-03-02 12:00:00
+#> ..                                 ...      ...                 ...
 #> Variables not shown: DateTimeReceiverOut (time)
 #> 
 #> $capture
-#> Source: local data frame [168 x 10]
+#> Source: local data frame [191 x 10]
 #> 
 #>    Capture     DateTimeCapture SectionCapture    Species Length Weight
 #>     (fctr)              (time)         (fctr)     (fctr)  (int)  (dbl)
-#> 1     F100 2009-05-02 13:31:00            S21 Bull Trout    643   2.75
-#> 2     F104 2009-05-03 11:17:00            S22 Bull Trout    567   2.00
-#> 3     F129 2009-05-07 09:11:00            S21 Bull Trout    703   3.90
-#> 4     F133 2009-05-07 13:58:00            S21 Bull Trout    712   3.65
-#> 5     F137 2009-05-08 11:16:00            S21 Bull Trout    572   1.90
-#> 6     F141 2009-05-20 15:13:00            S16 Bull Trout    564   2.20
-#> 7     F143 2009-05-21 08:00:00            S16 Bull Trout    595   2.40
-#> 8     F153 2009-05-27 09:13:00            S25 Bull Trout    697   3.50
-#> 9     F155 2009-05-27 10:38:00            S25 Bull Trout    640   3.00
-#> 10    F161 2009-05-30 10:55:00            S16 Bull Trout    570   2.05
+#> 1     F075 2008-05-24 10:40:00            S25 Bull Trout    545   1.75
+#> 2     F076 2008-05-24 11:10:00            S25 Bull Trout    654   3.40
+#> 3     F084 2008-06-05 08:01:00            S16 Bull Trout    553     NA
+#> 4     F100 2009-05-02 13:31:00            S21 Bull Trout    643   2.75
+#> 5     F104 2009-05-03 11:17:00            S22 Bull Trout    567   2.00
+#> 6     F129 2009-05-07 09:11:00            S21 Bull Trout    703   3.90
+#> 7     F133 2009-05-07 13:58:00            S21 Bull Trout    712   3.65
+#> 8     F137 2009-05-08 11:16:00            S21 Bull Trout    572   1.90
+#> 9     F141 2009-05-20 15:13:00            S16 Bull Trout    564   2.20
+#> 10    F143 2009-05-21 08:00:00            S16 Bull Trout    595   2.40
 #> ..     ...                 ...            ...        ...    ...    ...
 #> Variables not shown: Reward1 (int), Reward2 (int), DateTimeTagExpire
 #>   (time), DepthRangeTag (int)
 #> 
 #> $recapture
-#> Source: local data frame [39 x 7]
+#> Source: local data frame [42 x 7]
 #> 
 #>      DateTimeRecapture Capture SectionRecapture TBarTag1 TBarTag2
 #>                 (time)  (fctr)           (fctr)    (lgl)    (lgl)
-#> 1  2009-05-23 12:00:00    F131              S03     TRUE     TRUE
-#> 2  2009-09-10 12:00:00    F097              S03     TRUE     TRUE
-#> 3  2009-10-06 12:00:00    F169              S03     TRUE     TRUE
-#> 4  2009-10-12 12:00:00    F099              S03     TRUE     TRUE
-#> 5  2009-10-14 12:00:00    F112              S03     TRUE     TRUE
-#> 6  2009-10-16 12:00:00    F111              S03     TRUE     TRUE
-#> 7  2010-01-23 12:00:00    F197              S03     TRUE     TRUE
-#> 8  2010-02-27 12:00:00    F162              S03    FALSE    FALSE
-#> 9  2010-04-04 12:00:00    F155              S03     TRUE     TRUE
-#> 10 2010-04-05 12:00:00    F175              S03     TRUE     TRUE
+#> 1  2009-04-05 12:00:00    F006              S03     TRUE     TRUE
+#> 2  2009-05-23 12:00:00    F131              S03     TRUE     TRUE
+#> 3  2009-09-10 12:00:00    F097              S03     TRUE     TRUE
+#> 4  2009-10-06 12:00:00    F169              S03     TRUE     TRUE
+#> 5  2009-10-10 12:00:00    F076              S03     TRUE     TRUE
+#> 6  2009-10-12 12:00:00    F099              S03     TRUE     TRUE
+#> 7  2009-10-14 12:00:00    F112              S03     TRUE     TRUE
+#> 8  2009-10-16 12:00:00    F111              S03     TRUE     TRUE
+#> 9  2010-01-23 12:00:00    F197              S03     TRUE     TRUE
+#> 10 2010-01-28 12:00:00    F075              S03     TRUE     TRUE
 #> ..                 ...     ...              ...      ...      ...
 #> Variables not shown: TagsRemoved (lgl), Released (lgl)
 #> 
 #> $detection
-#> Source: local data frame [446,397 x 4]
+#> Source: local data frame [482,888 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
-#> 1  2010-04-30 07:00:00    F238   220007          1
-#> 2  2010-04-30 08:00:00    F238   220007          1
-#> 3  2010-04-30 09:00:00    F238   220007          1
-#> 4  2010-04-30 10:00:00    F238   220007         13
-#> 5  2010-04-30 11:00:00    F238   220005         11
-#> 6  2010-04-30 12:00:00    F238   220005         21
-#> 7  2010-04-30 13:00:00    F238   220007          8
-#> 8  2010-04-30 13:00:00    F238   220005         20
-#> 9  2010-04-30 14:00:00    F238   220005          5
-#> 10 2010-04-30 14:00:00    F238   220007          6
+#> 1  2008-05-25 09:00:00    F076     5299          4
+#> 2  2008-05-25 10:00:00    F076     5299          2
+#> 3  2008-05-25 19:00:00    F076     5301          7
+#> 4  2008-05-25 19:00:00    F076     6248          1
+#> 5  2008-05-25 20:00:00    F076     5301          6
+#> 6  2008-05-25 20:00:00    F076     6248          1
+#> 7  2008-05-27 01:00:00    F076     6093          2
+#> 8  2008-05-27 03:00:00    F076     6093          6
+#> 9  2008-05-27 04:00:00    F076     6093          5
+#> 10 2008-05-27 05:00:00    F076     6093          4
 #> ..                 ...     ...      ...        ...
 #> 
 #> $depth
-#> Source: local data frame [199,246 x 4]
+#> Source: local data frame [198,373 x 4]
 #> 
 #>          DateTimeDepth Capture Receiver Depth
 #>                 (time)  (fctr)   (fctr) (int)
