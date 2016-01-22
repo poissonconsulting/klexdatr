@@ -53,15 +53,18 @@ test_that("data", {
     recapture,
     list(DateTimeRecapture = Sys.time(),
          Capture = factor(1),
-         SectionRecapture = factor(1),
+         SectionRecapture = factor(c(1, NA)),
          TBarTag1 = TRUE,
          TBarTag2 = TRUE,
          TagsRemoved = TRUE,
-         Released = TRUE),
+         Released = TRUE,
+         Public = TRUE),
     key = c("DateTimeRecapture", "Capture")))
 
   expect_df(datacheckr::check_join(recapture, capture, "Capture"))
-  expect_df(datacheckr::check_join(recapture, section@data, c("SectionRecapture" = "Section")))
+  expect_df(datacheckr::check_join(recapture, section@data,
+                                   c("SectionRecapture" = "Section"),
+                                   ignore_nas = TRUE))
 
   expect_df(datacheckr::check_data3(
     detection,

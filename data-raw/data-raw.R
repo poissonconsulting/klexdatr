@@ -18,7 +18,7 @@ rm(list = ls())
 
 dir <- path.expand("~/Dropbox/Data")
 dir %<>% file.path(basename(getwd())) %>%
-  file.path("20151222")
+  file.path("20160121")
 
 firstYear <- 2008
 lastYear <- 2015
@@ -182,24 +182,20 @@ capture@data[,c("CaptureX", "CaptureY")] <- coordinates(capture)
 capture <- bind_cols(capture@data, select(sp::over(capture, section), Section)) %>%
   filter(!is.na(Section))
 
-recapture <- read_csv(file.path(dir, "qryKLESRecaptureAnalysis22Dec2015.txt"))
+recapture <- read_csv(file.path(dir, "qryKLESRecaptureAnalysis21Jan2016.txt"))
 
 recapture %<>% mutate(
   DateTimeRecapture = ISOdate(ReCapYear, ReCapMonth, ReCapDay, tz = tz_analysis))
 
-warning("need to add column as some tags not removed")
-warning("need to add coordinates for recaps")
-recapture$TagsRemoved <- TRUE
-recapture$Xn83z11u <- 0
-recapture$Yn83z11u <- 0
-
 recapture %<>% select(DateTimeRecapture,
                       Released, TagsRemoved,
-                      TBarTag1Recap, TBarTag2Recap,
+                      TBarTag1Recap, TBarTag2Recap, Public = RecapType,
                       RecaptureX = Xn83z11u, RecaptureY = Yn83z11u,
                       Capture = CaptureID, RecaptureDBID = RecaptureID) %>%
   as.data.frame()
 
+recapture$RecaptureX[is.na(recapture$RecaptureX)] <- 0
+recapture$RecaptureY[is.na(recapture$RecaptureY)] <- 0
 
 recapture <- SpatialPointsDataFrame(select(recapture, RecaptureX, RecaptureY),
                                     recapture,
@@ -218,6 +214,10 @@ recapture$TagsRemoved %<>% factor()
 levels(recapture$TagsRemoved) <- list("FALSE" = "No", "TRUE" = "Yes")
 recapture$TagsRemoved %<>% as.logical()
 
+recapture$Public %<>% factor()
+levels(recapture$Public) <- list("FALSE" = "Research", "TRUE" = "Public")
+recapture$Public %<>% as.logical()
+
 is.na(recapture$TBarTag1Recap[!is.na(recapture$TBarTag1Recap) & recapture$TBarTag1Recap < 0]) <- TRUE
 is.na(recapture$TBarTag2Recap[!is.na(recapture$TBarTag2Recap) & recapture$TBarTag2Recap < 0]) <- TRUE
 
@@ -228,8 +228,9 @@ recapture$TBarTag1 <- recapture$TBarTag1 %in% c(recapture$TBarTag1Recap, recaptu
 recapture$TBarTag2 <- recapture$TBarTag2 %in% c(recapture$TBarTag1Recap, recapture$TBarTag2Recap)
 
 recapture %<>% arrange(DateTimeRecapture)
-recapture %<>% select(DateTimeRecapture, Capture, Section, TBarTag1, TBarTag2,
-                      TagsRemoved, Released, Section)
+recapture %<>% select(DateTimeRecapture, Capture, SectionRecapture = Section,
+                      TBarTag1, TBarTag2,
+                      TagsRemoved, Released, Public)
 
 capture %<>% arrange(Species, DateTimeCapture, Capture)
 capture$Capture %<>% sprintf("%03d", .) %>% paste0("F", .) %>% factor(., levels = .)
@@ -237,11 +238,7 @@ recapture$Capture %<>% sprintf("%03d", .) %>% paste0("F", .) %>% factor(., level
 
 recapture$TagsRemoved[is.na(recapture$TagsRemoved)] <- TRUE
 recapture$Released[is.na(recapture$Released)] <- FALSE
-
-recapture %<>% rename(SectionRecapture = Section)
-
-warning("need to get recap locations")
-recapture$SectionRecapture <- section@data$Section[1]
+recapture$Public[is.na(recapture$Released)] <- TRUE
 
 lexr:::plot_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
@@ -251,10 +248,10 @@ capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
                     DateTimeTagExpire, DepthRangeTag, AcousticTag)
 capture$DepthRangeTag %<>% as.integer()
 
-detection <- read_csv(file.path(dir, "qryKLESVueDetectionRaw22Dec2015.txt"))
+detection <- read_csv(file.path(dir, "qryKLESVueDetectionRaw21Jan2016.txt"))
 
 detection %<>% mutate(
-  DateTimeDetection = ISOdate(YearLMT, MonthLMT, DayLMT, HourLMT, tz = tz_data)) %>%
+  DateTimeDetection = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, tz = "UTC")) %>%
   mutate(DateTimeDetection = with_tz(DateTimeDetection, tz_analysis))
 
 detection %<>% rename(AcousticTag = TagIDNbr,
@@ -277,10 +274,10 @@ detection %<>% select(DateTimeDetection, Capture, Receiver, Detections)
 lexr:::plot_lex_detection(detection)
 use_data(detection, overwrite = TRUE)
 
-depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw22Dec2015.txt"))
+depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw21Jan2016.txt"))
 
 depth %<>% mutate(
-  DateTimeDepth = ISOdate(YearLMT, MonthLMT, DayLMT, HourLMT, MinLMT, SecLMT, tz = tz_data)) %>%
+  DateTimeDepth = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, MinUTC, SecUTC, tz = "UTC")) %>%
   mutate(DateTimeDepth = with_tz(DateTimeDepth, tz_analysis))
 
 depth %<>% mutate(Receiver = RecNbr) %>%
