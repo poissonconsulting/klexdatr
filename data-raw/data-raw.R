@@ -215,7 +215,7 @@ levels(recapture$TagsRemoved) <- list("FALSE" = "No", "TRUE" = "Yes")
 recapture$TagsRemoved %<>% as.logical()
 
 recapture$Public %<>% factor()
-levels(recapture$Public) <- list("FALSE" = "Research", "TRUE" = "Public")
+levels(recapture$Public) <- list("FALSE" = "Researcher", "TRUE" = "Public")
 recapture$Public %<>% as.logical()
 
 is.na(recapture$TBarTag1Recap[!is.na(recapture$TBarTag1Recap) & recapture$TBarTag1Recap < 0]) <- TRUE
