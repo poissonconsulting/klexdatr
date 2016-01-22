@@ -236,6 +236,17 @@ capture %<>% arrange(Species, DateTimeCapture, Capture)
 capture$Capture %<>% sprintf("%03d", .) %>% paste0("F", .) %>% factor(., levels = .)
 recapture$Capture %<>% sprintf("%03d", .) %>% paste0("F", .) %>% factor(., levels = levels(capture$Capture))
 
+fillin_missing <- function(x, bol) {
+  x_name <- deparse(substitute(x))
+  message("replacing ", sum(is.na(x)), " missing values in ", x_name, " with ", bol)
+  x[is.na(x)] <- bol
+  x
+}
+
+recapture$TagsRemoved <- fillin_missing(recapture$TagsRemoved, TRUE)
+recapture$Released <- fillin_missing(recapture$Release, FALSE)
+recapture$Public <- fillin_missing(recapture$Public, TRUE)
+
 lexr:::plot_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
 

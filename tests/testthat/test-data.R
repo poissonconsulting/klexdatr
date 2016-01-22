@@ -56,8 +56,8 @@ test_that("data", {
          SectionRecapture = factor(c(1, NA)),
          TBarTag1 = TRUE,
          TBarTag2 = TRUE,
-         TagsRemoved = c(TRUE, NA),
-         Released = c(TRUE, NA),
+         TagsRemoved = TRUE,
+         Released = TRUE,
          Public = TRUE),
     key = c("DateTimeRecapture", "Capture")))
 
