@@ -71,11 +71,8 @@ test_that("data", {
     list(DateTimeDetection = Sys.time(),
          Capture = factor(1),
          Receiver = factor(1),
-         Detections = c(1L, datacheckr::max_integer()))))
-
-  warning("duplicate detections!!")
-  #,
-  #  key = c("DateTimeDetection", "Capture", "Receiver")))
+         Detections = c(1L, datacheckr::max_integer())),
+  key = c("DateTimeDetection", "Capture", "Receiver")))
 
   expect_df(datacheckr::check_join(detection, capture, "Capture"))
 

@@ -244,7 +244,7 @@ fillin_missing <- function(x, bol) {
 }
 
 recapture$TagsRemoved <- fillin_missing(recapture$TagsRemoved, TRUE)
-recapture$Released <- fillin_missing(recapture$Release, FALSE)
+recapture$Released <- fillin_missing(recapture$Released, FALSE)
 recapture$Public <- fillin_missing(recapture$Public, TRUE)
 
 lexr:::plot_lex_recapture(recapture)
@@ -277,6 +277,10 @@ detection %<>% inner_join(deployment, by = "Receiver")
 detection %<>% filter(DateTimeDetection > DateTimeReceiverIn, DateTimeDetection < DateTimeReceiverOut)
 
 detection %<>% select(DateTimeDetection, Capture, Receiver, Detections)
+
+warning("duplicate detections")
+summary(detection[duplicated(detection[c("DateTimeDetection", "Capture", "Receiver")]),])
+detection <- detection[!duplicated(detection[c("DateTimeDetection", "Capture", "Receiver")]),]
 
 lexr:::plot_lex_detection(detection)
 use_data(detection, overwrite = TRUE)
