@@ -166,7 +166,7 @@ plot(lex, all = TRUE)
 
     #> Regions defined for each Polygons
 
-![](README-unnamed-chunk-2-7.png) ![](README-unnamed-chunk-2-8.png) ![](README-unnamed-chunk-2-9.png)
+![](README-unnamed-chunk-2-7.png) ![](README-unnamed-chunk-2-8.png) ![](README-unnamed-chunk-2-9.png) ![](README-unnamed-chunk-2-10.png)
 
 Installation
 ------------
