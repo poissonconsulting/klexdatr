@@ -36,11 +36,10 @@ library(lexr)
 library(klexdatr)
 
 lex <- input_lex_data("klexdatr")
-#check_lex_data(lex)
 
 print(lex)
 
-plot(lex)
+plot(lex, all = TRUE)
 ```
 
 ## Installation

@@ -34,7 +34,7 @@ section %<>% spTransform(CRS(paste0("+init=epsg:", epsg_analysis)))
 section@data %<>% select(Section = SECTNBR) %>% check_key("Section")
 
 # filter out wanted sections
-section <- section[section@data$Section %in% c(1:34),]
+section <- section[section@data$Section %in% c(6:33),]
 
 section@data <- as.data.frame(bind_cols(
   section@data, select(as.data.frame(gCentroid(section, byid = TRUE)),
@@ -47,10 +47,10 @@ section@data$Section %<>% sprintf("%02d", .) %>% paste0("S", .) %>%
   factor(., levels = .)
 
 section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
-section@data$Habitat[section@data$Section %in% c("S01", "S02", "S05", "S06", "S19", "S33", "S34")] <- "Lotic"
+section@data$Habitat[section@data$Section %in% c("S06", "S19", "S33")] <- "Lotic"
 
 section$Bounded <- TRUE
-section$Bounded[section$Section %in% c("S19", "S34")] <- FALSE
+section$Bounded[section$Section %in% c("S6", "S19", "S33")] <- FALSE
 section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
 lexr:::plot_lex_section(section)
 
@@ -80,10 +80,8 @@ station@data[,c("EastingStation", "NorthingStation")] <- coordinates(station)
 station <- bind_cols(station@data, select(sp::over(station, section), Section)) %>%
   filter(!is.na(Section))
 
-station %<>% filter(!Station %in% c("Lardeau River", "Duncan Lardeau Confluence",
-                                    "Boat Launch Area", "Spillway Pool", "Creston Delta",
-                                    "RKM162", "RKM155", "RKM 147", "RKM140"))
-
+# filter out unwanted sections
+station %<>% filter(!Section %in% c("S33"))
 
 station %<>% arrange(Section, NorthingStation, EastingStation)
 station$Station %<>% factor(., levels = .)
@@ -98,7 +96,7 @@ deployment$Station %<>% factor(., levels = levels(station$Station))
 deployment %<>% select(Station, Receiver = RecNbr, DateTimeReceiverIn, DateTimeReceiverOut) %>% as.tbl() %>% verify(DateTimeReceiverIn < DateTimeReceiverOut)
 
 # filter overlapping deployments
-deployment %<>% filter(Receiver > 10) %>% filter(!Receiver %in% 3228:3231)
+deployment %<>% filter(!Receiver %in% c(0,2:5)) %>% filter(!Receiver %in% 3228:3231)
 deployment$Receiver %<>% factor()
 
 lexr:::plot_lex_deployment(deployment)
@@ -278,9 +276,8 @@ detection %<>% filter(DateTimeDetection > DateTimeReceiverIn, DateTimeDetection 
 
 detection %<>% select(DateTimeDetection, Capture, Receiver, Detections)
 
-warning("duplicate detections")
-summary(detection[duplicated(detection[c("DateTimeDetection", "Capture", "Receiver")]),])
-detection <- detection[!duplicated(detection[c("DateTimeDetection", "Capture", "Receiver")]),]
+# filter duplicate detections
+detection <- detection[!duplicated(detection[c("DateTimeDetection", "Capture", "Receiver", "Detections")]),]
 
 lexr:::plot_lex_detection(detection)
 use_data(detection, overwrite = TRUE)
@@ -313,6 +310,8 @@ capture %<>% rename(SectionCapture = Section)
 
 lexr:::plot_lex_capture(capture)
 use_data(capture, overwrite = TRUE)
+
+section %<>% raster::crop(extent(c(1642000, 1690000, 500000, 625000)))
 
 section@data %<>% select(-EastingSection, -NorthingSection)
 section@data <- as.data.frame(bind_cols(

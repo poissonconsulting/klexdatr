@@ -29,60 +29,62 @@ library(lexr)
 library(klexdatr)
 
 lex <- input_lex_data("klexdatr")
-#check_lex_data(lex)
 
 print(lex)
 #> $section
-#> Source: local data frame [34 x 5]
+#> Source: local data frame [32 x 5]
 #> 
 #>    Section Habitat Bounded EastingSection NorthingSection
 #>     (fctr)  (fctr)   (lgl)          (dbl)           (dbl)
-#> 1      S03  Lentic    TRUE        1604608        655497.0
-#> 2      S02   Lotic    TRUE        1617054        648567.1
-#> 3      S01   Lotic    TRUE        1632833        635384.2
-#> 4      S19   Lotic   FALSE        1635615        544900.5
-#> 5      S04  Lentic    TRUE        1640395        641856.5
-#> 6      S05   Lotic    TRUE        1643460        622558.7
-#> 7      S06   Lotic    TRUE        1644250        617467.1
-#> 8      S07  Lentic    TRUE        1645549        613463.1
-#> 9      S08  Lentic    TRUE        1647660        607626.7
-#> 10     S09  Lentic    TRUE        1650291        602447.3
+#> 1      S01  Lentic    TRUE        1642784        622801.8
+#> 2      S05  Lentic    TRUE        1643460        622558.7
+#> 3      S06   Lotic    TRUE        1644250        617467.1
+#> 4      S04  Lentic    TRUE        1644275        624009.1
+#> 5      S07  Lentic    TRUE        1645549        613463.1
+#> 6      S19   Lotic   FALSE        1645784        551289.0
+#> 7      S08  Lentic    TRUE        1647660        607626.7
+#> 8      S09  Lentic    TRUE        1650291        602447.3
+#> 9      S10  Lentic    TRUE        1650810        599521.1
+#> 10     S11  Lentic    TRUE        1651141        595980.9
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
-#> Source: local data frame [32 x 4]
+#> Source: local data frame [99 x 4]
 #> 
-#>                        Station Section EastingStation NorthingStation
-#>                         (fctr)  (fctr)          (dbl)           (dbl)
-#> 1          Lardeau R. at Mobbs     S02        1617346        648516.6
-#> 2               Gerrard Bridge     S02        1616869        648570.7
-#> 3           Gerrard Scafolding     S02        1617116        648578.0
-#> 4               Duncan-Forebay     S04        1643633        623415.9
-#> 5         Duncan-Tailout Point     S05        1643457        622354.6
-#> 6                Lardeau Delta     S07        1646121        613307.2
-#> 7                    Fry Creek     S09        1649731        602375.6
-#> 8  Kaslo - Shutty Bench - West     S11        1651302        595868.6
-#> 9  Kaslo - Shutty Bench - East     S11        1650824        595948.8
-#> 10       Boathouse in West Arm     S20        1651422        553386.0
-#> ..                         ...     ...            ...             ...
+#>                      Station Section EastingStation NorthingStation
+#>                       (fctr)  (fctr)          (dbl)           (dbl)
+#> 1        Lardeau R. at Mobbs     S02        1617346        648516.6
+#> 2             Gerrard Bridge     S02        1616869        648570.7
+#> 3         Gerrard Scafolding     S02        1617116        648578.0
+#> 4  Duncan Lardeau Confluence     S01        1643548        621751.5
+#> 5              Lardeau River     S01        1642880        622350.2
+#> 6             Duncan-Forebay     S04        1643633        623415.9
+#> 7           Boat Launch Area     S05        1643434        622169.7
+#> 8       Duncan-Tailout Point     S05        1643457        622354.6
+#> 9              Spillway Pool     S05        1643669        622512.6
+#> 10             Lardeau Delta     S07        1646121        613307.2
+#> ..                       ...     ...            ...             ...
 #> 
 #> $deployment
-#> Source: local data frame [288 x 4]
+#> Source: local data frame [757 x 17]
 #> 
-#>                                Station Receiver  DateTimeReceiverIn
-#>                                 (fctr)   (fctr)              (time)
-#> 1                        Lardeau Delta     6095 2007-08-26 11:00:00
-#> 2          Kaslo - Shutty Bench - West     4348 2007-03-06 12:00:00
-#> 3          Kaslo - Shutty Bench - East     5306 2007-03-06 12:00:00
-#> 4    Coffee Creek - Power Lines - East     6093 2007-02-28 12:00:00
-#> 5  Coffee Creek - Power Lines - Middle     5308 2007-02-28 12:00:00
-#> 6    Coffee Creek - Power Lines - West     5309 2007-02-28 12:00:00
-#> 7                     Pilot Point West     5298 2007-03-02 12:00:00
-#> 8                      Pilot Point Mid     2726 2007-02-28 12:00:00
-#> 9                     Pilot Point East     5301 2007-08-30 11:00:00
-#> 10                        Crawford Bay     5299 2007-03-02 12:00:00
-#> ..                                 ...      ...                 ...
-#> Variables not shown: DateTimeReceiverOut (time)
+#>    RecID Receiver RecNbr                     MOELocationDesc
+#>    (int)   (fctr)  (dbl)                               (chr)
+#> 1    281 VR2-6095   6095                       Lardeau Delta
+#> 2    282 VR2-4348   4348         Kaslo - Shutty Bench - West
+#> 3    283 VR2-5306   5306         Kaslo - Shutty Bench - East
+#> 4    284 VR2-6093   6093   Coffee Creek - Power Lines - East
+#> 5    285 VR2-5308   5308 Coffee Creek - Power Lines - Middle
+#> 6    286 VR2-5309   5309   Coffee Creek - Power Lines - West
+#> 7    287 VR2-5298   5298                    Pilot Point West
+#> 8    288 VR2-2726   2726                     Pilot Point Mid
+#> 9    290 VR2-5301   5301                    Pilot Point East
+#> 10   291 VR2-5299   5299                        Crawford Bay
+#> ..   ...      ...    ...                                 ...
+#> Variables not shown: SiteName2015 (chr), UTM2015Fix (chr), Xn83z11u (dbl),
+#>   Yn83z11u (dbl), InYear (int), InMonth (int), InDay (int), OutYear (int),
+#>   OutMonth (int), OutDay (int), Station (fctr), DateTimeReceiverIn (time),
+#>   DateTimeReceiverOut (time)
 #> 
 #> $capture
 #> Source: local data frame [191 x 10]
@@ -104,65 +106,47 @@ print(lex)
 #>   (time), DepthRangeTag (int)
 #> 
 #> $recapture
-#> Source: local data frame [42 x 7]
+#> Source: local data frame [42 x 8]
 #> 
 #>      DateTimeRecapture Capture SectionRecapture TBarTag1 TBarTag2
 #>                 (time)  (fctr)           (fctr)    (lgl)    (lgl)
-#> 1  2009-04-05 12:00:00    F006              S03     TRUE     TRUE
-#> 2  2009-05-23 12:00:00    F131              S03     TRUE     TRUE
-#> 3  2009-09-10 12:00:00    F097              S03     TRUE     TRUE
-#> 4  2009-10-06 12:00:00    F169              S03     TRUE     TRUE
-#> 5  2009-10-10 12:00:00    F076              S03     TRUE     TRUE
-#> 6  2009-10-12 12:00:00    F099              S03     TRUE     TRUE
-#> 7  2009-10-14 12:00:00    F112              S03     TRUE     TRUE
-#> 8  2009-10-16 12:00:00    F111              S03     TRUE     TRUE
-#> 9  2010-01-23 12:00:00    F197              S03     TRUE     TRUE
-#> 10 2010-01-28 12:00:00    F075              S03     TRUE     TRUE
+#> 1  2009-04-05 12:00:00    F006              S25     TRUE     TRUE
+#> 2  2009-05-23 12:00:00    F131              S16     TRUE     TRUE
+#> 3  2009-09-10 12:00:00    F097              S14     TRUE     TRUE
+#> 4  2009-10-06 12:00:00    F169              S08     TRUE     TRUE
+#> 5  2009-10-10 12:00:00    F076              S30     TRUE     TRUE
+#> 6  2009-10-12 12:00:00    F099              S10     TRUE     TRUE
+#> 7  2009-10-14 12:00:00    F112              S16     TRUE     TRUE
+#> 8  2009-10-16 12:00:00    F111              S27     TRUE     TRUE
+#> 9  2010-01-23 12:00:00    F197              S27     TRUE     TRUE
+#> 10 2010-01-28 12:00:00    F075              S23     TRUE     TRUE
 #> ..                 ...     ...              ...      ...      ...
-#> Variables not shown: TagsRemoved (lgl), Released (lgl)
+#> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [482,888 x 4]
+#> Source: local data frame [0 x 4]
 #> 
-#>      DateTimeDetection Capture Receiver Detections
-#>                 (time)  (fctr)   (fctr)      (int)
-#> 1  2008-05-25 09:00:00    F076     5299          4
-#> 2  2008-05-25 10:00:00    F076     5299          2
-#> 3  2008-05-25 19:00:00    F076     5301          7
-#> 4  2008-05-25 19:00:00    F076     6248          1
-#> 5  2008-05-25 20:00:00    F076     5301          6
-#> 6  2008-05-25 20:00:00    F076     6248          1
-#> 7  2008-05-27 01:00:00    F076     6093          2
-#> 8  2008-05-27 03:00:00    F076     6093          6
-#> 9  2008-05-27 04:00:00    F076     6093          5
-#> 10 2008-05-27 05:00:00    F076     6093          4
-#> ..                 ...     ...      ...        ...
+#> Variables not shown: DateTimeDetection (time), Capture (fctr), Receiver
+#>   (fctr), Detections (int)
 #> 
 #> $depth
-#> Source: local data frame [198,373 x 4]
+#> Source: local data frame [0 x 4]
 #> 
-#>          DateTimeDepth Capture Receiver Depth
-#>                 (time)  (fctr)   (fctr) (int)
-#> 1  2010-04-21 07:59:19    F214   220008    21
-#> 2  2010-04-21 08:11:38    F214   103230    22
-#> 3  2010-04-21 08:13:48    F214   103230    27
-#> 4  2010-04-21 08:15:04    F214   103230    27
-#> 5  2010-04-21 08:16:31    F214   103230    28
-#> 6  2010-04-21 08:23:11    F214   103230    27
-#> 7  2010-04-21 08:23:42    F214   220008    25
-#> 8  2010-04-21 08:29:38    F214   103230    27
-#> 9  2010-04-21 08:30:21    F214   220008    26
-#> 10 2010-04-21 08:33:11    F214   103230    26
-#> ..                 ...     ...      ...   ...
+#> Variables not shown: DateTimeDepth (time), Capture (fctr), Receiver
+#>   (fctr), Depth (dbl)
 #> 
 #> attr(,"class")
 #> [1] "lex_data"
 
-plot(lex)
+plot(lex, all = TRUE)
 #> Regions defined for each Polygons
 ```
 
-![](README-unnamed-chunk-2-1.png) ![](README-unnamed-chunk-2-2.png) ![](README-unnamed-chunk-2-3.png) ![](README-unnamed-chunk-2-4.png) ![](README-unnamed-chunk-2-5.png) ![](README-unnamed-chunk-2-6.png) ![](README-unnamed-chunk-2-7.png)
+![](README-unnamed-chunk-2-1.png) ![](README-unnamed-chunk-2-2.png) ![](README-unnamed-chunk-2-3.png) ![](README-unnamed-chunk-2-4.png) ![](README-unnamed-chunk-2-5.png) ![](README-unnamed-chunk-2-6.png)
+
+    #> Regions defined for each Polygons
+
+![](README-unnamed-chunk-2-7.png) ![](README-unnamed-chunk-2-8.png) ![](README-unnamed-chunk-2-9.png)
 
 Installation
 ------------
