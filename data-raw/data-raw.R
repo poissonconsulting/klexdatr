@@ -31,10 +31,12 @@ species <- list("Bull Trout" = "BT", "Rainbow Trout" = "RB")
 section <- readOGR(dsn = file.path(dir, "Shape"), layer = "array2015section")
 section %<>% spTransform(CRS(paste0("+init=epsg:", epsg_analysis)))
 
-section@data %<>% select(Section = SECTNBR) %>% check_key("Section")
+section@data %<>% select(SectionNumber = SECTNBR) %>% check_key("SectionNumber")
 
-# filter out wanted sections
-section <- section[section@data$Section %in% c(6:33),]
+section@data %<>% mutate(Section = paste0("S", sprintf("%02d", SectionNumber)))
+
+section@data$Section[section@data$SectionNumber %in% 1:6] <- "S06"
+section@data$Section[section@data$SectionNumber %in% 33:38] <- "S33"
 
 section@data <- as.data.frame(bind_cols(
   section@data, select(as.data.frame(gCentroid(section, byid = TRUE)),
@@ -43,15 +45,8 @@ section@data <- as.data.frame(bind_cols(
 section <- section[order(section@data$EastingSection,
                          section@data$NorthingSection),]
 
-section@data$Section %<>% sprintf("%02d", .) %>% paste0("S", .) %>%
-  factor(., levels = .)
+section@data$Section %<>% factor(levels = unique(.))
 
-section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
-section@data$Habitat[section@data$Section %in% c("S06", "S19", "S33")] <- "Lotic"
-
-section$Bounded <- TRUE
-section$Bounded[section$Section %in% c("S6", "S19", "S33")] <- FALSE
-section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
 lexr:::plot_lex_section(section)
 
 deployment <- read_csv(file.path(dir, "qryKLESReceiversAnalysis22Dec2015.txt"))
@@ -81,13 +76,14 @@ station <- bind_cols(station@data, select(sp::over(station, section), Section)) 
   filter(!is.na(Section))
 
 # filter out unwanted sections
-station %<>% filter(!Section %in% c("S33"))
+station %<>% filter(!Section %in% c("S06", "S19", "S33"))
 
 station %<>% arrange(Section, NorthingStation, EastingStation)
 station$Station %<>% factor(., levels = .)
 station %<>%  select(Station, Section, EastingStation, NorthingStation)
 
 lexr:::plot_lex_station(station, section)
+lexr:::check_lex_station(station)
 use_data(station, overwrite = TRUE)
 
 deployment %<>% filter(Station %in% station$Station)
@@ -100,6 +96,7 @@ deployment %<>% filter(!Receiver %in% c(0,2:5)) %>% filter(!Receiver %in% 3228:3
 deployment$Receiver %<>% factor()
 
 lexr:::plot_lex_deployment(deployment)
+lexr:::check_lex_deployment(deployment)
 use_data(deployment, overwrite = TRUE)
 
 acoustic_tag <- read_csv(file.path(dir, "qryKLESAcousticTag22Dec2015.txt"))
@@ -246,6 +243,7 @@ recapture$Released <- fillin_missing(recapture$Released, FALSE)
 recapture$Public <- fillin_missing(recapture$Public, TRUE)
 
 lexr:::plot_lex_recapture(recapture)
+lexr:::check_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
 
 capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
@@ -280,6 +278,7 @@ detection %<>% select(DateTimeDetection, Capture, Receiver, Detections)
 detection <- detection[!duplicated(detection[c("DateTimeDetection", "Capture", "Receiver", "Detections")]),]
 
 lexr:::plot_lex_detection(detection)
+lexr:::check_lex_detection(detection)
 use_data(detection, overwrite = TRUE)
 
 depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw21Jan2016.txt"))
@@ -303,15 +302,19 @@ depth %<>% filter(DateTimeDepth > DateTimeReceiverIn, DateTimeDepth < DateTimeRe
 depth %<>% select(DateTimeDepth, Capture, Receiver, Depth)
 
 lexr:::plot_lex_depth(depth)
+lexr:::check_lex_depth(depth)
 use_data(depth, overwrite = TRUE)
 
 capture %<>% select(-AcousticTag)
 capture %<>% rename(SectionCapture = Section)
 
 lexr:::plot_lex_capture(capture)
+lexr:::check_lex_capture(capture)
 use_data(capture, overwrite = TRUE)
 
-section %<>% raster::crop(extent(c(1642000, 1690000, 500000, 625000)))
+section <- section[section@data$SectionNumber %in% 6:33,]
+
+section %<>% raster::crop(extent(c(1642500, 1690000, 500000, 625000)))
 
 section@data %<>% select(-EastingSection, -NorthingSection)
 section@data <- as.data.frame(bind_cols(
@@ -321,5 +324,14 @@ section@data <- as.data.frame(bind_cols(
 section <- section[order(section@data$EastingSection,
                          section@data$NorthingSection),]
 
+section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
+section@data$Habitat[section@data$Section %in% c("S06", "S19", "S33")] <- "Lotic"
+
+section@data$Bounded <- TRUE
+section@data$Bounded[section@data$Section %in% c("S6", "S19", "S33")] <- FALSE
+
+section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
+
 lexr:::plot_lex_section(section)
+lexr:::check_lex_section(section)
 use_data(section, overwrite = TRUE)

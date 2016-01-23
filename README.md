@@ -32,59 +32,57 @@ lex <- input_lex_data("klexdatr")
 
 print(lex)
 #> $section
-#> Source: local data frame [32 x 5]
+#> Source: local data frame [28 x 5]
 #> 
 #>    Section Habitat Bounded EastingSection NorthingSection
 #>     (fctr)  (fctr)   (lgl)          (dbl)           (dbl)
-#> 1      S01  Lentic    TRUE        1642784        622801.8
-#> 2      S05  Lentic    TRUE        1643460        622558.7
-#> 3      S06   Lotic    TRUE        1644250        617467.1
-#> 4      S04  Lentic    TRUE        1644275        624009.1
-#> 5      S07  Lentic    TRUE        1645549        613463.1
-#> 6      S19   Lotic   FALSE        1645784        551289.0
-#> 7      S08  Lentic    TRUE        1647660        607626.7
-#> 8      S09  Lentic    TRUE        1650291        602447.3
-#> 9      S10  Lentic    TRUE        1650810        599521.1
-#> 10     S11  Lentic    TRUE        1651141        595980.9
+#> 1      S06   Lotic    TRUE        1644250        617467.1
+#> 2      S07  Lentic    TRUE        1645549        613463.1
+#> 3      S19   Lotic   FALSE        1646110        551371.8
+#> 4      S08  Lentic    TRUE        1647660        607626.7
+#> 5      S09  Lentic    TRUE        1650291        602447.3
+#> 6      S10  Lentic    TRUE        1650810        599521.1
+#> 7      S11  Lentic    TRUE        1651141        595980.9
+#> 8      S20  Lentic    TRUE        1651399        553316.7
+#> 9      S12  Lentic    TRUE        1652595        588442.7
+#> 10     S13  Lentic    TRUE        1653765        581673.5
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
-#> Source: local data frame [99 x 4]
+#> Source: local data frame [25 x 4]
 #> 
-#>                      Station Section EastingStation NorthingStation
-#>                       (fctr)  (fctr)          (dbl)           (dbl)
-#> 1        Lardeau R. at Mobbs     S02        1617346        648516.6
-#> 2             Gerrard Bridge     S02        1616869        648570.7
-#> 3         Gerrard Scafolding     S02        1617116        648578.0
-#> 4  Duncan Lardeau Confluence     S01        1643548        621751.5
-#> 5              Lardeau River     S01        1642880        622350.2
-#> 6             Duncan-Forebay     S04        1643633        623415.9
-#> 7           Boat Launch Area     S05        1643434        622169.7
-#> 8       Duncan-Tailout Point     S05        1643457        622354.6
-#> 9              Spillway Pool     S05        1643669        622512.6
-#> 10             Lardeau Delta     S07        1646121        613307.2
-#> ..                       ...     ...            ...             ...
+#>                                Station Section EastingStation
+#>                                 (fctr)  (fctr)          (dbl)
+#> 1                        Lardeau Delta     S07        1646121
+#> 2                            Fry Creek     S09        1649731
+#> 3          Kaslo - Shutty Bench - West     S11        1651302
+#> 4          Kaslo - Shutty Bench - East     S11        1650824
+#> 5                Boathouse in West Arm     S20        1651422
+#> 6                South of Kaslo - East     S13        1654290
+#> 7                South of Kaslo - West     S13        1653342
+#> 8                       Woodbury Point     S15        1655385
+#> 9    Coffee Creek - Power Lines - West     S17        1655011
+#> 10 Coffee Creek - Power Lines - Middle     S17        1655905
+#> ..                                 ...     ...            ...
+#> Variables not shown: NorthingStation (dbl)
 #> 
 #> $deployment
-#> Source: local data frame [757 x 17]
+#> Source: local data frame [255 x 4]
 #> 
-#>    RecID Receiver RecNbr                     MOELocationDesc
-#>    (int)   (fctr)  (dbl)                               (chr)
-#> 1    281 VR2-6095   6095                       Lardeau Delta
-#> 2    282 VR2-4348   4348         Kaslo - Shutty Bench - West
-#> 3    283 VR2-5306   5306         Kaslo - Shutty Bench - East
-#> 4    284 VR2-6093   6093   Coffee Creek - Power Lines - East
-#> 5    285 VR2-5308   5308 Coffee Creek - Power Lines - Middle
-#> 6    286 VR2-5309   5309   Coffee Creek - Power Lines - West
-#> 7    287 VR2-5298   5298                    Pilot Point West
-#> 8    288 VR2-2726   2726                     Pilot Point Mid
-#> 9    290 VR2-5301   5301                    Pilot Point East
-#> 10   291 VR2-5299   5299                        Crawford Bay
-#> ..   ...      ...    ...                                 ...
-#> Variables not shown: SiteName2015 (chr), UTM2015Fix (chr), Xn83z11u (dbl),
-#>   Yn83z11u (dbl), InYear (int), InMonth (int), InDay (int), OutYear (int),
-#>   OutMonth (int), OutDay (int), Station (fctr), DateTimeReceiverIn (time),
-#>   DateTimeReceiverOut (time)
+#>                                Station Receiver  DateTimeReceiverIn
+#>                                 (fctr)   (fctr)              (time)
+#> 1                        Lardeau Delta     6095 2007-08-26 11:00:00
+#> 2          Kaslo - Shutty Bench - West     4348 2007-03-06 12:00:00
+#> 3          Kaslo - Shutty Bench - East     5306 2007-03-06 12:00:00
+#> 4    Coffee Creek - Power Lines - East     6093 2007-02-28 12:00:00
+#> 5  Coffee Creek - Power Lines - Middle     5308 2007-02-28 12:00:00
+#> 6    Coffee Creek - Power Lines - West     5309 2007-02-28 12:00:00
+#> 7                     Pilot Point West     5298 2007-03-02 12:00:00
+#> 8                      Pilot Point Mid     2726 2007-02-28 12:00:00
+#> 9                     Pilot Point East     5301 2007-08-30 11:00:00
+#> 10                        Crawford Bay     5299 2007-03-02 12:00:00
+#> ..                                 ...      ...                 ...
+#> Variables not shown: DateTimeReceiverOut (time)
 #> 
 #> $capture
 #> Source: local data frame [191 x 10]
@@ -124,16 +122,38 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [0 x 4]
+#> Source: local data frame [477,021 x 4]
 #> 
-#> Variables not shown: DateTimeDetection (time), Capture (fctr), Receiver
-#>   (fctr), Detections (int)
+#>      DateTimeDetection Capture Receiver Detections
+#>                 (time)  (fctr)   (fctr)      (int)
+#> 1  2008-05-25 09:00:00    F076     5299          4
+#> 2  2008-05-25 10:00:00    F076     5299          2
+#> 3  2008-05-25 19:00:00    F076     5301          7
+#> 4  2008-05-25 19:00:00    F076     6248          1
+#> 5  2008-05-25 20:00:00    F076     5301          6
+#> 6  2008-05-25 20:00:00    F076     6248          1
+#> 7  2008-05-27 01:00:00    F076     6093          2
+#> 8  2008-05-27 03:00:00    F076     6093          6
+#> 9  2008-05-27 04:00:00    F076     6093          5
+#> 10 2008-05-27 05:00:00    F076     6093          4
+#> ..                 ...     ...      ...        ...
 #> 
 #> $depth
-#> Source: local data frame [0 x 4]
+#> Source: local data frame [198,468 x 4]
 #> 
-#> Variables not shown: DateTimeDepth (time), Capture (fctr), Receiver
-#>   (fctr), Depth (dbl)
+#>          DateTimeDepth Capture Receiver Depth
+#>                 (time)  (fctr)   (fctr) (dbl)
+#> 1  2010-04-21 07:59:19    F214   220008    21
+#> 2  2010-04-21 08:11:38    F214   103230    22
+#> 3  2010-04-21 08:13:48    F214   103230    27
+#> 4  2010-04-21 08:15:04    F214   103230    27
+#> 5  2010-04-21 08:16:31    F214   103230    28
+#> 6  2010-04-21 08:23:11    F214   103230    27
+#> 7  2010-04-21 08:23:42    F214   220008    25
+#> 8  2010-04-21 08:29:38    F214   103230    27
+#> 9  2010-04-21 08:30:21    F214   220008    26
+#> 10 2010-04-21 08:33:11    F214   103230    26
+#> ..                 ...     ...      ...   ...
 #> 
 #> attr(,"class")
 #> [1] "lex_data"
