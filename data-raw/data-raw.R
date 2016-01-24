@@ -20,13 +20,14 @@ dir <- path.expand("~/Dropbox/Data")
 dir %<>% file.path(basename(getwd())) %>%
   file.path("20160121")
 
-firstYear <- 2008
-lastYear <- 2015
 epsg_data <- 26911
 epsg_analysis <- 3005 # bc albers
 tz_data <- "PST8PDT"
 tz_analysis <- "Etc/GMT+8"
 species <- list("Bull Trout" = "BT", "Rainbow Trout" = "RB")
+
+firstDateTime <- as.POSIXct("2008-04-01 00:00:00", tz = tz_analysis)
+lastDateTime <- as.POSIXct("2013-12-31 23:59:59", tz = tz_analysis)
 
 section <- readOGR(dsn = file.path(dir, "Shape"), layer = "array2015section")
 section %<>% spTransform(CRS(paste0("+init=epsg:", epsg_analysis)))
@@ -35,7 +36,8 @@ section@data %<>% select(SectionNumber = SECTNBR) %>% check_key("SectionNumber")
 
 section@data %<>% mutate(Section = paste0("S", sprintf("%02d", SectionNumber)))
 
-section@data$Section[section@data$SectionNumber %in% 1:6] <- "S06"
+# combine sections
+#section@data$Section[section@data$SectionNumber %in% 1:6] <- "S06"
 section@data$Section[section@data$SectionNumber %in% 33:38] <- "S33"
 
 section@data <- as.data.frame(bind_cols(
@@ -57,7 +59,7 @@ deployment %<>% mutate(Station = SiteName2015,
   mutate(DateTimeReceiverIn = with_tz(DateTimeReceiverIn, tz_analysis),
          DateTimeReceiverOut = with_tz(DateTimeReceiverOut, tz_analysis))
 
-deployment %<>% filter(InYear %in% firstYear:lastYear | OutYear %in% firstYear:lastYear)
+deployment %<>% filter((DateTimeReceiverIn >= firstDateTime & DateTimeReceiverIn <= lastDateTime) | (DateTimeReceiverOut >= firstDateTime & DateTimeReceiverOut <= lastDateTime))
 
 station <- select(deployment, Station, EastingStation = Xn83z11u, NorthingStation = Yn83z11u)
 
@@ -75,8 +77,8 @@ station@data[,c("EastingStation", "NorthingStation")] <- coordinates(station)
 station <- bind_cols(station@data, select(sp::over(station, section), Section)) %>%
   filter(!is.na(Section))
 
-# filter out unwanted sections
-station %<>% filter(!Section %in% c("S06", "S19", "S33"))
+# filter stations
+station %<>% filter(!Section %in% c("S01", "S04", "S05", "S06", "S19", "S33"))
 
 station %<>% arrange(Section, NorthingStation, EastingStation)
 station$Station %<>% factor(., levels = .)
@@ -109,6 +111,8 @@ capture <- read_csv(file.path(dir, "qryKLESCaptureAnalysis22Dec2015.txt"))
 capture %<>% mutate(
   DateTimeCapture = ISOdate(CapYear, CapMonth, CapDay, CapHour, CapMinute, tz = tz_data)) %>%
   mutate(DateTimeCapture = with_tz(DateTimeCapture, tz_analysis))
+
+capture %<>% filter(DateTimeCapture >= firstDateTime & DateTimeCapture <= lastDateTime)
 
 capture %<>% rename(AcousticTag = TagIDNbr) %>%
   inner_join(acoustic_tag, by = "AcousticTag")
@@ -181,6 +185,8 @@ recapture <- read_csv(file.path(dir, "qryKLESRecaptureAnalysis21Jan2016.txt"))
 
 recapture %<>% mutate(
   DateTimeRecapture = ISOdate(ReCapYear, ReCapMonth, ReCapDay, tz = tz_analysis))
+
+recapture %<>% filter(DateTimeRecapture >= firstDateTime & DateTimeRecapture <= lastDateTime)
 
 recapture %<>% select(DateTimeRecapture,
                       Released, TagsRemoved,
@@ -257,6 +263,8 @@ detection %<>% mutate(
   DateTimeDetection = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, tz = "UTC")) %>%
   mutate(DateTimeDetection = with_tz(DateTimeDetection, tz_analysis))
 
+detection %<>% filter(DateTimeDetection >= firstDateTime)
+
 detection %<>% rename(AcousticTag = TagIDNbr,
                       Detections = DetectCount,
                       DetectionDBID = VR2WDetectID)
@@ -266,6 +274,8 @@ detection %<>% mutate(Receiver = RecNbr)
 detection %<>% inner_join(capture, by = "AcousticTag")
 
 detection %<>% filter(DateTimeDetection > DateTimeCapture, DateTimeDetection < DateTimeTagExpire)
+
+detection %<>% filter(Detections >= 3)
 
 detection$Receiver %<>% factor(., levels = levels(deployment$Receiver))
 detection %<>% filter(!is.na(Receiver))
@@ -286,6 +296,8 @@ depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw21Jan2016.txt"))
 depth %<>% mutate(
   DateTimeDepth = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, MinUTC, SecUTC, tz = "UTC")) %>%
   mutate(DateTimeDepth = with_tz(DateTimeDepth, tz_analysis), Depth_m = as.numeric(Depth_m))
+
+depth %<>% filter(DateTimeDepth >= firstDateTime & DateTimeDepth <= lastDateTime)
 
 depth %<>% mutate(Receiver = RecNbr) %>%
   rename(AcousticTag = TagIDNbr, Depth = Depth_m)
@@ -312,9 +324,12 @@ lexr:::plot_lex_capture(capture)
 lexr:::check_lex_capture(capture)
 use_data(capture, overwrite = TRUE)
 
-section <- section[section@data$SectionNumber %in% 6:33,]
+# filter sections
+# section <- section[!section@data$SectionNumber %in% 1:5,]
+section <- section[!section@data$SectionNumber %in% 34:38,]
 
-section %<>% raster::crop(extent(c(1642500, 1690000, 500000, 625000)))
+# crop sections
+#section %<>% raster::crop(extent(c(1642500, 1690000, 500000, 625000)))
 
 section@data %<>% select(-EastingSection, -NorthingSection)
 section@data <- as.data.frame(bind_cols(
@@ -325,10 +340,10 @@ section <- section[order(section@data$EastingSection,
                          section@data$NorthingSection),]
 
 section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
-section@data$Habitat[section@data$Section %in% c("S06", "S19", "S33")] <- "Lotic"
+section@data$Habitat[section@data$SectionNumber %in% c(1:2, 5:6, 19:20, 33:38)] <- "Lotic"
 
 section@data$Bounded <- TRUE
-section@data$Bounded[section@data$Section %in% c("S6", "S19", "S33")] <- FALSE
+section@data$Bounded[section@data$SectionNumber %in% c(6, 19, 33)] <- FALSE
 
 section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
 

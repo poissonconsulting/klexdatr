@@ -15,13 +15,15 @@ library(klexdatr) # data set for example
 library(lexr)
 
 klex <- input_lex_data("klexdatr")
-check_lex_data(klex)
 print(klex)
+check_lex_data(klex, all = TRUE)
+
+x <- lexr:::check_lex_deployment_detection(klex$deployment, klex$detection)
 plot(klex, all = TRUE)
 
 kdetect <- make_detect_data(klex)
-check_detect_data(kdetect)
 print(kdetect)
+check_detect_data(kdetect)
 plot(kdetect)
 }
 }
