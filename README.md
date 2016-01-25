@@ -32,56 +32,55 @@ lex <- input_lex_data("klexdatr")
 
 print(lex)
 #> $section
-#> Source: local data frame [28 x 5]
+#> Source: local data frame [33 x 5]
 #> 
 #>    Section Habitat Bounded EastingSection NorthingSection
 #>     (fctr)  (fctr)   (lgl)          (dbl)           (dbl)
-#> 1      S06   Lotic    TRUE        1644250        617467.1
-#> 2      S07  Lentic    TRUE        1645549        613463.1
-#> 3      S19   Lotic   FALSE        1646110        551371.8
-#> 4      S08  Lentic    TRUE        1647660        607626.7
-#> 5      S09  Lentic    TRUE        1650291        602447.3
-#> 6      S10  Lentic    TRUE        1650810        599521.1
-#> 7      S11  Lentic    TRUE        1651141        595980.9
-#> 8      S20  Lentic    TRUE        1651399        553316.7
-#> 9      S12  Lentic    TRUE        1652595        588442.7
-#> 10     S13  Lentic    TRUE        1653765        581673.5
+#> 1      S03  Lentic    TRUE        1604608        655497.0
+#> 2      S02   Lotic    TRUE        1617054        648567.1
+#> 3      S01   Lotic    TRUE        1632833        635384.2
+#> 4      S19   Lotic   FALSE        1635615        544900.5
+#> 5      S04  Lentic    TRUE        1640395        641856.5
+#> 6      S05   Lotic    TRUE        1643460        622558.7
+#> 7      S06   Lotic   FALSE        1644250        617467.1
+#> 8      S07  Lentic    TRUE        1645549        613463.1
+#> 9      S08  Lentic    TRUE        1647660        607626.7
+#> 10     S09  Lentic    TRUE        1650291        602447.3
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
-#> Source: local data frame [25 x 4]
+#> Source: local data frame [28 x 4]
 #> 
-#>                                Station Section EastingStation
-#>                                 (fctr)  (fctr)          (dbl)
-#> 1                        Lardeau Delta     S07        1646121
-#> 2                            Fry Creek     S09        1649731
-#> 3          Kaslo - Shutty Bench - West     S11        1651302
-#> 4          Kaslo - Shutty Bench - East     S11        1650824
-#> 5                Boathouse in West Arm     S20        1651422
-#> 6                South of Kaslo - East     S13        1654290
-#> 7                South of Kaslo - West     S13        1653342
-#> 8                       Woodbury Point     S15        1655385
-#> 9    Coffee Creek - Power Lines - West     S17        1655011
-#> 10 Coffee Creek - Power Lines - Middle     S17        1655905
-#> ..                                 ...     ...            ...
-#> Variables not shown: NorthingStation (dbl)
+#>                        Station Section EastingStation NorthingStation
+#>                         (fctr)  (fctr)          (dbl)           (dbl)
+#> 1          Lardeau R. at Mobbs     S02        1617346        648516.6
+#> 2               Gerrard Bridge     S02        1616869        648570.7
+#> 3           Gerrard Scafolding     S02        1617116        648578.0
+#> 4                Lardeau Delta     S07        1646121        613307.2
+#> 5                    Fry Creek     S09        1649767        602325.6
+#> 6  Kaslo - Shutty Bench - West     S11        1651302        595868.6
+#> 7  Kaslo - Shutty Bench - East     S11        1650824        595948.8
+#> 8        Boathouse in West Arm     S20        1651430        553379.4
+#> 9        South of Kaslo - East     S13        1654290        581527.2
+#> 10       South of Kaslo - West     S13        1653342        581881.9
+#> ..                         ...     ...            ...             ...
 #> 
 #> $deployment
-#> Source: local data frame [255 x 4]
+#> Source: local data frame [202 x 4]
 #> 
-#>                                Station Receiver  DateTimeReceiverIn
-#>                                 (fctr)   (fctr)              (time)
-#> 1                        Lardeau Delta     6095 2007-08-26 11:00:00
-#> 2          Kaslo - Shutty Bench - West     4348 2007-03-06 12:00:00
-#> 3          Kaslo - Shutty Bench - East     5306 2007-03-06 12:00:00
-#> 4    Coffee Creek - Power Lines - East     6093 2007-02-28 12:00:00
-#> 5  Coffee Creek - Power Lines - Middle     5308 2007-02-28 12:00:00
-#> 6    Coffee Creek - Power Lines - West     5309 2007-02-28 12:00:00
-#> 7                     Pilot Point West     5298 2007-03-02 12:00:00
-#> 8                      Pilot Point Mid     2726 2007-02-28 12:00:00
-#> 9                     Pilot Point East     5301 2007-08-30 11:00:00
-#> 10                        Crawford Bay     5299 2007-03-02 12:00:00
-#> ..                                 ...      ...                 ...
+#>                        Station Receiver  DateTimeReceiverIn
+#>                         (fctr)   (fctr)              (time)
+#> 1           Gerrard Scafolding     2736 2008-04-06 11:00:00
+#> 2               Gerrard Bridge     6247 2008-04-06 11:00:00
+#> 3          Lardeau R. at Mobbs     8247 2008-04-06 11:00:00
+#> 4                Lardeau Delta     6092 2008-03-06 12:00:00
+#> 5                Lardeau Delta     5308 2008-09-16 11:00:00
+#> 6                    Fry Creek   103229 2008-05-08 11:00:00
+#> 7  Kaslo - Shutty Bench - West     4348 2008-03-06 12:00:00
+#> 8  Kaslo - Shutty Bench - East     5306 2008-03-06 12:00:00
+#> 9        South of Kaslo - West   103228 2008-05-08 11:00:00
+#> 10       South of Kaslo - East   103231 2008-05-08 11:00:00
+#> ..                         ...      ...                 ...
 #> Variables not shown: DateTimeReceiverOut (time)
 #> 
 #> $capture
@@ -122,20 +121,20 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [477,021 x 4]
+#> Source: local data frame [314,342 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
 #> 1  2008-05-25 09:00:00    F076     5299          4
-#> 2  2008-05-25 10:00:00    F076     5299          2
-#> 3  2008-05-25 19:00:00    F076     5301          7
-#> 4  2008-05-25 19:00:00    F076     6248          1
-#> 5  2008-05-25 20:00:00    F076     5301          6
-#> 6  2008-05-25 20:00:00    F076     6248          1
-#> 7  2008-05-27 01:00:00    F076     6093          2
-#> 8  2008-05-27 03:00:00    F076     6093          6
-#> 9  2008-05-27 04:00:00    F076     6093          5
-#> 10 2008-05-27 05:00:00    F076     6093          4
+#> 2  2008-05-25 19:00:00    F076     5301          7
+#> 3  2008-05-25 20:00:00    F076     5301          6
+#> 4  2008-05-27 03:00:00    F076     6093          6
+#> 5  2008-05-27 04:00:00    F076     6093          5
+#> 6  2008-05-27 05:00:00    F076     6093          4
+#> 7  2008-05-27 07:00:00    F076     6093          3
+#> 8  2008-05-27 09:00:00    F076     6093          4
+#> 9  2008-05-27 11:00:00    F076     6093          5
+#> 10 2008-05-28 03:00:00    F076     6093          3
 #> ..                 ...     ...      ...        ...
 #> 
 #> $depth
