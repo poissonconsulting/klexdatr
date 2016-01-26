@@ -18,7 +18,7 @@ rm(list = ls())
 
 dir <- path.expand("~/Dropbox/Data")
 dir %<>% file.path(basename(getwd())) %>%
-  file.path("20160121")
+  file.path("20160126")
 
 epsg_data <- 26911
 epsg_analysis <- 3005 # bc albers
@@ -181,7 +181,7 @@ capture@data[,c("CaptureX", "CaptureY")] <- coordinates(capture)
 capture <- bind_cols(capture@data, select(sp::over(capture, section), Section)) %>%
   filter(!is.na(Section))
 
-recapture <- read_csv(file.path(dir, "qryKLESRecaptureAnalysis21Jan2016.txt"))
+recapture <- read_csv(file.path(dir, "qryKLESRecaptureAnalysis26Jan2016.txt"))
 
 recapture %<>% mutate(
   DateTimeRecapture = ISOdate(ReCapYear, ReCapMonth, ReCapDay, tz = tz_analysis))
