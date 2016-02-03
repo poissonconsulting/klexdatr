@@ -17,11 +17,9 @@ An R package of data for the Kootenay Lake Large Trout Exploitation Study
 library(dplyr)
 #> 
 #> Attaching package: 'dplyr'
-#> 
 #> The following objects are masked from 'package:stats':
 #> 
 #>     filter, lag
-#> 
 #> The following objects are masked from 'package:base':
 #> 
 #>     intersect, setdiff, setequal, union
@@ -121,37 +119,37 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [314,342 x 4]
+#> Source: local data frame [326,544 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
-#> 1  2008-05-25 09:00:00    F076     5299          4
-#> 2  2008-05-25 19:00:00    F076     5301          7
-#> 3  2008-05-25 20:00:00    F076     5301          6
-#> 4  2008-05-27 03:00:00    F076     6093          6
-#> 5  2008-05-27 04:00:00    F076     6093          5
-#> 6  2008-05-27 05:00:00    F076     6093          4
-#> 7  2008-05-27 07:00:00    F076     6093          3
-#> 8  2008-05-27 09:00:00    F076     6093          4
-#> 9  2008-05-27 11:00:00    F076     6093          5
-#> 10 2008-05-28 03:00:00    F076     6093          3
+#> 1  2012-12-30 18:00:00    F379   220102          5
+#> 2  2012-12-31 17:00:00    F379   220009         14
+#> 3  2012-12-31 18:00:00    F379   220009         11
+#> 4  2012-12-31 19:00:00    F379   220009          5
+#> 5  2012-12-31 22:00:00    F379   220009          4
+#> 6  2012-12-31 23:00:00    F379   220009          3
+#> 7  2013-01-01 05:00:00    F379   220009          3
+#> 8  2013-01-02 02:00:00    F379   220009          7
+#> 9  2013-01-02 15:00:00    F379   220009          5
+#> 10 2013-01-03 09:00:00    F379   220125          3
 #> ..                 ...     ...      ...        ...
 #> 
 #> $depth
-#> Source: local data frame [198,468 x 4]
+#> Source: local data frame [214,816 x 4]
 #> 
 #>          DateTimeDepth Capture Receiver Depth
 #>                 (time)  (fctr)   (fctr) (dbl)
-#> 1  2010-04-21 07:59:19    F214   220008    21
-#> 2  2010-04-21 08:11:38    F214   103230    22
-#> 3  2010-04-21 08:13:48    F214   103230    27
-#> 4  2010-04-21 08:15:04    F214   103230    27
-#> 5  2010-04-21 08:16:31    F214   103230    28
-#> 6  2010-04-21 08:23:11    F214   103230    27
-#> 7  2010-04-21 08:23:42    F214   220008    25
-#> 8  2010-04-21 08:29:38    F214   103230    27
-#> 9  2010-04-21 08:30:21    F214   220008    26
-#> 10 2010-04-21 08:33:11    F214   103230    26
+#> 1  2010-04-21 13:26:35    F214   220008    25
+#> 2  2010-04-21 13:32:06    F214   103230    25
+#> 3  2010-04-21 13:33:15    F214   103230    25
+#> 4  2010-04-21 13:34:28    F214   103230    25
+#> 5  2010-04-21 13:35:52    F214   103230    25
+#> 6  2010-04-21 13:37:36    F214   103230    25
+#> 7  2010-04-21 13:40:00    F214   103230    25
+#> 8  2010-04-21 13:43:16    F214   220008    25
+#> 9  2010-04-21 13:44:06    F214   103230    25
+#> 10 2010-04-21 13:47:18    F214   220008    25
 #> ..                 ...     ...      ...   ...
 #> 
 #> attr(,"class")
@@ -161,11 +159,11 @@ plot(lex, all = TRUE)
 #> Regions defined for each Polygons
 ```
 
-![](README-unnamed-chunk-2-1.png) ![](README-unnamed-chunk-2-2.png) ![](README-unnamed-chunk-2-3.png) ![](README-unnamed-chunk-2-4.png) ![](README-unnamed-chunk-2-5.png) ![](README-unnamed-chunk-2-6.png)
+![](README-unnamed-chunk-2-1.png)<!-- -->![](README-unnamed-chunk-2-2.png)<!-- -->![](README-unnamed-chunk-2-3.png)<!-- -->![](README-unnamed-chunk-2-4.png)<!-- -->![](README-unnamed-chunk-2-5.png)<!-- -->![](README-unnamed-chunk-2-6.png)<!-- -->
 
     #> Regions defined for each Polygons
 
-![](README-unnamed-chunk-2-7.png) ![](README-unnamed-chunk-2-8.png) ![](README-unnamed-chunk-2-9.png) ![](README-unnamed-chunk-2-10.png)
+![](README-unnamed-chunk-2-7.png)<!-- -->![](README-unnamed-chunk-2-8.png)<!-- -->![](README-unnamed-chunk-2-9.png)<!-- -->![](README-unnamed-chunk-2-10.png)<!-- -->
 
 Installation
 ------------

@@ -18,7 +18,7 @@ rm(list = ls())
 
 dir <- path.expand("~/Dropbox/Data")
 dir %<>% file.path(basename(getwd())) %>%
-  file.path("20160126")
+  file.path("20160201")
 
 epsg_data <- 26911
 epsg_analysis <- 3005 # bc albers
@@ -257,7 +257,7 @@ capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
                     DateTimeTagExpire, DepthRangeTag, AcousticTag)
 capture$DepthRangeTag %<>% as.integer()
 
-detection <- read_csv(file.path(dir, "qryKLESVueDetectionRaw21Jan2016.txt"))
+detection <- read_csv(file.path(dir, "qryKLESVueDetectionRaw01Feb2016.txt"))
 
 detection %<>% mutate(
   DateTimeDetection = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, tz = "UTC")) %>%
@@ -291,7 +291,7 @@ lexr:::plot_lex_detection(detection)
 lexr:::check_lex_detection(detection)
 use_data(detection, overwrite = TRUE)
 
-depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw21Jan2016.txt"))
+depth <- read_csv(file.path(dir, "qryKLESVueDepthRaw01Feb2016.txt"))
 
 depth %<>% mutate(
   DateTimeDepth = ISOdate(YearUTC, MonthUTC, DayUTC, HourUTC, MinUTC, SecUTC, tz = "UTC")) %>%
