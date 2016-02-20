@@ -21,7 +21,7 @@ dir %<>% file.path(basename(getwd())) %>%
   file.path("20160201")
 
 epsg_data <- 26911
-epsg_analysis <- 3005 # bc albers
+epsg_analysis <- 26911 # UTM Zone 11U
 tz_data <- "PST8PDT"
 tz_analysis <- "Etc/GMT+8"
 species <- list("Bull Trout" = "BT", "Rainbow Trout" = "RB")
@@ -346,6 +346,7 @@ section@data$Bounded <- TRUE
 section@data$Bounded[section@data$SectionNumber %in% c(6, 19, 33)] <- FALSE
 
 section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
+row.names(section) <- as.character(section@data$Section)
 
 lexr:::plot_lex_section(section)
 lexr:::check_lex_section(section)
