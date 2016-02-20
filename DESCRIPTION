@@ -1,6 +1,6 @@
 Package: klexdatr
 Title: Kootenay Lake Exploitation Study Data
-Version: 0.0.0.9005
+Version: 0.0.0.9006
 Authors@R: c(
     person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre")),
     person("Greg", "Andrusak", role = c("aut", "dtc")),
@@ -18,7 +18,7 @@ LazyData: true
 Depends:
     R (>= 3.1.0)
 Suggests:
-    datacheckr (>= 0.0.2.9013),
+    datacheckr (>= 0.1.0),
     lexr,
     testthat
 RoxygenNote: 5.0.1
