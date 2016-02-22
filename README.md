@@ -54,20 +54,19 @@ print(lex)
 #> $station
 #> Source: local data frame [28 x 4]
 #> 
-#>                                Station Section EastingStation
-#>                                 (fctr)  (fctr)          (dbl)
-#> 1                  Lardeau R. at Mobbs     S02       480847.0
-#> 2                   Gerrard Scafolding     S02       480626.0
-#> 3                       Gerrard Bridge     S02       480380.0
-#> 4                Boathouse in West Arm     S20       502594.0
-#> 5                        Lardeau Delta     S07       504927.0
-#> 6                            Fry Creek     S09       507092.4
-#> 7          Kaslo - Shutty Bench - West     S11       507853.0
-#> 8          Kaslo - Shutty Bench - East     S11       507390.0
-#> 9    Coffee Creek - Power Lines - East     S17       508916.2
-#> 10 Coffee Creek - Power Lines - Middle     S17       508061.0
-#> ..                                 ...     ...            ...
-#> Variables not shown: NorthingStation (dbl)
+#>               Station Section EastingStation NorthingStation
+#>                (fctr)  (fctr)          (dbl)           (dbl)
+#> 1       Creston Delta     S32       522747.0         5458077
+#> 2      Redman Point W     S30       518020.0         5462524
+#> 3     Redman Point MW     S30       518686.7         5463132
+#> 4     Redman Point ME     S30       519433.0         5463581
+#> 5      Redman Point E     S30       520282.0         5464165
+#> 6       Mid-South Arm     S28       518576.0         5471974
+#> 7   Mountain Shores E     S26       514905.0         5484061
+#> 8  Mountain Shores ME     S26       514082.0         5484110
+#> 9   Mountain Shores W     S26       512294.9         5484304
+#> 10 Mountain Shores MW     S26       513182.3         5484359
+#> ..                ...     ...            ...             ...
 #> 
 #> $deployment
 #> Source: local data frame [197 x 4]
