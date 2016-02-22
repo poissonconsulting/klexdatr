@@ -59,6 +59,25 @@ deployment %<>% mutate(Station = SiteName2015,
   mutate(DateTimeReceiverIn = with_tz(DateTimeReceiverIn, tz_analysis),
          DateTimeReceiverOut = with_tz(DateTimeReceiverOut, tz_analysis))
 
+deployment$Reliable <- TRUE
+message("no data several deployments 2008")
+deployment$Reliable[deployment$Station %in% c(
+  "Fry Creek", "South of Kaslo - West", "South of Kaslo - East")
+  & deployment$InYear == 2008] <- FALSE
+
+message("several apparently failed deployments")
+deployment$Reliable[deployment$Station %in% c(
+  "Woodbury Point")
+  & deployment$InYear == 2009] <- FALSE
+
+deployment$Reliable[deployment$Station %in% c(
+  "Redman Point - West")
+  & deployment$InYear == 2010] <- FALSE
+
+deployment$Reliable[deployment$Station == "South of Kaslo - West" & InYear == 2008 & InMonth == 5] <- FALSE
+
+deployment %<>% filter(Reliable)
+
 deployment %<>% filter((DateTimeReceiverIn >= firstDateTime & DateTimeReceiverIn <= lastDateTime) | (DateTimeReceiverOut >= firstDateTime & DateTimeReceiverOut <= lastDateTime))
 
 station <- select(deployment, Station, EastingStation = Xn83z11u, NorthingStation = Yn83z11u)
