@@ -71,7 +71,7 @@ deployment$Reliable[deployment$Station %in% c(
   & deployment$InYear == 2009] <- FALSE
 
 deployment$Reliable[deployment$Station %in% c(
-  "Redman Point - West")
+  "Redman Point W")
   & deployment$InYear == 2010] <- FALSE
 
 deployment$Reliable[deployment$Station == "South of Kaslo - West" & InYear == 2008 & InMonth == 5] <- FALSE

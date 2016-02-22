@@ -70,7 +70,7 @@ print(lex)
 #> Variables not shown: NorthingStation (dbl)
 #> 
 #> $deployment
-#> Source: local data frame [198 x 4]
+#> Source: local data frame [197 x 4]
 #> 
 #>                                Station Receiver  DateTimeReceiverIn
 #>                                 (fctr)   (fctr)              (time)
@@ -125,7 +125,7 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [313,382 x 4]
+#> Source: local data frame [313,167 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
