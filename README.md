@@ -35,38 +35,38 @@ lex <- input_lex_data("klexdatr")
 
 print(lex)
 #> $section
-#> Source: local data frame [33 x 5]
+#> Source: local data frame [31 x 5]
 #> 
 #>    Section Habitat Bounded EastingSection NorthingSection
 #>     (fctr)  (fctr)   (lgl)          (dbl)           (dbl)
 #> 1      S03  Lentic    TRUE       469091.4         5603774
-#> 2      S02   Lotic    TRUE       480563.8         5595333
-#> 3      S19   Lotic   FALSE       485847.6         5490195
-#> 4      S01   Lotic    TRUE       494545.9         5580270
-#> 5      S20   Lotic    TRUE       502555.4         5496545
-#> 6      S04  Lentic    TRUE       502869.0         5585727
-#> 7      S05   Lotic    TRUE       503461.2         5566212
-#> 8      S06   Lotic   FALSE       503599.0         5561065
-#> 9      S07  Lentic    TRUE       504379.6         5556931
-#> 10     S08  Lentic    TRUE       505733.3         5550877
+#> 2      S02  Lentic    TRUE       480563.8         5595333
+#> 3      S04  Lentic    TRUE       502869.0         5585727
+#> 4      S06  Lentic    TRUE       497605.6         5573892
+#> 5      S07  Lentic    TRUE       504379.6         5556931
+#> 6      S08  Lentic    TRUE       505733.3         5550877
+#> 7      S09  Lentic    TRUE       507685.1         5545409
+#> 8      S10  Lentic    TRUE       507829.3         5542442
+#> 9      S11  Lentic    TRUE       507708.5         5538890
+#> 10     S12  Lentic    TRUE       508193.7         5531231
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
 #> Source: local data frame [28 x 4]
 #> 
-#>               Station Section EastingStation NorthingStation
-#>                (fctr)  (fctr)          (dbl)           (dbl)
-#> 1       Creston Delta     S32       522747.0         5458077
-#> 2      Redman Point W     S30       518020.0         5462524
-#> 3     Redman Point MW     S30       518686.7         5463132
-#> 4     Redman Point ME     S30       519433.0         5463581
-#> 5      Redman Point E     S30       520282.0         5464165
-#> 6       Mid-South Arm     S28       518576.0         5471974
-#> 7   Mountain Shores E     S26       514905.0         5484061
-#> 8  Mountain Shores ME     S26       514082.0         5484110
-#> 9   Mountain Shores W     S26       512294.9         5484304
-#> 10 Mountain Shores MW     S26       513182.3         5484359
-#> ..                ...     ...            ...             ...
+#>                        Station Section EastingStation NorthingStation
+#>                         (fctr)  (fctr)          (dbl)           (dbl)
+#> 1          Lardeau R. at Mobbs     S02       480847.0         5595246
+#> 2           Gerrard Scafolding     S02       480626.0         5595336
+#> 3               Gerrard Bridge     S02       480380.0         5595360
+#> 4                Lardeau Delta     S07       504927.0         5556704
+#> 5                    Fry Creek     S09       507092.4         5545461
+#> 6  Kaslo - Shutty Bench - West     S11       507853.0         5538758
+#> 7  Kaslo - Shutty Bench - East     S11       507390.0         5538898
+#> 8        South of Kaslo - East     S13       508997.0         5524158
+#> 9        South of Kaslo - West     S13       508102.0         5524630
+#> 10              Woodbury Point     S15       509139.0         5516639
+#> ..                         ...     ...            ...             ...
 #> 
 #> $deployment
 #> Source: local data frame [197 x 4]

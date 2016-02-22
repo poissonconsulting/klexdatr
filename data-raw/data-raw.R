@@ -4,6 +4,7 @@ library(spa)
 library(rgdal)
 library(rgeos)
 library(raster)
+library(maptools)
 library(readr)
 library(plyr)
 library(dplyr)
@@ -37,14 +38,15 @@ section@data %<>% select(SectionNumber = SECTNBR) %>% check_key("SectionNumber")
 section@data %<>% mutate(Section = paste0("S", sprintf("%02d", SectionNumber)))
 
 # combine sections
-#section@data$Section[section@data$SectionNumber %in% 1:6] <- "S06"
+section@data$Section[section@data$SectionNumber %in% c(1,5:6)] <- "S06"
 section@data$Section[section@data$SectionNumber %in% 33:38] <- "S33"
 
 section@data <- as.data.frame(bind_cols(
   section@data, select(as.data.frame(gCentroid(section, byid = TRUE)),
                        EastingSection = x, NorthingSection = y)))
 
-section <- section[order(section@data$NorthingSection, section@data$EastingSection),]
+section <- section[order(section@data$NorthingSection * -1,
+                         section@data$EastingSection),]
 
 section@data$Section %<>% factor(levels = unique(.))
 
@@ -346,26 +348,29 @@ lexr:::plot_lex_capture(capture)
 lexr:::check_lex_capture(capture)
 use_data(capture, overwrite = TRUE)
 
-# filter sections
-# section <- section[!section@data$SectionNumber %in% 1:5,]
 section <- section[!section@data$SectionNumber %in% 34:38,]
 
-# crop sections
-#section %<>% raster::crop(extent(c(1642500, 1690000, 500000, 625000)))
+sections <- section@data$Section
 
-section@data %<>% select(-EastingSection, -NorthingSection)
-section@data <- as.data.frame(bind_cols(
-  section@data, select(as.data.frame(gCentroid(section, byid = TRUE)),
-                       EastingSection = x, NorthingSection = y)))
+section %<>% unionSpatialPolygons(IDs = sections)
 
-section <- section[order(section@data$EastingSection,
-                         section@data$NorthingSection),]
+sections %<>% unique()
+
+data <- bind_cols(data.frame(Section = factor(row.names(section), levels = levels(sections))),
+  select(as.data.frame(gCentroid(section, byid = TRUE)),
+                       EastingSection = x, NorthingSection = y))
+
+row.names(data) <- sections
+
+section %<>% SpatialPolygonsDataFrame(data = as.data.frame(data))
+
+section <- section[section@data$Section,]
 
 section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
-section@data$Habitat[section@data$SectionNumber %in% c(1:2, 5:6, 19:20, 33:38)] <- "Lotic"
+section@data$Habitat[section@data$SectionNumber %in% c("S02", "S06", "S19", "S20", "S33")] <- "Lotic"
 
 section@data$Bounded <- TRUE
-section@data$Bounded[section@data$SectionNumber %in% c(6, 19, 33)] <- FALSE
+section@data$Bounded[section@data$SectionNumber %in% c("S19", "S33")] <- FALSE
 
 section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
 row.names(section) <- as.character(section@data$Section)
