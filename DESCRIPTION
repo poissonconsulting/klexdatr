@@ -1,6 +1,6 @@
 Package: klexdatr
 Title: Kootenay Lake Exploitation Study Data
-Version: 0.0.0.9006
+Version: 0.0.0.9007
 Authors@R: c(
     person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre")),
     person("Greg", "Andrusak", role = c("aut", "dtc")),
@@ -10,8 +10,7 @@ Authors@R: c(
     person("Kerry", "Reed", role = c("dtc")),
     person("Robyn", "Irvine", role = c("dtc")),
     person("Harvey", "Andrusak", role = c("dtc")),
-    person("Jeff", "Burrows", role = c("dtc")),
-    person("Alan", "Richardson", role = c("dtc")))
+    person("Jeff", "Burrows", role = c("dtc")))
 Description: An R package of data for the Kootenay Lake Large Trout Exploitation Study.
 License: CC BY 4.0 + file LICENSE
 LazyData: true
