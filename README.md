@@ -24,6 +24,11 @@ library(dplyr)
 #> 
 #>     intersect, setdiff, setequal, union
 library(lexr)
+#> 
+#> Attaching package: 'lexr'
+#> The following object is masked from 'package:base':
+#> 
+#>     date
 library(klexdatr)
 
 lex <- input_lex_data("klexdatr")
@@ -34,34 +39,35 @@ print(lex)
 #> 
 #>    Section Habitat Bounded EastingSection NorthingSection
 #>     (fctr)  (fctr)   (lgl)          (dbl)           (dbl)
-#> 1      S03  Lentic    TRUE        1604608        655497.0
-#> 2      S02   Lotic    TRUE        1617054        648567.1
-#> 3      S01   Lotic    TRUE        1632833        635384.2
-#> 4      S19   Lotic   FALSE        1635615        544900.5
-#> 5      S04  Lentic    TRUE        1640395        641856.5
-#> 6      S05   Lotic    TRUE        1643460        622558.7
-#> 7      S06   Lotic   FALSE        1644250        617467.1
-#> 8      S07  Lentic    TRUE        1645549        613463.1
-#> 9      S08  Lentic    TRUE        1647660        607626.7
-#> 10     S09  Lentic    TRUE        1650291        602447.3
+#> 1      S03  Lentic    TRUE       469091.4         5603774
+#> 2      S02   Lotic    TRUE       480563.8         5595333
+#> 3      S19   Lotic   FALSE       485847.6         5490195
+#> 4      S01   Lotic    TRUE       494545.9         5580270
+#> 5      S20   Lotic    TRUE       502555.4         5496545
+#> 6      S04  Lentic    TRUE       502869.0         5585727
+#> 7      S05   Lotic    TRUE       503461.2         5566212
+#> 8      S06   Lotic   FALSE       503599.0         5561065
+#> 9      S07  Lentic    TRUE       504379.6         5556931
+#> 10     S08  Lentic    TRUE       505733.3         5550877
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
 #> Source: local data frame [28 x 4]
 #> 
-#>                        Station Section EastingStation NorthingStation
-#>                         (fctr)  (fctr)          (dbl)           (dbl)
-#> 1          Lardeau R. at Mobbs     S02        1617346        648516.6
-#> 2               Gerrard Bridge     S02        1616869        648570.7
-#> 3           Gerrard Scafolding     S02        1617116        648578.0
-#> 4                Lardeau Delta     S07        1646121        613307.2
-#> 5                    Fry Creek     S09        1649767        602325.6
-#> 6  Kaslo - Shutty Bench - West     S11        1651302        595868.6
-#> 7  Kaslo - Shutty Bench - East     S11        1650824        595948.8
-#> 8        Boathouse in West Arm     S20        1651430        553379.4
-#> 9        South of Kaslo - East     S13        1654290        581527.2
-#> 10       South of Kaslo - West     S13        1653342        581881.9
-#> ..                         ...     ...            ...             ...
+#>                                Station Section EastingStation
+#>                                 (fctr)  (fctr)          (dbl)
+#> 1                  Lardeau R. at Mobbs     S02       480847.0
+#> 2                   Gerrard Scafolding     S02       480626.0
+#> 3                       Gerrard Bridge     S02       480380.0
+#> 4                Boathouse in West Arm     S20       502594.0
+#> 5                        Lardeau Delta     S07       504927.0
+#> 6                            Fry Creek     S09       507149.9
+#> 7          Kaslo - Shutty Bench - West     S11       507853.0
+#> 8          Kaslo - Shutty Bench - East     S11       507390.0
+#> 9    Coffee Creek - Power Lines - East     S17       508916.2
+#> 10 Coffee Creek - Power Lines - Middle     S17       508061.0
+#> ..                                 ...     ...            ...
+#> Variables not shown: NorthingStation (dbl)
 #> 
 #> $deployment
 #> Source: local data frame [202 x 4]
@@ -119,7 +125,7 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [326,544 x 4]
+#> Source: local data frame [313,987 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
@@ -156,14 +162,9 @@ print(lex)
 #> [1] "lex_data"
 
 plot(lex, all = TRUE)
-#> Regions defined for each Polygons
 ```
 
-![](README-unnamed-chunk-2-1.png)<!-- -->![](README-unnamed-chunk-2-2.png)<!-- -->![](README-unnamed-chunk-2-3.png)<!-- -->![](README-unnamed-chunk-2-4.png)<!-- -->![](README-unnamed-chunk-2-5.png)<!-- -->![](README-unnamed-chunk-2-6.png)<!-- -->
-
-    #> Regions defined for each Polygons
-
-![](README-unnamed-chunk-2-7.png)<!-- -->![](README-unnamed-chunk-2-8.png)<!-- -->![](README-unnamed-chunk-2-9.png)<!-- -->![](README-unnamed-chunk-2-10.png)<!-- -->
+![](README-unnamed-chunk-2-1.png)<!-- -->![](README-unnamed-chunk-2-2.png)<!-- -->![](README-unnamed-chunk-2-3.png)<!-- -->![](README-unnamed-chunk-2-4.png)<!-- -->![](README-unnamed-chunk-2-5.png)<!-- -->![](README-unnamed-chunk-2-6.png)<!-- -->![](README-unnamed-chunk-2-7.png)<!-- -->![](README-unnamed-chunk-2-8.png)<!-- -->![](README-unnamed-chunk-2-9.png)<!-- -->![](README-unnamed-chunk-2-10.png)<!-- -->
 
 Installation
 ------------
