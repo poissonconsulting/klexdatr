@@ -61,7 +61,7 @@ print(lex)
 #> 3                       Gerrard Bridge     S02       480380.0
 #> 4                Boathouse in West Arm     S20       502594.0
 #> 5                        Lardeau Delta     S07       504927.0
-#> 6                            Fry Creek     S09       507149.9
+#> 6                            Fry Creek     S09       507092.4
 #> 7          Kaslo - Shutty Bench - West     S11       507853.0
 #> 8          Kaslo - Shutty Bench - East     S11       507390.0
 #> 9    Coffee Creek - Power Lines - East     S17       508916.2
@@ -70,21 +70,21 @@ print(lex)
 #> Variables not shown: NorthingStation (dbl)
 #> 
 #> $deployment
-#> Source: local data frame [202 x 4]
+#> Source: local data frame [198 x 4]
 #> 
-#>                        Station Receiver  DateTimeReceiverIn
-#>                         (fctr)   (fctr)              (time)
-#> 1           Gerrard Scafolding     2736 2008-04-06 11:00:00
-#> 2               Gerrard Bridge     6247 2008-04-06 11:00:00
-#> 3          Lardeau R. at Mobbs     8247 2008-04-06 11:00:00
-#> 4                Lardeau Delta     6092 2008-03-06 12:00:00
-#> 5                Lardeau Delta     5308 2008-09-16 11:00:00
-#> 6                    Fry Creek   103229 2008-05-08 11:00:00
-#> 7  Kaslo - Shutty Bench - West     4348 2008-03-06 12:00:00
-#> 8  Kaslo - Shutty Bench - East     5306 2008-03-06 12:00:00
-#> 9        South of Kaslo - West   103228 2008-05-08 11:00:00
-#> 10       South of Kaslo - East   103231 2008-05-08 11:00:00
-#> ..                         ...      ...                 ...
+#>                                Station Receiver  DateTimeReceiverIn
+#>                                 (fctr)   (fctr)              (time)
+#> 1                   Gerrard Scafolding     2736 2008-04-06 11:00:00
+#> 2                       Gerrard Bridge     6247 2008-04-06 11:00:00
+#> 3                  Lardeau R. at Mobbs     8247 2008-04-06 11:00:00
+#> 4                        Lardeau Delta     6092 2008-03-06 12:00:00
+#> 5                        Lardeau Delta     5308 2008-09-16 11:00:00
+#> 6          Kaslo - Shutty Bench - West     4348 2008-03-06 12:00:00
+#> 7          Kaslo - Shutty Bench - East     5306 2008-03-06 12:00:00
+#> 8                       Woodbury Point     8248 2008-05-08 11:00:00
+#> 9    Coffee Creek - Power Lines - East     6093 2008-02-26 12:00:00
+#> 10 Coffee Creek - Power Lines - Middle     5308 2008-02-26 12:00:00
+#> ..                                 ...      ...                 ...
 #> Variables not shown: DateTimeReceiverOut (time)
 #> 
 #> $capture
@@ -125,7 +125,7 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [313,987 x 4]
+#> Source: local data frame [313,382 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
