@@ -44,8 +44,7 @@ section@data <- as.data.frame(bind_cols(
   section@data, select(as.data.frame(gCentroid(section, byid = TRUE)),
                        EastingSection = x, NorthingSection = y)))
 
-section <- section[order(section@data$EastingSection,
-                         section@data$NorthingSection),]
+section <- section[order(section@data$NorthingSection, section@data$EastingSection),]
 
 section@data$Section %<>% factor(levels = unique(.))
 
