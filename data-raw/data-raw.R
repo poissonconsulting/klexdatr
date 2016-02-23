@@ -38,7 +38,7 @@ section@data %<>% select(SectionNumber = SECTNBR) %>% check_key("SectionNumber")
 section@data %<>% mutate(Section = paste0("S", sprintf("%02d", SectionNumber)))
 
 # combine sections
-section@data$Section[section@data$SectionNumber %in% c(1,5:6)] <- "S06"
+#section@data$Section[section@data$SectionNumber %in% c(1,5:6)] <- "S06"
 section@data$Section[section@data$SectionNumber %in% 33:38] <- "S33"
 
 section@data <- as.data.frame(bind_cols(
@@ -350,24 +350,24 @@ use_data(capture, overwrite = TRUE)
 
 section <- section[!section@data$SectionNumber %in% 34:38,]
 
-sections <- section@data$Section
-
-section %<>% unionSpatialPolygons(IDs = sections)
-
-sections %<>% unique()
-
-data <- bind_cols(data.frame(Section = factor(row.names(section), levels = levels(sections))),
-  select(as.data.frame(gCentroid(section, byid = TRUE)),
-                       EastingSection = x, NorthingSection = y))
-
-row.names(data) <- sections
-
-section %<>% SpatialPolygonsDataFrame(data = as.data.frame(data))
+# sections <- section@data$Section
+#
+# section %<>% unionSpatialPolygons(IDs = sections)
+#
+# sections %<>% unique()
+#
+# data <- bind_cols(data.frame(Section = factor(row.names(section), levels = levels(sections))),
+#   select(as.data.frame(gCentroid(section, byid = TRUE)),
+#                        EastingSection = x, NorthingSection = y))
+#
+# row.names(data) <- sections
+#
+# section %<>% SpatialPolygonsDataFrame(data = as.data.frame(data))
 
 section <- section[section@data$Section,]
 
 section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
-section@data$Habitat[section@data$SectionNumber %in% c("S02", "S06", "S19", "S20", "S33")] <- "Lotic"
+section@data$Habitat[section@data$SectionNumber %in% c("S01", "S02", "S05", "S06", "S19", "S20", "S33")] <- "Lotic"
 
 section@data$Bounded <- TRUE
 section@data$Bounded[section@data$SectionNumber %in% c("S19", "S33")] <- FALSE

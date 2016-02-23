@@ -21,5 +21,6 @@
 #' print(kdetect)
 #' check_detect_data(kdetect)
 #' plot(kdetect)
+#'
 #' }
 NULL

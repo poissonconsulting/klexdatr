@@ -25,6 +25,7 @@ kdetect <- make_detect_data(klex)
 print(kdetect)
 check_detect_data(kdetect)
 plot(kdetect)
+
 }
 }
 
