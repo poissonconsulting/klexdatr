@@ -272,10 +272,6 @@ lexr:::plot_lex_recapture(recapture)
 lexr:::check_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
 
-capture %<>% left_join(select(filter(recapture, !Released), DateTimeRecapture, Capture), by = c("Capture"))
-capture %<>% mutate(CurtailTagExpire = !is.na(DateTimeRecapture) & DateTimeRecapture < DateTimeTagExpire)
-capture$DateTimeTagExpire[capture$CurtailTagExpire] <-  capture$DateTimeRecapture[capture$CurtailTagExpire]
-
 capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
                     Reward1 = TBarTag1Reward, Reward2 = TBarTag2Reward,
                     DateTimeTagExpire, DepthRangeTag, AcousticTag)
