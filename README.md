@@ -35,20 +35,20 @@ lex <- input_lex_data("klexdatr")
 
 print(lex)
 #> $section
-#> Source: local data frame [31 x 5]
+#> Source: local data frame [33 x 5]
 #> 
 #>    Section Habitat Bounded EastingSection NorthingSection
 #>     (fctr)  (fctr)   (lgl)          (dbl)           (dbl)
 #> 1      S03  Lentic    TRUE       469091.4         5603774
 #> 2      S02  Lentic    TRUE       480563.8         5595333
 #> 3      S04  Lentic    TRUE       502869.0         5585727
-#> 4      S06  Lentic    TRUE       497605.6         5573892
-#> 5      S07  Lentic    TRUE       504379.6         5556931
-#> 6      S08  Lentic    TRUE       505733.3         5550877
-#> 7      S09  Lentic    TRUE       507685.1         5545409
-#> 8      S10  Lentic    TRUE       507829.3         5542442
-#> 9      S11  Lentic    TRUE       507708.5         5538890
-#> 10     S12  Lentic    TRUE       508193.7         5531231
+#> 4      S01  Lentic    TRUE       494545.9         5580270
+#> 5      S05  Lentic    TRUE       503461.2         5566212
+#> 6      S06  Lentic    TRUE       503599.0         5561065
+#> 7      S07  Lentic    TRUE       504379.6         5556931
+#> 8      S08  Lentic    TRUE       505733.3         5550877
+#> 9      S09  Lentic    TRUE       507685.1         5545409
+#> 10     S10  Lentic    TRUE       507829.3         5542442
 #> ..     ...     ...     ...            ...             ...
 #> 
 #> $station
@@ -124,7 +124,7 @@ print(lex)
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [313,167 x 4]
+#> Source: local data frame [325,715 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
