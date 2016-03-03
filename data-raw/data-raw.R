@@ -277,10 +277,10 @@ lexr:::plot_lex_recapture(recapture)
 lexr:::check_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
 
-capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
-                    Reward1 = TBarTag1Reward, Reward2 = TBarTag2Reward,
-                    DateTimeTagExpire, DepthRangeTag, AcousticTag)
-capture$DepthRangeTag %<>% as.integer()
+capture %<>% left_join(select(filter(recapture, !Released), DateTimeTagRemoved = DateTimeRecapture, Capture), by = c("Capture"))
+
+bol <- is.na(capture$DateTimeTagRemoved) | capture$DateTimeTagRemoved > capture$DateTimeTagExpire
+capture$DateTimeTagRemoved[bol] <-  capture$DateTimeTagExpire[bol]
 
 detection <- read_csv(file.path(dir, "qryKLESVueDetectionRaw01Feb2016.txt"))
 
@@ -298,7 +298,7 @@ detection %<>% mutate(Receiver = RecNbr)
 
 detection %<>% inner_join(capture, by = "AcousticTag")
 
-detection %<>% filter(DateTimeDetection > DateTimeCapture, DateTimeDetection < DateTimeTagExpire)
+detection %<>% filter(DateTimeDetection > DateTimeCapture, DateTimeDetection < DateTimeTagRemoved)
 
 detection %<>% filter(Detections >= 3)
 
@@ -329,7 +329,7 @@ depth %<>% mutate(Receiver = RecNbr) %>%
 
 depth %<>% inner_join(capture, by = "AcousticTag")
 
-depth %<>% filter(DateTimeDepth > DateTimeCapture, DateTimeDepth < DateTimeTagExpire)
+depth %<>% filter(DateTimeDepth > DateTimeCapture, DateTimeDepth < DateTimeTagRemoved)
 
 depth$Receiver %<>% factor(., levels = levels(deployment$Receiver))
 depth %<>% filter(!is.na(Receiver))
@@ -342,7 +342,10 @@ lexr:::plot_lex_depth(depth)
 lexr:::check_lex_depth(depth)
 use_data(depth, overwrite = TRUE)
 
-capture %<>% select(-AcousticTag)
+capture %<>% select(Capture, DateTimeCapture, Section, Species, Length, Weight,
+                    Reward1 = TBarTag1Reward, Reward2 = TBarTag2Reward,
+                    DateTimeTagExpire, DepthRangeTag)
+capture$DepthRangeTag %<>% as.integer()
 capture %<>% rename(SectionCapture = Section)
 
 lexr:::plot_lex_capture(capture)
