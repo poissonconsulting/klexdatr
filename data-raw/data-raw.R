@@ -268,6 +268,11 @@ recapture$TagsRemoved <- fillin_missing(recapture$TagsRemoved, TRUE)
 recapture$Released <- fillin_missing(recapture$Released, FALSE)
 recapture$Public <- fillin_missing(recapture$Public, TRUE)
 
+# recapture most have at least one TBar tag
+recapture %<>% filter(TBarTag1 | TBarTag2)
+
+recapture %<>% arrange(DateTimeRecapture)
+
 lexr:::plot_lex_recapture(recapture)
 lexr:::check_lex_recapture(recapture)
 use_data(recapture, overwrite = TRUE)
