@@ -264,9 +264,9 @@ fillin_missing <- function(x, bol) {
   x
 }
 
-recapture$TagsRemoved <- fillin_missing(recapture$TagsRemoved, TRUE)
-recapture$Released <- fillin_missing(recapture$Released, FALSE)
-recapture$Public <- fillin_missing(recapture$Public, TRUE)
+recapture$Public %<>% fillin_missing(TRUE)
+recapture$Released %<>% fillin_missing(FALSE)
+recapture$TagsRemoved %<>% fillin_missing(TRUE)
 
 # recapture most have at least one TBar tag
 recapture %<>% filter(TBarTag1 | TBarTag2)
