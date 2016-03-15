@@ -77,7 +77,7 @@ deployment$Reliable[deployment$Station %in% c(
   "Redman Point W")
   & deployment$InYear == 2010] <- FALSE
 
-deployment$Reliable[deployment$Station == "South of Kaslo - West" & InYear == 2008 & InMonth == 5] <- FALSE
+deployment$Reliable[deployment$Station == "South of Kaslo - West" & deployment$InYear == 2008 & deployment$InMonth == 5] <- FALSE
 
 deployment %<>% filter(Reliable)
 
@@ -135,11 +135,11 @@ capture %<>% mutate(
 capture %<>% filter(DateTimeCapture >= firstDateTime & DateTimeCapture <= lastDateTime)
 
 capture %<>% rename(AcousticTag = TagIDNbr) %>%
-  inner_join(acoustic_tag, by = "AcousticTag")
+  left_join(acoustic_tag, by = "AcousticTag")
 
 adjust_taglife <- function(x) {
   if (is.na(x$AcousticTag[1])) {
-    x$TagLife <- -1
+    x$TagLife <- 0
     return(x)
   }
   if (nrow(x) == 1)
@@ -172,11 +172,6 @@ capture %<>% select(Capture = CaptureID, DateTimeCapture, Species, AcousticTag,
                     TBarTag1, TBarTag1Reward, TBarTag2, TBarTag2Reward,
                     DateTimeTagExpire, DepthRangeTag, CaptureX, CaptureY)
 
-is.na(capture$TBarTag1[capture$TBarTag1 < 0]) <- TRUE
-is.na(capture$TBarTag2[!is.na(capture$TBarTag2) & capture$TBarTag2 < 0]) <- TRUE
-is.na(capture$TBarTag1Reward[capture$TBarTag1Reward < 0]) <- TRUE
-is.na(capture$TBarTag2Reward[!is.na(capture$TBarTag2Reward) & capture$TBarTag2Reward < 0]) <- TRUE
-
 capture %<>% filter(!is.na(TBarTag1) | !is.na(TBarTag2))
 
 capture %<>% mutate(Switch = !is.na(TBarTag2) & TBarTag1Reward < TBarTag2Reward)
@@ -190,6 +185,8 @@ capture$TBarTag2Reward[capture$Switch] <- capture$TBarTag1Reward[capture$Switch]
 capture$TBarTag1Reward[capture$Switch] <- reward
 
 capture %<>% select(-Switch) %>% verify(!is.na(TBarTag1)) %>% verify(is.na(TBarTag2Reward) | TBarTag1Reward >= TBarTag2Reward) %>% as.data.frame()
+
+capture %<>% filter(TBarTag1Reward >= 100)
 
 capture <- SpatialPointsDataFrame(select(capture, CaptureX, CaptureY),
                                   select(capture, -CaptureX, -CaptureY),

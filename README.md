@@ -87,26 +87,26 @@ print(lex)
 #> Variables not shown: DateTimeReceiverOut (time)
 #> 
 #> $capture
-#> Source: local data frame [191 x 10]
+#> Source: local data frame [240 x 10]
 #> 
 #>    Capture     DateTimeCapture SectionCapture    Species Length Weight
 #>     (fctr)              (time)         (fctr)     (fctr)  (int)  (dbl)
-#> 1     F075 2008-05-24 10:40:00            S25 Bull Trout    545   1.75
-#> 2     F076 2008-05-24 11:10:00            S25 Bull Trout    654   3.40
-#> 3     F084 2008-06-05 08:01:00            S16 Bull Trout    553     NA
-#> 4     F100 2009-05-02 13:31:00            S21 Bull Trout    643   2.75
-#> 5     F104 2009-05-03 11:17:00            S22 Bull Trout    567   2.00
-#> 6     F129 2009-05-07 09:11:00            S21 Bull Trout    703   3.90
-#> 7     F133 2009-05-07 13:58:00            S21 Bull Trout    712   3.65
-#> 8     F137 2009-05-08 11:16:00            S21 Bull Trout    572   1.90
-#> 9     F141 2009-05-20 15:13:00            S16 Bull Trout    564   2.20
-#> 10    F143 2009-05-21 08:00:00            S16 Bull Trout    595   2.40
+#> 1     F100 2009-05-02 13:31:00            S21 Bull Trout    643   2.75
+#> 2     F104 2009-05-03 11:17:00            S22 Bull Trout    567   2.00
+#> 3     F129 2009-05-07 09:11:00            S21 Bull Trout    703   3.90
+#> 4     F133 2009-05-07 13:58:00            S21 Bull Trout    712   3.65
+#> 5     F137 2009-05-08 11:16:00            S21 Bull Trout    572   1.90
+#> 6     F141 2009-05-20 15:13:00            S16 Bull Trout    564   2.20
+#> 7     F143 2009-05-21 08:00:00            S16 Bull Trout    595   2.40
+#> 8     F153 2009-05-27 09:13:00            S25 Bull Trout    697   3.50
+#> 9     F155 2009-05-27 10:38:00            S25 Bull Trout    640   3.00
+#> 10    F161 2009-05-30 10:55:00            S16 Bull Trout    570   2.05
 #> ..     ...                 ...            ...        ...    ...    ...
 #> Variables not shown: Reward1 (int), Reward2 (int), DateTimeTagExpire
 #>   (time), DepthRangeTag (int)
 #> 
 #> $recapture
-#> Source: local data frame [42 x 8]
+#> Source: local data frame [52 x 8]
 #> 
 #>      DateTimeRecapture Capture SectionRecapture TBarTag1 TBarTag2
 #>                 (time)  (fctr)           (fctr)    (lgl)    (lgl)
@@ -114,17 +114,17 @@ print(lex)
 #> 2  2009-05-23 12:00:00    F131              S16     TRUE     TRUE
 #> 3  2009-09-10 12:00:00    F097              S14     TRUE     TRUE
 #> 4  2009-10-06 12:00:00    F169              S08     TRUE     TRUE
-#> 5  2009-10-10 12:00:00    F076              S30     TRUE     TRUE
-#> 6  2009-10-12 12:00:00    F099              S10     TRUE     TRUE
-#> 7  2009-10-14 12:00:00    F112              S16     TRUE     TRUE
-#> 8  2009-10-16 12:00:00    F111              S27     TRUE     TRUE
-#> 9  2010-01-23 12:00:00    F197              S27     TRUE     TRUE
-#> 10 2010-01-28 12:00:00    F075              S23     TRUE     TRUE
+#> 5  2009-10-12 12:00:00    F099              S10     TRUE     TRUE
+#> 6  2009-10-14 12:00:00    F112              S16     TRUE     TRUE
+#> 7  2009-10-16 12:00:00    F111              S27     TRUE     TRUE
+#> 8  2010-01-23 12:00:00    F197              S27     TRUE     TRUE
+#> 9  2010-04-04 12:00:00    F155              S25     TRUE     TRUE
+#> 10 2010-04-05 12:00:00    F175              S25     TRUE     TRUE
 #> ..                 ...     ...              ...      ...      ...
 #> Variables not shown: TagsRemoved (lgl), Released (lgl), Public (lgl)
 #> 
 #> $detection
-#> Source: local data frame [325,715 x 4]
+#> Source: local data frame [305,439 x 4]
 #> 
 #>      DateTimeDetection Capture Receiver Detections
 #>                 (time)  (fctr)   (fctr)      (int)
