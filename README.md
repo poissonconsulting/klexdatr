@@ -139,35 +139,47 @@ print(lex)
 #> 10 2013-01-03 09:00:00    F379   220125          3
 #> ..                 ...     ...      ...        ...
 #> 
-#> $depth
-#> Source: local data frame [214,816 x 4]
-#> 
-#>          DateTimeDepth Capture Receiver Depth
-#>                 (time)  (fctr)   (fctr) (dbl)
-#> 1  2010-04-21 13:26:35    F214   220008    25
-#> 2  2010-04-21 13:32:06    F214   103230    25
-#> 3  2010-04-21 13:33:15    F214   103230    25
-#> 4  2010-04-21 13:34:28    F214   103230    25
-#> 5  2010-04-21 13:35:52    F214   103230    25
-#> 6  2010-04-21 13:37:36    F214   103230    25
-#> 7  2010-04-21 13:40:00    F214   103230    25
-#> 8  2010-04-21 13:43:16    F214   220008    25
-#> 9  2010-04-21 13:44:06    F214   103230    25
-#> 10 2010-04-21 13:47:18    F214   220008    25
-#> ..                 ...     ...      ...   ...
-#> 
 #> attr(,"class")
 #> [1] "lex_data"
 
-plot(lex, all = TRUE)
+detect <- make_detect_data(lex, start_date = as.Date("2008-04-01"),
+                           end_date = as.Date("2014-12-31"), hourly_interval = 6L)
+#> making interval...
+#> making coverage...
+#> making capture...
+#> making distance...
+#> making detection...
+#> making section...
+
+print(lexr:::plot_detect_section(detect$section))
 ```
 
-![](README-unnamed-chunk-2-1.png)<!-- -->![](README-unnamed-chunk-2-2.png)<!-- -->![](README-unnamed-chunk-2-3.png)<!-- -->![](README-unnamed-chunk-2-4.png)<!-- -->![](README-unnamed-chunk-2-5.png)<!-- -->![](README-unnamed-chunk-2-6.png)<!-- -->![](README-unnamed-chunk-2-7.png)<!-- -->![](README-unnamed-chunk-2-8.png)<!-- -->![](README-unnamed-chunk-2-9.png)<!-- -->![](README-unnamed-chunk-2-10.png)<!-- -->
+![](README-unnamed-chunk-2-1.png)<!-- -->
+
+``` r
+#save_plot("lake", caption = "Kootenay Lake by color-coded section")
+
+print(lexr:::plot_detect_overview(detect$capture, detect$recapture, detect$detection, detect$section, detect$interval))
+```
+
+![](README-unnamed-chunk-2-2.png)<!-- -->
+
+``` r
+#save_plot("overview", caption = "Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.")
+
+print(lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interval))
+```
+
+![](README-unnamed-chunk-2-3.png)<!-- -->
+
+``` r
+#save_plot("coverage", caption = "Receiver coverage by color-coded section and date.")
+```
 
 Installation
 ------------
 
-Then execute the following code at the R terminal:
+To install the klexdatr package, execute the following code at the R terminal:
 
 ``` r
 # install.packages("devtools")
