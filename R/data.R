@@ -54,7 +54,6 @@
 #'   \item{Reward1}{The reward value of the first T-Bar tag in Canadian dollars (int).}
 #'   \item{Reward2}{The reward value of the second T-Bar tag if present in Canadian dollars (int).}
 #'   \item{DateTimeTagExpire}{The acoustic tag expiration date and time (time).}
-#'   \item{DepthRangeTag}{The acoustic tag maximum depth range (int).}
 #' }
 "capture"
 
@@ -87,16 +86,3 @@
 #'   \item{Detections}{The number of detections in the hour (int).}
 #' }
 "detection"
-
-#' Acoustic Depth Dat
-#'
-#' Depth detection data by fish (capture) and receiver.
-#'
-#' @format A tbl data frame:
-#' \describe{
-#'   \item{DateTimeDepth}{The depth date and time (time).}
-#'   \item{Capture}{The fish capture number (int).}
-#'   \item{Receiver}{The receiver number (int).}
-#'   \item{Depth}{The depth (dbl).}
-#' }
-"depth"

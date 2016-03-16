@@ -43,8 +43,7 @@ test_that("data", {
          Weight = c(0.5, 10, NA),
          Reward1 = c(0L, 10L, 100L),
          Reward2 = c(0L, 10L, 100L, NA),
-         DateTimeTagExpire = Sys.time(),
-         DepthRangeTag = c(1L, NA)),
+         DateTimeTagExpire = Sys.time()),
     key = c("Capture")))
 
   expect_df(datacheckr::check_join(capture, section@data, c("SectionCapture" = "Section")))
@@ -75,14 +74,4 @@ test_that("data", {
   key = c("DateTimeDetection", "Capture", "Receiver")))
 
   expect_df(datacheckr::check_join(detection, capture, "Capture"))
-
-  expect_df(datacheckr::check_data3(
-    depth,
-    list(DateTimeDepth = Sys.time(),
-         Capture = factor(1),
-         Receiver = factor(1),
-         Depth = c(0, 255)),
-    key = c("DateTimeDepth", "Capture", "Receiver")))
-
-  expect_df(datacheckr::check_join(depth, capture, "Capture"))
 })

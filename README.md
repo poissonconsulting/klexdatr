@@ -7,7 +7,6 @@ An R package of data for the Kootenay Lake Large Trout Exploitation Study
 
     capture                          Fish Capture Data
     deployment                       Receiver Deployment Data
-    depth                            Acoustic Depth Data
     detection                        Acoustic Detection Data
     recapture                        Fish Recapture Data
     section                          Section Data

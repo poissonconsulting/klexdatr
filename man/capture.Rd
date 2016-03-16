@@ -15,7 +15,6 @@
   \item{Reward1}{The reward value of the first T-Bar tag in Canadian dollars (int).}
   \item{Reward2}{The reward value of the second T-Bar tag if present in Canadian dollars (int).}
   \item{DateTimeTagExpire}{The acoustic tag expiration date and time (time).}
-  \item{DepthRangeTag}{The acoustic tag maximum depth range (int).}
 }}
 \usage{
 capture

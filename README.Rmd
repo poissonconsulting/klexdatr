@@ -23,7 +23,6 @@ Data sets in package ‘klexdatr’:
 
 capture                          Fish Capture Data
 deployment                       Receiver Deployment Data
-depth                            Acoustic Depth Data
 detection                        Acoustic Detection Data
 recapture                        Fish Recapture Data
 section                          Section Data
