@@ -41,7 +41,7 @@ library(klexdatr)
 Information
 -----------
 
-For more information, install and load the package and then type `?qlexdatr` at the R terminal.
+For more information, install and load the package and then type `?klexdatr` at the R terminal.
 
 Acknowledgements
 ----------------
