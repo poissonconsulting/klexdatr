@@ -1,26 +1,26 @@
 #' Kootenay Lake Exploitation Study Data
 #'
-#' For a description of the available data sets type \code{data(package = "klexdatr")}.
+#' Data from the Kootenay Lake Large Trout Exploitation Study.
+#'
+#' For a list of the available data sets type \code{data(package = "klexdatr")}.
+#'
+#' For information on a particular dataset type \code{?dataset}.
+#'
+#' All spatial coordinates are for UTM Zone 11U, i.e., EPSG: 26911, and all times are
+#' in Pacific Standard, i.e. Etc/GMT+8.
 #'
 #' @docType package
 #' @name klexdatr
 #' @examples
-#' \dontrun{
 #' library(dplyr) # so tbl data frames print nice
-#' library(klexdatr) # data set for example
-#' library(lexr)
 #'
-#' klex <- input_lex_data("klexdatr")
-#' print(klex)
-#' check_lex_data(klex, all = TRUE)
+#' data(list = c("section", "station", "deployment", "capture",
+#'   "recapture", "detection"))
 #'
-#' x <- lexr:::check_lex_deployment_detection(klex$deployment, klex$detection)
-#' plot(klex, all = TRUE)
-#'
-#' kdetect <- make_detect_data(klex)
-#' print(kdetect)
-#' check_detect_data(kdetect)
-#' plot(kdetect)
-#'
-#' }
+#' print(section)
+#' print(station)
+#' print(deployment)
+#' print(capture)
+#' print(recapture)
+#' print(detection)
 NULL

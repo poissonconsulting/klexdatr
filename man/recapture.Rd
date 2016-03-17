@@ -13,6 +13,7 @@
   \item{TBarTag2}{A second T-Bar Tag was reported (lgl).}
   \item{TagsRemoved}{The T-Bar tags were removed from the fish (lgl).}
   \item{Released}{The angler reportedly released the fish (lgl).}
+  \item{Public}{The angler was a member of the public as opposed the study team (lgl).}
 }}
 \usage{
 recapture

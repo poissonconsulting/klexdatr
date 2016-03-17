@@ -34,8 +34,11 @@ library(lexr)
 library(klexdatr)
 
 lex <- lexr::input_lex_data("klexdatr")
+# detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
+#                            end_date = as.Date("2014-12-31"), hourly_interval = 6L)
+
 detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
-                           end_date = as.Date("2014-12-31"), hourly_interval = 6L)
+                           end_date = as.Date("2008-12-31"), hourly_interval = 24L)
 
 print(lexr:::plot_detect_section(detect$section))
 #save_plot("lake", caption = "Kootenay Lake by color-coded section")
@@ -49,11 +52,18 @@ print(lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interv
 
 ## Installation
 
-To install the klexdatr package, execute the following code at the R terminal:
+To install and load the klexdatr package, execute the following code at the R terminal:
 ``` r
 # install.packages("devtools")
 devtools::install_github("poissonconsulting/klexdatr")
+library(klexdatr)
 ```
+
+## Information
+
+For more information, install and load the package and then type `?qlexdatr`
+at the R terminal.
+
 ## Acknowledgements
 
 ![](koot.png)

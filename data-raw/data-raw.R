@@ -38,7 +38,6 @@ section@data %<>% select(SectionNumber = SECTNBR) %>% check_key("SectionNumber")
 section@data %<>% mutate(Section = paste0("S", sprintf("%02d", SectionNumber)))
 
 # combine sections
-#section@data$Section[section@data$SectionNumber %in% c(1,5:6)] <- "S06"
 section@data$Section[section@data$SectionNumber %in% 33:38] <- "S33"
 
 section@data <- as.data.frame(bind_cols(
@@ -145,7 +144,6 @@ adjust_taglife <- function(x) {
   if (nrow(x) == 1)
     return(x)
   x %<>% arrange(DateTimeCapture)
-  print(x)
   x$TagLife %<>% subtract(as.Date(x$DateTimeCapture) - as.Date(x$DateTimeCapture[1])) %>%
     as.integer()
   x
@@ -323,20 +321,6 @@ lexr:::check_lex_capture(capture)
 use_data(capture, overwrite = TRUE)
 
 section <- section[!section@data$SectionNumber %in% 34:38,]
-
-# sections <- section@data$Section
-#
-# section %<>% unionSpatialPolygons(IDs = sections)
-#
-# sections %<>% unique()
-#
-# data <- bind_cols(data.frame(Section = factor(row.names(section), levels = levels(sections))),
-#   select(as.data.frame(gCentroid(section, byid = TRUE)),
-#                        EastingSection = x, NorthingSection = y))
-#
-# row.names(data) <- sections
-#
-# section %<>% SpatialPolygonsDataFrame(data = as.data.frame(data))
 
 section <- section[section@data$Section,]
 

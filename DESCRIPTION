@@ -9,17 +9,16 @@ Authors@R: c(
     person("Sarah", "Stephenson", role = c("aut", "dtc")),
     person("Matt", "Neufeld", role = c("aut", "dtc")),
     person("Jeff", "Burrows", role = c("aut", "dtc")),
-    person("Kerry", "Reed", role = c("dtc")),
-    person("Robyn", "Irvine", role = c("dtc")),
-    person("Harvey", "Andrusak", role = c("dtc")),
-    person("James", "Baxter", role = c("dtc")))
-Description: An R package of data for the Kootenay Lake Large Trout Exploitation Study.
+    person("Kerry", "Reed", role = c("aut", "dtc")),
+    person("Robyn", "Irvine", role = c("aut", "dtc")),
+    person("Harvey", "Andrusak", role = c("aut", "dtc")))
+Description: An R package of data from the Kootenay Lake Large Trout Exploitation Study.
 License: CC BY 4.0 + file LICENSE
 LazyData: true
 Depends:
     R (>= 3.1.0)
 Suggests:
     datacheckr (>= 0.1.0),
-    lexr,
+    dplyr,
     testthat
 RoxygenNote: 5.0.1
