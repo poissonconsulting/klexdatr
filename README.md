@@ -1,9 +1,8 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 Kootenay Lake Exploitation Study Data
+=====================================
 
-An R package of data for the Kootenay Lake Large Trout Exploitation Study
-
-    Data sets in package ‘klexdatr’:
+An R package of data for the Kootenay Lake Large Trout Exploitation Study. The package provides six related datasets.
 
     capture                          Fish Capture Data
     deployment                       Receiver Deployment Data
@@ -12,52 +11,17 @@ An R package of data for the Kootenay Lake Large Trout Exploitation Study
     section                          Section Data
     station                          Station Data
 
-``` r
-library(lexr)
-#> 
-#> Attaching package: 'lexr'
-#> The following object is masked from 'package:base':
-#> 
-#>     date
-library(klexdatr)
-
-lex <- lexr::input_lex_data("klexdatr")
-# detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
-#                            end_date = as.Date("2014-12-31"), hourly_interval = 6L)
-
-detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
-                           end_date = as.Date("2008-12-31"), hourly_interval = 24L)
-#> making interval...
-#> making coverage...
-#> making capture...
-#> making distance...
-#> making detection...
-#> making section...
-
-print(lexr:::plot_detect_section(detect$section))
-```
-
 ![](README-unnamed-chunk-2-1.png)<!-- -->
 
-``` r
-#save_plot("lake", caption = "Kootenay Lake by color-coded section")
-
-print(lexr:::plot_detect_overview(detect$capture, detect$recapture, detect$detection, detect$section, detect$interval))
-```
+    #> Kootenay Lake by color-coded section.
 
 ![](README-unnamed-chunk-2-2.png)<!-- -->
 
-``` r
-#save_plot("overview", caption = "Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.")
-
-print(lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interval))
-```
+    #> Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.
 
 ![](README-unnamed-chunk-2-3.png)<!-- -->
 
-``` r
-#save_plot("coverage", caption = "Receiver coverage by color-coded section and date.")
-```
+    #> Receiver coverage by color-coded section and date.
 
 Installation
 ------------

@@ -14,13 +14,12 @@ knitr::opts_chunk$set(
 )
 ```
 
-Kootenay Lake Exploitation Study Data
+# Kootenay Lake Exploitation Study Data
 
-An R package of data for the Kootenay Lake Large Trout Exploitation Study
+An R package of data for the Kootenay Lake Large Trout Exploitation Study.
+The package provides six related datasets.
 
 ```
-Data sets in package ‘klexdatr’:
-
 capture                          Fish Capture Data
 deployment                       Receiver Deployment Data
 detection                        Acoustic Detection Data
@@ -29,7 +28,7 @@ section                          Section Data
 station                          Station Data
 ```
 
-```{r}
+```{r, message=FALSE, echo=FALSE}
 library(lexr)
 library(klexdatr)
 
@@ -41,13 +40,13 @@ detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
                            end_date = as.Date("2008-12-31"), hourly_interval = 24L)
 
 print(lexr:::plot_detect_section(detect$section))
-#save_plot("lake", caption = "Kootenay Lake by color-coded section")
+cat("Kootenay Lake by color-coded section.")
 
 print(lexr:::plot_detect_overview(detect$capture, detect$recapture, detect$detection, detect$section, detect$interval))
-#save_plot("overview", caption = "Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.")
+cat("Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.")
 
-print(lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interval))
-#save_plot("coverage", caption = "Receiver coverage by color-coded section and date.")
+lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interval)
+cat("Receiver coverage by color-coded section and date.")
 ```
 
 ## Installation
