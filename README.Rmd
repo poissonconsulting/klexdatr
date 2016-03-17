@@ -34,7 +34,7 @@ library(klexdatr)
 
 lex <- lexr::input_lex_data("klexdatr")
 detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
-                            end_date = as.Date("2014-12-31"), hourly_interval = 6L)
+                            end_date = as.Date("2013-12-31"), hourly_interval = 6L)
 ```
 
 The following plots of the data were produced using the [lexr](https://github.com/poissonconsulting/lexr) package.
