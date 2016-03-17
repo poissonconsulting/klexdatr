@@ -42,11 +42,11 @@ The following plots of the data were produced using the [lexr](https://github.co
 lexr:::plot_detect_section(detect$section)
 ```
 
-```{r, message=FALSE, echo=FALSE, fig.cap="Receiver coverage by color-coded section and date."}
+```{r, message=FALSE, echo=FALSE, fig.height=8, fig.cap="Receiver coverage by color-coded section and date."}
 lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interval)
 ```
 
-```{r, message=FALSE, echo=FALSE, fig.cap="Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square."}
+```{r, message=FALSE, echo=FALSE, fig.height=8, fig.cap="Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square."}
 lexr:::plot_detect_overview(detect$capture, detect$recapture, detect$detection, detect$section, detect$interval)
 ```
 
