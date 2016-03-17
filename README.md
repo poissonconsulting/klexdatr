@@ -11,17 +11,21 @@ An R package of data for the Kootenay Lake Large Trout Exploitation Study. The p
     section                          Section Data
     station                          Station Data
 
-![](README-unnamed-chunk-2-1.png)<!-- -->
+The following plots of the data were produced using the [lexr](https://github.com/poissonconsulting/lexr) package.
+<img src="README-unnamed-chunk-3-1.png" alt="Kootenay Lake by color-coded section."  />
+<p class="caption">
+Kootenay Lake by color-coded section.
+</p>
 
-    #> Kootenay Lake by color-coded section.
+<img src="README-unnamed-chunk-4-1.png" alt="Receiver coverage by color-coded section and date."  />
+<p class="caption">
+Receiver coverage by color-coded section and date.
+</p>
 
-![](README-unnamed-chunk-2-2.png)<!-- -->
-
-    #> Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.
-
-![](README-unnamed-chunk-2-3.png)<!-- -->
-
-    #> Receiver coverage by color-coded section and date.
+<img src="README-unnamed-chunk-5-1.png" alt="Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square."  />
+<p class="caption">
+Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.
+</p>
 
 Installation
 ------------

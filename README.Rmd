@@ -33,20 +33,21 @@ library(lexr)
 library(klexdatr)
 
 lex <- lexr::input_lex_data("klexdatr")
-# detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
-#                            end_date = as.Date("2014-12-31"), hourly_interval = 6L)
-
 detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
-                           end_date = as.Date("2008-12-31"), hourly_interval = 24L)
+                            end_date = as.Date("2014-12-31"), hourly_interval = 6L)
+```
 
-print(lexr:::plot_detect_section(detect$section))
-cat("Kootenay Lake by color-coded section.")
+The following plots of the data were produced using the [lexr](https://github.com/poissonconsulting/lexr) package.
+```{r, message=FALSE, echo=FALSE, fig.height=8, fig.cap="Kootenay Lake by color-coded section."}
+lexr:::plot_detect_section(detect$section)
+```
 
-print(lexr:::plot_detect_overview(detect$capture, detect$recapture, detect$detection, detect$section, detect$interval))
-cat("Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.")
-
+```{r, message=FALSE, echo=FALSE, fig.cap="Receiver coverage by color-coded section and date."}
 lexr:::plot_detect_coverage(detect$coverage, detect$section, detect$interval)
-cat("Receiver coverage by color-coded section and date.")
+```
+
+```{r, message=FALSE, echo=FALSE, fig.cap="Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square."}
+lexr:::plot_detect_overview(detect$capture, detect$recapture, detect$detection, detect$section, detect$interval)
 ```
 
 ## Installation
