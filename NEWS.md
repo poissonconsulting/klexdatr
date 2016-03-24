@@ -1,5 +1,9 @@
 # klexdatr NEWS
 
+## v0.0.4
+
+- Exported lexr plotting functions in README
+
 ## v0.0.3
 
 - Removed depth data as no resources to validate

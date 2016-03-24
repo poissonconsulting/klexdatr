@@ -46,7 +46,7 @@ For more information, install and load the package and then type `?klexdatr` at 
 Acknowledgements
 ----------------
 
-![](koot.png)
+![](logos.png)
 
 The project was primarily funded by the Habitat Conservation Trust Foundation.
 

@@ -161,7 +161,7 @@ capture %<>% mutate(CaptureX = Xn83z11u,
 levels(capture$Species) <- species
 
 capture %<>% filter(MortalityYN != "Yes")
-capture %<>% filter(Length >= 500)
+capture %<>% filter(Length > 0)
 
 is.na(capture$Weight[capture$WeigthType != "Measured"]) <- TRUE
 
