@@ -184,7 +184,8 @@ capture$TBarTag1Reward[capture$Switch] <- reward
 
 capture %<>% select(-Switch) %>% verify(!is.na(TBarTag1)) %>% verify(is.na(TBarTag2Reward) | TBarTag1Reward >= TBarTag2Reward) %>% as.data.frame()
 
-capture %<>% filter(TBarTag1Reward >= 100)
+# only keep acoustic tag or fish with reward tags
+capture %<>% filter(DateTimeTagExpire > DateTimeCapture | TBarTag1Reward >= 100)
 
 capture <- SpatialPointsDataFrame(select(capture, CaptureX, CaptureY),
                                   select(capture, -CaptureX, -CaptureY),

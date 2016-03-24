@@ -1,5 +1,9 @@
 # klexdatr NEWS
 
+## v0.0.5
+
+- Keep all captures with acoustic tag and/or $100 reward
+
 ## v0.0.4
 
 - Exported lexr plotting functions in README
