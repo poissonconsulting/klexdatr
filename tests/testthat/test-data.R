@@ -7,8 +7,8 @@ test_that("data", {
   expect_df(datacheckr::check_data3(
     section@data,
     list(Section = factor(1),
-         Habitat = factor(1),
-         Bounded = TRUE,
+         Habitat = factor(c("Lentic", "Lentic", "Lotic"), levels = c("Lentic", "Lotic")),
+         Bounded = c(TRUE,TRUE,FALSE),
          EastingSection = 1,
          NorthingSection = 1),
     key = "Section"))
