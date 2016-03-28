@@ -1,5 +1,8 @@
 # klexdatr NEWS
 
+- Code rivers and West Arm as Lotic.
+- Code West Arm and Kootenay River as not Bounded.
+
 ## v0.0.5
 
 - Keep all captures with acoustic tag and/or $100 reward

@@ -326,10 +326,10 @@ section <- section[!section@data$SectionNumber %in% 34:38,]
 section <- section[section@data$Section,]
 
 section@data$Habitat <- factor("Lentic", levels = c("Lentic", "Lotic"))
-section@data$Habitat[section@data$SectionNumber %in% c("S01", "S02", "S05", "S06", "S19", "S20", "S33")] <- "Lotic"
+section@data$Habitat[section@data$Section %in% c("S01", "S02", "S05", "S06", "S19", "S20", "S33")] <- "Lotic"
 
 section@data$Bounded <- TRUE
-section@data$Bounded[section@data$SectionNumber %in% c("S19", "S33")] <- FALSE
+section@data$Bounded[section@data$Section %in% c("S19", "S33")] <- FALSE
 
 section@data %<>% select(Section, Habitat, Bounded, EastingSection, NorthingSection)
 row.names(section) <- as.character(section@data$Section)
