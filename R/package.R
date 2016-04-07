@@ -14,13 +14,10 @@
 #' @examples
 #' library(dplyr) # so tbl data frames print nice
 #'
-#' data(list = c("section", "station", "deployment", "capture",
-#'   "recapture", "detection"))
-#'
-#' print(section)
-#' print(station)
-#' print(deployment)
-#' print(capture)
-#' print(recapture)
-#' print(detection)
+#' print(klexdatr::section)
+#' print(klexdatr::station)
+#' print(klexdatr::deployment)
+#' print(klexdatr::capture)
+#' print(klexdatr::recapture)
+#' print(klexdatr::detection)
 NULL

@@ -33,6 +33,15 @@ library(lexr)
 library(klexdatr)
 
 lex <- lexr::input_lex_data("klexdatr")
+
+  sections <- list(
+    "S02" = "S02", "S03" = "S03", "S04" = "S04", "S01" = c("S01", "S05", "S06"), "S07" = "S07",
+    "S08" = "S08", "S09" = "S09", "S10" = "S10", "S11" = "S11", "S12" = "S12", "S13" = "S13",
+    "S14" = "S14", "S15" = "S15", "S16" = "S16", "S17" = "S17", "S18" = c("S18", "S21"), 
+    "S23" = "S23", "S24" = "S24", "S20" = "S20", "S22" = "S22", "S25" = "S25", "S19" = "S19",
+    "S26" = "S26", "S27" = "S27", "S28" = "S28", "S29" = "S29", "S30" = "S30", "S31" = "S31", 
+    "S32" = "S32", "S33" = "S33")
+lex <- lexr::filter_lex_data(lex, sections = sections)
 detect <- lexr::make_detect_data(lex, start_date = as.Date("2008-04-01"),
                             end_date = as.Date("2013-12-31"))
 ```
