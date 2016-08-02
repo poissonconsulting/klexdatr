@@ -1,5 +1,7 @@
 # klexdatr NEWS
 
+## v0.0.6
+
 - Code rivers and West Arm as Lotic.
 - Code West Arm and Kootenay River as not Bounded.
 
