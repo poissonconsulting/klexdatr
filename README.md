@@ -1,5 +1,5 @@
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/klexdatr.svg?branch=master)](https://travis-ci.org/poissonconsulting/klexdatr)
+[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/klexdatr.svg?branch=master)](https://travis-ci.org/poissonconsulting/klexdatr) [![DOI](https://zenodo.org/badge/50063415.svg)](https://zenodo.org/badge/latestdoi/50063415)
 
 Kootenay Lake Exploitation Study Data
 =====================================
