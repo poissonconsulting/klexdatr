@@ -23,4 +23,3 @@ A tbl data frame of fish recaptures. As the time of recapture
 was not reported it is assumed to be 12:00:00.
 }
 \keyword{datasets}
-

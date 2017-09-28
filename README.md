@@ -1,10 +1,15 @@
+
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/klexdatr.svg?branch=master)](https://travis-ci.org/poissonconsulting/klexdatr) [![DOI](https://zenodo.org/badge/50063415.svg)](https://zenodo.org/badge/latestdoi/50063415)
+[![stability-locked](https://img.shields.io/badge/stability-locked-blue.svg)](https://github.com/joethorley/stability-badges#locked) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/klexdatr.svg?branch=master)](https://travis-ci.org/poissonconsulting/klexdatr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/klexdatr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/klexdatr) [![codecov](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr) [![License: CC0](https://img.shields.io/badge/License-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode) [![DOI](https://zenodo.org/badge/50063415.svg)](https://zenodo.org/badge/latestdoi/50063415)
 
 Kootenay Lake Exploitation Study Data
 =====================================
 
 An R package of data for the Kootenay Lake Large Trout Exploitation Study. The package provides six related datasets.
+
+The data is analysed by
+
+Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay Lake, British Columbia (2008–2013). PeerJ 5: e2874. <doi:10.7717/peerj.2874>. <https://peerj.com/articles/2874>.
 
     capture                          Fish Capture Data
     deployment                       Receiver Deployment Data

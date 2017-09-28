@@ -18,4 +18,3 @@ deployment
 A data frame of receiver deployments by station and date times.
 }
 \keyword{datasets}
-

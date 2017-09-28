@@ -22,4 +22,3 @@ Section Spatial Polygon Data
 Polygons of sections of the waterbodies.
 }
 \keyword{datasets}
-

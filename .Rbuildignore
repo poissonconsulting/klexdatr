@@ -6,3 +6,7 @@
 
 logos.png
 ^\.travis\.yml$
+^document\.R$
+^appveyor\.yml$
+^codecov\.yml$
+^docs$

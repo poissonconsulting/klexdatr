@@ -18,4 +18,3 @@ detection
 Hourly acoustic detection data by fish (capture) and receiver.
 }
 \keyword{datasets}
-

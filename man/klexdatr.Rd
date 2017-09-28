@@ -26,4 +26,3 @@ print(klexdatr::capture)
 print(klexdatr::recapture)
 print(klexdatr::detection)
 }
-

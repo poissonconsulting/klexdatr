@@ -18,4 +18,3 @@ station
 A tbl data frame of detection stations.
 }
 \keyword{datasets}
-
