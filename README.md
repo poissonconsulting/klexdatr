@@ -1,6 +1,6 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
-[![stability-locked](https://img.shields.io/badge/stability-locked-blue.svg)](https://github.com/joethorley/stability-badges#locked) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/klexdatr.svg?branch=master)](https://travis-ci.org/poissonconsulting/klexdatr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/klexdatr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/klexdatr) [![codecov](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr) [![License: CC0](https://img.shields.io/badge/License-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode) [![DOI](https://zenodo.org/badge/50063415.svg)](https://zenodo.org/badge/latestdoi/50063415)
+[![stability-locked](https://img.shields.io/badge/stability-locked-blue.svg)](https://github.com/joethorley/stability-badges#locked) [![Travis-CI Build Status](https://travis-ci.org/poissonconsulting/klexdatr.svg?branch=master)](https://travis-ci.org/poissonconsulting/klexdatr) [![AppVeyor Build Status](https://ci.appveyor.com/api/projects/status/github/poissonconsulting/klexdatr?branch=master&svg=true)](https://ci.appveyor.com/project/poissonconsulting/klexdatr) [![codecov](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr) [![License: CC0](https://img.shields.io/badge/License-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.596624.svg)](https://doi.org/10.5281/zenodo.596624)
 
 Kootenay Lake Exploitation Study Data
 =====================================
@@ -9,7 +9,9 @@ An R package of data for the Kootenay Lake Large Trout Exploitation Study. The p
 
 The data is analysed by
 
-Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay Lake, British Columbia (2008–2013). PeerJ 5: e2874. <doi:10.7717/peerj.2874>. <https://peerj.com/articles/2874>.
+**Thorley, J.L.**, and **Andrusak, G.F. 2017.** *The fishing and natural mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay Lake, British Columbia (2008–2013)*. PeerJ 5: e2874. <https://peerj.com/articles/2874>.
+
+If you use the data in your own publications please cite <http://doi.org/10.5281/zenodo.596624>
 
     capture                          Fish Capture Data
     deployment                       Receiver Deployment Data
@@ -18,11 +20,11 @@ Thorley, J.L., and Andrusak, G.F. 2017. The fishing and natural mortality of lar
     section                          Section Data
     station                          Station Data
 
-The following plots of the data were produced using the [lexr](https://github.com/poissonconsulting/lexr) package. ![Kootenay Lake by color-coded section.](README-unnamed-chunk-3-1.png)
+The following plots of the data were produced using the [lexr](https://github.com/poissonconsulting/lexr) package. ![Kootenay Lake by color-coded section.](tools/README-unnamed-chunk-3-1.png)
 
-![Receiver coverage by color-coded section and date.](README-unnamed-chunk-4-1.png)
+![Receiver coverage by color-coded section and date.](tools/README-unnamed-chunk-4-1.png)
 
-![Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.](README-unnamed-chunk-5-1.png)
+![Detections by fish, species, date and color-coded section. Captures are indicate by a red circle, released recaptures by a black triangle and harvested recaptures by a black square.](tools/README-unnamed-chunk-5-1.png)
 
 Installation
 ------------
@@ -43,7 +45,7 @@ For more information, install and load the package and then type `?klexdatr` at 
 Acknowledgements
 ----------------
 
-![](logos.png)
+![](tools/logos.png)
 
 The project was primarily funded by the Habitat Conservation Trust Foundation.
 

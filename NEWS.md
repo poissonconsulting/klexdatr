@@ -1,26 +1,32 @@
-# klexdatr NEWS
+# klexdatr 0.0.7
+    ## Minor changes
+      - Updated Documentation
+      
+# klexdatr 0.0.7
+    ## Minor changes
+      - Used in Thorley and Andrusak (2017)
 
-## v0.0.6
+# klexdatr 0.0.6
+    ## Major changes
+      - Code rivers and West Arm as Lotic.
+      - Code West Arm and Kootenay River as not Bounded.
 
-- Code rivers and West Arm as Lotic.
-- Code West Arm and Kootenay River as not Bounded.
+# klexdatr 0.0.5
+    ## Major changes
+      - Keep all captures with acoustic tag and/or $100 reward
 
-## v0.0.5
+# klexdatr 0.0.4
+    ## Minor changes
+      - Exported lexr plotting functions in README
 
-- Keep all captures with acoustic tag and/or $100 reward
+# klexdatr 0.0.3
+    ## Major changes
+      - Removed depth data as no resources to validate
 
-## v0.0.4
+# klexdatr 0.0.2
+    ## Major changes
+      - Added reward fish without acoustic tags
 
-- Exported lexr plotting functions in README
-
-## v0.0.3
-
-- Removed depth data as no resources to validate
-
-## v0.0.2
-
-- Added reward fish without acoustic tags
-
-## v0.0.1
-
-- Initial release
+# klexdatr 0.0.1
+    ## Major changes
+      - Initial release
