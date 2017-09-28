@@ -45,7 +45,7 @@ For more information, install and load the package and then type `?klexdatr` at 
 Acknowledgements
 ----------------
 
-![](tools/README-logos.png)
+![](man/figures/logos.png)
 
 The project was primarily funded by the Habitat Conservation Trust Foundation.
 
