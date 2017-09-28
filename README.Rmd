@@ -86,7 +86,7 @@ at the R terminal.
 
 ## Acknowledgements
 
-![](tools/logos.png)
+![](tools/README-logos.png)
 
 The project was primarily funded by the Habitat Conservation Trust Foundation.
 
