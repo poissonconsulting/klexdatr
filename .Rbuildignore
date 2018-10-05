@@ -1,12 +1,12 @@
+^_pkgdown\.yml$
 ^data-raw$
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
 ^README-.*\.png$
-
-logos.png
+^logos.png$
 ^\.travis\.yml$
-^document\.R$
+^build\.R$
 ^appveyor\.yml$
 ^codecov\.yml$
 ^docs$

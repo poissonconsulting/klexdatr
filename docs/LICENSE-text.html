@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Receiver Deployment Data — deployment • klexdatr</title>
+<title>License • klexdatr</title>
 
 <!-- jquery -->
 <script src="https://code.jquery.com/jquery-3.1.0.min.js" integrity="sha384-nrOSfDHtoPMzJHjVTdCopGqIqeYETSXhZDFyniQ8ZHcVy08QesyHcnOUpMpqnmWq" crossorigin="anonymous"></script>
@@ -18,13 +18,22 @@
 <!-- Font Awesome icons -->
 <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-T8Gy5hrqNKT+hzMclPo118YTQO6cYprQmhrYwIiQ/3axmI1hQomh7Ud2hPOy8SP1" crossorigin="anonymous">
 
+<!-- clipboard.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/1.7.1/clipboard.min.js" integrity="sha384-cV+rhyOuRHc9Ub/91rihWcGmMmCXDeksTtCihMupQHSsi8GIIRDG0ThDc3HGQFJ3" crossorigin="anonymous"></script>
+
+<!-- sticky kit -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/sticky-kit/1.1.3/sticky-kit.min.js" integrity="sha256-c4Rlo1ZozqTPE2RLuvbusY3+SU1pQaJC0TjuhygMipw=" crossorigin="anonymous"></script>
 
 <!-- pkgdown -->
-<link href="../pkgdown.css" rel="stylesheet">
-<script src="../jquery.sticky-kit.min.js"></script>
-<script src="../pkgdown.js"></script>
-  
-  
+<link href="pkgdown.css" rel="stylesheet">
+<script src="pkgdown.js"></script>
+
+
+
+<meta property="og:title" content="License" />
+
+
+
 <!-- mathjax -->
 <script src='https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML'></script>
 
@@ -37,7 +46,7 @@
   </head>
 
   <body>
-    <div class="container template-reference-topic">
+    <div class="container template-title-body">
       <header>
       <div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
@@ -47,21 +56,25 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="../index.html">klexdatr</a>
+      <span class="navbar-brand">
+        <a class="navbar-link" href="index.html">klexdatr</a>
+        <span class="label label-default" data-toggle="tooltip" data-placement="bottom" title="Released package">0.0.8.9001</span>
+      </span>
     </div>
+
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
         <li>
-  <a href="..//index.html">
+  <a href="index.html">
     <span class="fa fa-home fa-lg"></span>
      
   </a>
 </li>
 <li>
-  <a href="../reference/index.html">Reference</a>
+  <a href="reference/index.html">Reference</a>
 </li>
 <li>
-  <a href="../news/index.html">News</a>
+  <a href="news/index.html">Changelog</a>
 </li>
       </ul>
       
@@ -73,6 +86,7 @@
   </a>
 </li>
       </ul>
+      
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
 </div><!--/.navbar -->
@@ -80,38 +94,31 @@
       
       </header>
 
-      <div class="row">
-  <div class="col-md-9 contents">
+<div class="row">
+  <div class="contents col-md-9">
     <div class="page-header">
-    <h1>Receiver Deployment Data</h1>
+      <h1>License</h1>
     </div>
 
-    
-    <p>A data frame of receiver deployments by station and date times.</p>
-    
+<pre>YEAR: 2016
+COPYRIGHT HOLDERS:
+  Habitat Conservation Trust Foundation,
+  Fish and Wildlife Compensation Program,
+  Government of British Columbia,
+  Ministry of Forests, Lands and Natural Resource Operations,
+  Bonneville Power Administration,
+  Northwest Power and Conservation Council's Fish and Wildlife Program,
+  Idaho Department of Fish and Game,
+  Kootenai Tribe of Idaho
 
-    <pre class="usage"><span class='no'>deployment</span></pre>
-        
-    <h2 class="hasAnchor" id="format"><a class="anchor" href="#format"></a>Format</h2>
-
-    <p>A tbl data frame:</p><dl class='dl-horizontal'>
-  <dt>Station</dt><dd><p>The station name (fctr).</p></dd>
-  <dt>Receiver</dt><dd><p>The receiver code (fctr).</p></dd>
-  <dt>DateTimeReceiverIn</dt><dd><p>The receiver deployment date and time (time).</p></dd>
-  <dt>DateTimeReceiverOut</dt><dd><p>The receiver retrieval date and time (time).</p></dd>
-</dl>
-    
-
-  </div>
-  <div class="col-md-3 hidden-xs hidden-sm" id="sidebar">
-    <h2>Contents</h2>
-    <ul class="nav nav-pills nav-stacked">
-      
-      <li><a href="#format">Format</a></li>
-          </ul>
+Contains information licensed under the Open Government License – British Columbia.
+http://www.data.gov.bc.ca/local/dbc/docs/license/OGL-vbc2.0.pdf
+</pre>
 
   </div>
+
 </div>
+
 
       <footer>
       <div class="copyright">
@@ -119,11 +126,14 @@
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="http://hadley.github.io/pkgdown/">pkgdown</a>.</p>
+  <p>Site built with <a href="http://pkgdown.r-lib.org/">pkgdown</a>.</p>
 </div>
 
       </footer>
    </div>
 
+  
+
   </body>
 </html>
+

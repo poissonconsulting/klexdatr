@@ -12,7 +12,7 @@ library(magrittr)
 library(lubridate)
 library(assertr)
 library(devtools)
-library(datacheckr)
+library(checkr)
 library(lexr)
 
 rm(list = ls())
