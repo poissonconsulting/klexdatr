@@ -2,7 +2,7 @@ Package: klexdatr
 Title: Kootenay Lake Exploitation Study Data
 Version: 0.1.0
 Authors@R: c(
-    person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre", "dtc")),
+    person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre", "dtc"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Greg", "Andrusak", role = c("aut", "dtc")),
     person("Gary", "Pavan", role = c("aut", "dtc")),
     person("Sarah", "Stephenson", role = c("aut", "dtc")),
@@ -11,7 +11,7 @@ Authors@R: c(
     person("Kerry", "Reed", role = c("aut", "dtc")),
     person("Robyn", "Irvine", role = c("aut", "dtc")),
     person("Harvey", "Andrusak", role = c("aut", "dtc")))
-Description: Six relational tibbles from the Kootenay Lake Large Trout Exploitation study.
+Description: Six relational 'tibbles' from the Kootenay Lake Large Trout Exploitation study.
   The study which ran from 2008 to 2014 caught, tagged and released large Rainbow Trout and Bull Trout
   in Kootenay Lake by boat angling. 
   The fish were tagged with internal acoustic tags and/or high reward external tags
@@ -19,8 +19,6 @@ Description: Six relational tibbles from the Kootenay Lake Large Trout Exploitat
   The data are analysed by Thorley and Andrusak (1994) <doi:10.7717/peerj.2874>
   to estimate the natural and fishing mortality of both species.
 License: CC BY 4.0 + file LICENSE
-URL: https://github.com/poissonconsulting/klexdatr
-BugReports: https://github.com/poissonconsulting/klexdatr/issues
 Depends:
     R (>= 3.3)
 Suggests:
@@ -28,6 +26,8 @@ Suggests:
     covr,
     testthat,
     tibble
+URL: https://github.com/poissonconsulting/klexdatr
+BugReports: https://github.com/poissonconsulting/klexdatr/issues
 LazyData: true
 RoxygenNote: 7.1.0
 Encoding: UTF-8
