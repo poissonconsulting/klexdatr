@@ -1,12 +1,12 @@
 context("data")
 
 test_that("data", {
-  # expect_null(chk::check_data(
-  #   section,
-  #   list(Section = factor(1),
-  #        Habitat = factor(c("Lentic", "Lentic", "Lotic"), levels = c("Lentic", "Lotic")),
-  #        Bounded = c(TRUE,TRUE,FALSE)),
-  #   key = "Section"))
+  expect_null(chk::check_data(
+    section,
+    list(Section = factor(1),
+         Habitat = factor(c("Lentic", "Lentic", "Lotic"), levels = c("Lentic", "Lotic")),
+         Bounded = c(TRUE,TRUE,FALSE)),
+    key = "Section"))
 
   expect_null(chk::check_data(
     station,
@@ -14,7 +14,7 @@ test_that("data", {
          Section = factor(1)),
     key = "Station"))
 
-#  expect_null(chk::chk_join(station, section, "Section"))
+  expect_null(chk::chk_join(station, section, "Section"))
 
   expect_null(chk::check_data(
     deployment,
@@ -39,7 +39,7 @@ test_that("data", {
          DateTimeTagExpire = Sys.time()),
     key = c("Capture")))
 
-#  expect_null(chk::chk_join(capture, section, c("SectionCapture" = "Section")))
+  expect_null(chk::chk_join(capture, section, c("SectionCapture" = "Section")))
 
   expect_null(chk::check_data(
     recapture,
