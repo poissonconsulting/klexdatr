@@ -7,10 +7,10 @@
 \format{
 A SpatialPolygonsDataFrame with the data frame:
 \describe{
-  \item{Section}{The unique section code (fctr).}
-  \item{Habitat}{The habitat type 'Lentic' or 'Lotic' (fctr).}
-  \item{Bounded}{The polygon represents the full area (lgl).}
-  \item{geometry}{The section polygon (MULTIPOLYGON [m]).}
+\item{Section}{The unique section code (fctr).}
+\item{Habitat}{The habitat type 'Lentic' or 'Lotic' (fctr).}
+\item{Bounded}{The polygon represents the full area (lgl).}
+\item{geometry}{The section polygon (MULTIPOLYGON (m)).}
 }
 }
 \usage{

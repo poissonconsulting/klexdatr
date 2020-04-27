@@ -7,9 +7,9 @@
 \format{
 A tbl data frame:
 \describe{
-  \item{Station}{The unique station name (fctr).}
-  \item{Section}{The section code (fctr).}
-  \item{geometry}{The station point (POINT [m]).}
+\item{Station}{The unique station name (fctr).}
+\item{Section}{The section code (fctr).}
+\item{geometry}{The station point (POINT (m)).}
 }
 }
 \usage{

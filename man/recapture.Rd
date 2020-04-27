@@ -7,14 +7,14 @@
 \format{
 A tbl data frame:
 \describe{
-  \item{DateTimeRecapture}{The reported date of recapture (time).}
-  \item{Capture}{The fish code (fctr).}
-  \item{SectionRecapture}{The section code (fctr).}
-  \item{TBarTag1}{The first T-Bar Tag was reported (lgl).}
-  \item{TBarTag2}{A second T-Bar Tag was reported (lgl).}
-  \item{TagsRemoved}{The T-Bar tags were removed from the fish (lgl).}
-  \item{Released}{The angler reportedly released the fish (lgl).}
-  \item{Public}{The angler was a member of the public as opposed the study team (lgl).}
+\item{DateTimeRecapture}{The reported date of recapture (time).}
+\item{Capture}{The fish code (fctr).}
+\item{SectionRecapture}{The section code (fctr).}
+\item{TBarTag1}{The first T-Bar Tag was reported (lgl).}
+\item{TBarTag2}{A second T-Bar Tag was reported (lgl).}
+\item{TagsRemoved}{The T-Bar tags were removed from the fish (lgl).}
+\item{Released}{The angler reportedly released the fish (lgl).}
+\item{Public}{The angler was a member of the public as opposed the study team (lgl).}
 }
 }
 \usage{
