@@ -1,3 +1,5 @@
+- Converted to tibble with simple features.
+
 # klexdatr 0.0.8
     ## Minor changes
       - Updated Documentation

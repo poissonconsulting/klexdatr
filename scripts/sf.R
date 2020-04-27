@@ -18,11 +18,11 @@ capture %<>% tibble::as_tibble()
 recapture %<>% tibble::as_tibble()
 
 if(FALSE) {
-use_data(deployment, overwrite = TRUE)
-use_data(detection, overwrite = TRUE)
-use_data(station, overwrite = TRUE)
-use_data(section, overwrite = TRUE)
-use_data(capture, overwrite = TRUE)
-use_data(recapture, overwrite = TRUE)
+usethis::use_data(deployment, overwrite = TRUE)
+usethis::use_data(detection, overwrite = TRUE)
+usethis::use_data(station, overwrite = TRUE)
+usethis::use_data(section, overwrite = TRUE)
+usethis::use_data(capture, overwrite = TRUE)
+usethis::use_data(recapture, overwrite = TRUE)
 }
 

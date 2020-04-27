@@ -1,7 +1,6 @@
 Package: klexdatr
 Title: Kootenay Lake Exploitation Study Data
-Version: 0.0.8.9001
-Date: 2018-10-05
+Version: 0.1.0
 Authors@R: c(
     person("Joe", "Thorley", email = "joe@poissonconsulting.ca", role = c("aut", "cre", "dtc")),
     person("Greg", "Andrusak", role = c("aut", "dtc")),
@@ -17,15 +16,12 @@ License: CC BY 4.0 + file LICENSE
 URL: https://github.com/poissonconsulting/klexdatr
 BugReports: https://github.com/poissonconsulting/klexdatr/issues
 Depends:
-    R (>= 3.1.0)
+    R (>= 3.3)
 Suggests:
-    datacheckr,
-    dplyr,
-    sp,
+    chk,
+    covr,
     testthat,
-    covr
-Remotes:
-    poissonconsulting/datacheckr
+    tibble
 LazyData: true
 RoxygenNote: 7.1.0
 Encoding: UTF-8

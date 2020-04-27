@@ -9,8 +9,7 @@ A tbl data frame:
 \describe{
   \item{Station}{The unique station name (fctr).}
   \item{Section}{The section code (fctr).}
-  \item{EastingStation}{The station x coordinate (dbl).}
-  \item{NorthingStation}{The station y coordinate (dbl).}
+  \item{geometry}{The station point (POINT [m]).}
 }
 }
 \usage{

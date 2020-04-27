@@ -10,8 +10,7 @@ A SpatialPolygonsDataFrame with the data frame:
   \item{Section}{The unique section code (fctr).}
   \item{Habitat}{The habitat type 'Lentic' or 'Lotic' (fctr).}
   \item{Bounded}{The polygon represents the full area (lgl).}
-  \item{EastingSection}{The section centroid x coordinate (dbl).}
-  \item{NorthingSection}{The section centroid y coordinate (dbl).}
+  \item{geometry}{The section polygon (MULTIPOLYGON [m]).}
 }
 }
 \usage{

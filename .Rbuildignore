@@ -3,11 +3,9 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
 ^README\.Rmd$
-^README-.*\.png$
-^logos.png$
-^\.travis\.yml$
-^build\.R$
-^appveyor\.yml$
 ^codecov\.yml$
 ^scripts$
 ^docs$
+^CODE_OF_CONDUCT\.md$
+^\.github$
+^pkgdown$

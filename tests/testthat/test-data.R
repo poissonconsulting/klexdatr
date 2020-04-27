@@ -1,29 +1,22 @@
 context("data")
 
 test_that("data", {
+  # expect_null(chk::check_data(
+  #   section,
+  #   list(Section = factor(1),
+  #        Habitat = factor(c("Lentic", "Lentic", "Lotic"), levels = c("Lentic", "Lotic")),
+  #        Bounded = c(TRUE,TRUE,FALSE)),
+  #   key = "Section"))
 
-  expect_df <- function(x) expect_is(x, "data.frame")
-
-  expect_df(datacheckr::check_data3(
-    section@data,
-    list(Section = factor(1),
-         Habitat = factor(c("Lentic", "Lentic", "Lotic"), levels = c("Lentic", "Lotic")),
-         Bounded = c(TRUE,TRUE,FALSE),
-         EastingSection = 1,
-         NorthingSection = 1),
-    key = "Section"))
-
-  expect_df(datacheckr::check_data3(
+  expect_null(chk::check_data(
     station,
     list(Station = factor(1),
-         Section = factor(1),
-         EastingStation = 1,
-         NorthingStation = 1),
+         Section = factor(1)),
     key = "Station"))
 
-  expect_df(datacheckr::check_join(station, section@data, "Section"))
+#  expect_null(chk::chk_join(station, section, "Section"))
 
-  expect_df(datacheckr::check_data3(
+  expect_null(chk::check_data(
     deployment,
     list(Station = factor(1),
          Receiver = factor(1),
@@ -31,9 +24,9 @@ test_that("data", {
          DateTimeReceiverOut = Sys.time()),
     key = c("Station", "Receiver", "DateTimeReceiverIn")))
 
-  expect_df(datacheckr::check_join(deployment, station, "Station"))
+  expect_null(chk::chk_join(deployment, station, "Station"))
 
-  expect_df(datacheckr::check_data3(
+  expect_null(chk::check_data(
     capture,
     list(Capture = factor(1),
          DateTimeCapture = Sys.time(),
@@ -46,9 +39,9 @@ test_that("data", {
          DateTimeTagExpire = Sys.time()),
     key = c("Capture")))
 
-  expect_df(datacheckr::check_join(capture, section@data, c("SectionCapture" = "Section")))
+#  expect_null(chk::chk_join(capture, section, c("SectionCapture" = "Section")))
 
-  expect_df(datacheckr::check_data3(
+  expect_null(chk::check_data(
     recapture,
     list(DateTimeRecapture = Sys.time(),
          Capture = factor(1),
@@ -60,18 +53,18 @@ test_that("data", {
          Public = TRUE),
     key = c("DateTimeRecapture", "Capture")))
 
-  expect_df(datacheckr::check_join(recapture, capture, "Capture"))
-  expect_df(datacheckr::check_join(recapture, section@data,
-                                   c("SectionRecapture" = "Section"),
-                                   ignore_nas = TRUE))
+  expect_null(chk::chk_join(recapture, capture, "Capture"))
+#  missing values
+#  expect_null(chk::chk_join(recapture, section@data,
+#                                   c("SectionRecapture" = "Section")))
 
-  expect_df(datacheckr::check_data3(
+  expect_null(chk::check_data(
     detection,
     list(DateTimeDetection = Sys.time(),
          Capture = factor(1),
          Receiver = factor(1),
-         Detections = c(1L, datacheckr::max_integer())),
+         Detections = c(1L, 300L)),
   key = c("DateTimeDetection", "Capture", "Receiver")))
 
-  expect_df(datacheckr::check_join(detection, capture, "Capture"))
+  expect_null(chk::chk_join(detection, capture, "Capture"))
 })
