@@ -6,7 +6,7 @@
 \alias{klexdatr-package}
 \title{klexdatr: Kootenay Lake Exploitation Study Data}
 \description{
-Six relational tibbles from the Kootenay Lake Large Trout Exploitation study.
+Six relational 'tibbles' from the Kootenay Lake Large Trout Exploitation study.
   The study which ran from 2008 to 2014 caught, tagged and released large Rainbow Trout and Bull Trout
   in Kootenay Lake by boat angling. 
   The fish were tagged with internal acoustic tags and/or high reward external tags
@@ -23,7 +23,7 @@ Useful links:
 
 }
 \author{
-\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} [data contributor]
+\strong{Maintainer}: Joe Thorley \email{joe@poissonconsulting.ca} (\href{https://orcid.org/0000-0002-7683-4592}{ORCID}) [data contributor]
 
 Authors:
 \itemize{
