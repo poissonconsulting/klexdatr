@@ -63,7 +63,7 @@ The fish were tagged with internal acoustic tags and/or high reward external tag
 
 The data are analysed by Thorley and Andrusak (1994) <https://peerj.com/articles/2874/> to estimate the natural and fishing mortality of both species.
 
-A shiny app to view the fish movement data is available at <http://poissonconsulting.io/klexdatr-movement>.
+A shiny app to view the fish movement data is available at <http://poissonconsulting.shinyapps.io/klexdatr-movement>.
 
 ## Contribution
 
