@@ -1,3 +1,5 @@
+remotes::install_github("krlmlr/dm#335")
+
 library(tidyverse)
 library(dm)
 
@@ -6,10 +8,7 @@ pkgload::load_all()
 dm <-
   dm(
     station,
-    section =
-      section %>%
-      sf::st_as_sf() %>%
-      as_tibble(),
+    section,
     capture,
     deployment,
     detection,
