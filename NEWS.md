@@ -1,4 +1,6 @@
-- Converted to tibble with simple features.
+# klexdatr 0.1.0
+
+- Converted data sets to tibbles with simple features.
 
 # klexdatr 0.0.8
     ## Minor changes

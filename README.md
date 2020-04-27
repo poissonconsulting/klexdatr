@@ -9,37 +9,60 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://www.tidyverse.org/lifecycle/#stable)
 [![R build
 status](https://github.com/poissonconsulting/klexdatr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/klexdatr/actions)
-[![codecov](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr)
-[![License:
-CC0](https://img.shields.io/badge/License-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.596624.svg)](https://doi.org/10.5281/zenodo.596624)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/klexdatr)](https://CRAN.R-project.org/package=klexdatr)
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr?branch=master)
+[![License:
+CC0](https://img.shields.io/badge/License-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/klexdatr)](https://CRAN.R-project.org/package=klexdatr)
 <!-- badges: end -->
 
-`klexdatr` is an R package of six relational tibbles for the Kootenay
-Lake Large Trout Exploitation
-    Study.
+`klexdatr` is an R package of six relational tibbles from the Kootenay
+Lake Large Trout Exploitation study.
 
-    #> [1] "capture"    "deployment" "detection"  "recapture"  "section"   
-    #> [6] "station"
-    #> # A tibble: 245 x 9
-    #>    Capture DateTimeCapture     SectionCapture Species Length Weight Reward1
-    #>    <fct>   <dttm>              <fct>          <fct>    <int>  <dbl>   <int>
-    #>  1 F075    2008-05-24 10:40:00 S25            Bull T…    545   1.75       0
-    #>  2 F076    2008-05-24 11:10:00 S25            Bull T…    654   3.4        0
-    #>  3 F084    2008-06-05 08:01:00 S16            Bull T…    553  NA          0
-    #>  4 F100    2009-05-02 13:31:00 S21            Bull T…    643   2.75     100
-    #>  5 F104    2009-05-03 11:17:00 S22            Bull T…    567   2        100
-    #>  6 F129    2009-05-07 09:11:00 S21            Bull T…    703   3.9      100
-    #>  7 F133    2009-05-07 13:58:00 S21            Bull T…    712   3.65     100
-    #>  8 F137    2009-05-08 11:16:00 S21            Bull T…    572   1.9      100
-    #>  9 F141    2009-05-20 15:13:00 S16            Bull T…    564   2.2      100
-    #> 10 F143    2009-05-21 08:00:00 S16            Bull T…    595   2.4      100
-    #> # … with 235 more rows, and 2 more variables: Reward2 <int>,
-    #> #   DateTimeTagExpire <dttm>
+``` r
+ls("package:klexdatr") # the six tibbles
+#> [1] "capture"    "deployment" "detection"  "recapture"  "section"   
+#> [6] "station"
+```
+
+``` r
+library(tibble) # for prettier printing
+capture
+#> # A tibble: 245 x 9
+#>    Capture DateTimeCapture     SectionCapture Species Length Weight Reward1
+#>    <fct>   <dttm>              <fct>          <fct>    <int>  <dbl>   <int>
+#>  1 F075    2008-05-24 10:40:00 S25            Bull T…    545   1.75       0
+#>  2 F076    2008-05-24 11:10:00 S25            Bull T…    654   3.4        0
+#>  3 F084    2008-06-05 08:01:00 S16            Bull T…    553  NA          0
+#>  4 F100    2009-05-02 13:31:00 S21            Bull T…    643   2.75     100
+#>  5 F104    2009-05-03 11:17:00 S22            Bull T…    567   2        100
+#>  6 F129    2009-05-07 09:11:00 S21            Bull T…    703   3.9      100
+#>  7 F133    2009-05-07 13:58:00 S21            Bull T…    712   3.65     100
+#>  8 F137    2009-05-08 11:16:00 S21            Bull T…    572   1.9      100
+#>  9 F141    2009-05-20 15:13:00 S16            Bull T…    564   2.2      100
+#> 10 F143    2009-05-21 08:00:00 S16            Bull T…    595   2.4      100
+#> # … with 235 more rows, and 2 more variables: Reward2 <int>,
+#> #   DateTimeTagExpire <dttm>
+```
+
+``` r
+recapture
+#> # A tibble: 54 x 8
+#>    DateTimeRecapture   Capture SectionRecapture TBarTag1 TBarTag2 TagsRemoved
+#>    <dttm>              <fct>   <fct>            <lgl>    <lgl>    <lgl>      
+#>  1 2009-04-05 12:00:00 F006    S25              TRUE     TRUE     TRUE       
+#>  2 2009-05-23 12:00:00 F131    S16              TRUE     TRUE     TRUE       
+#>  3 2009-09-10 12:00:00 F097    S14              TRUE     TRUE     TRUE       
+#>  4 2009-10-06 12:00:00 F169    S08              TRUE     TRUE     TRUE       
+#>  5 2009-10-10 12:00:00 F076    S30              TRUE     TRUE     TRUE       
+#>  6 2009-10-12 12:00:00 F099    S10              TRUE     TRUE     TRUE       
+#>  7 2009-10-14 12:00:00 F112    S16              TRUE     TRUE     TRUE       
+#>  8 2009-10-16 12:00:00 F111    S27              TRUE     TRUE     TRUE       
+#>  9 2010-01-23 12:00:00 F197    S27              TRUE     TRUE     TRUE       
+#> 10 2010-01-28 12:00:00 F075    S23              TRUE     TRUE     TRUE       
+#> # … with 44 more rows, and 2 more variables: Released <lgl>, Public <lgl>
+```
 
 ## Installation
 
@@ -55,15 +78,19 @@ remotes::install_github("poissonconsulting/klexdatr")
 
 ## Information
 
-The data are analysed by
+The study which ran from 2008 to 2014 caught, tagged and released large
+Rainbow Trout and Bull Trout in Kootenay Lake by boat angling.
 
-**Thorley, J.L.**, and **Andrusak, G.F. 2017.** *The fishing and natural
-mortality of large, piscivorous Bull Trout and Rainbow Trout in Kootenay
-Lake, British Columbia (2008–2013)*. PeerJ 5: e2874.
-<https://peerj.com/articles/2874>.
+The fish were tagged with internal acoustic tags and/or high reward
+external tags and subsequently detected by an acoustic receiver array as
+well as reported by anglers.
 
-If you use the data in your own publications please cite
-<http://doi.org/10.5281/zenodo.596624>
+The data are analysed by Thorley and Andrusak (1994)
+<https://peerj.com/articles/2874/> to estimate the natural and fishing
+mortality of both species.
+
+A shiny app to view the fish movement data is available at
+<http://poissonconsulting.io/klexdatr-movement>.
 
 ## Contribution
 

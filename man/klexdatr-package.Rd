@@ -6,7 +6,13 @@
 \alias{klexdatr-package}
 \title{klexdatr: Kootenay Lake Exploitation Study Data}
 \description{
-An R package of data from the Kootenay Lake Large Trout Exploitation Study.
+Six relational tibbles from the Kootenay Lake Large Trout Exploitation study.
+  The study which ran from 2008 to 2014 caught, tagged and released large Rainbow Trout and Bull Trout
+  in Kootenay Lake by boat angling. 
+  The fish were tagged with internal acoustic tags and/or high reward external tags
+  and subsequently detected by an acoustic receiver array as well as reported by anglers.
+  The data are analysed by Thorley and Andrusak (1994) <doi:10.7717/peerj.2874>
+  to estimate the natural and fishing mortality of both species.
 }
 \seealso{
 Useful links:
