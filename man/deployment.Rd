@@ -4,13 +4,15 @@
 \name{deployment}
 \alias{deployment}
 \title{Receiver Deployment Data}
-\format{A tbl data frame:
+\format{
+A tbl data frame:
 \describe{
   \item{Station}{The station name (fctr).}
   \item{Receiver}{The receiver code (fctr).}
   \item{DateTimeReceiverIn}{The receiver deployment date and time (time).}
   \item{DateTimeReceiverOut}{The receiver retrieval date and time (time).}
-}}
+}
+}
 \usage{
 deployment
 }

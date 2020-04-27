@@ -4,7 +4,8 @@
 \name{recapture}
 \alias{recapture}
 \title{Fish Recapture Data}
-\format{A tbl data frame:
+\format{
+A tbl data frame:
 \describe{
   \item{DateTimeRecapture}{The reported date of recapture (time).}
   \item{Capture}{The fish code (fctr).}
@@ -14,7 +15,8 @@
   \item{TagsRemoved}{The T-Bar tags were removed from the fish (lgl).}
   \item{Released}{The angler reportedly released the fish (lgl).}
   \item{Public}{The angler was a member of the public as opposed the study team (lgl).}
-}}
+}
+}
 \usage{
 recapture
 }

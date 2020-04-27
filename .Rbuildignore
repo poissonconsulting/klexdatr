@@ -9,4 +9,5 @@
 ^build\.R$
 ^appveyor\.yml$
 ^codecov\.yml$
+^scripts$
 ^docs$

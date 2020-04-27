@@ -4,7 +4,8 @@
 \name{capture}
 \alias{capture}
 \title{Fish Capture Data}
-\format{A tbl data frame:
+\format{
+A tbl data frame:
 \describe{
   \item{Capture}{The unique fish code (fctr).}
   \item{DateTimeCapture}{The date and time of capture (time).}
@@ -15,7 +16,8 @@
   \item{Reward1}{The reward value of the first T-Bar tag in Canadian dollars (int).}
   \item{Reward2}{The reward value of the second T-Bar tag if present in Canadian dollars (int).}
   \item{DateTimeTagExpire}{The acoustic tag expiration date and time (time).}
-}}
+}
+}
 \usage{
 capture
 }

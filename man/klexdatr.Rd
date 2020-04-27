@@ -3,7 +3,6 @@
 \docType{package}
 \name{klexdatr}
 \alias{klexdatr}
-\alias{klexdatr-package}
 \title{Kootenay Lake Exploitation Study Data}
 \description{
 Data from the Kootenay Lake Large Trout Exploitation Study.

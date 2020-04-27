@@ -4,13 +4,15 @@
 \name{detection}
 \alias{detection}
 \title{Acoustic Detection Data}
-\format{A tbl data frame:
+\format{
+A tbl data frame:
 \describe{
   \item{DateTimeDetection}{The detection date and hour (time).}
   \item{Capture}{The fish code (fctr).}
   \item{Receiver}{The receiver code (fctr).}
   \item{Detections}{The number of detections in the hour (int).}
-}}
+}
+}
 \usage{
 detection
 }
