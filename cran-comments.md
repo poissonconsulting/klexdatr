@@ -12,12 +12,16 @@ release 4.0.0
 
 0 errors | 0 warnings | 1 note
 
-* This is a new release.
+* This is a resubmission of a new release.
+
+> Please use a single license for all components of the package.
+If you are not permitted to relicense parts of the package so that you get a single license in the end, you may want to provide the functionality within separate packages.
+
+Done.
 
 > Possibly mis-spelled words in DESCRIPTION:
   Andrusak (19:40)
   Kootenay (2:8, 14:46, 16:6)
   Thorley (19:28)
 
-* There words are spelt correctly.
-
+* These words are spelt correctly.
