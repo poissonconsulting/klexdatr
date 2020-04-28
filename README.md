@@ -90,7 +90,7 @@ The data are analysed by Thorley and Andrusak (1994)
 mortality of both species.
 
 A shiny app to view the fish movement data is available at
-<http://poissonconsulting.io/klexdatr-movement>.
+<http://poissonconsulting.shinyapps.io/klexdatr-movement>.
 
 ## Contribution
 
