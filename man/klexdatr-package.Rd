@@ -37,5 +37,19 @@ Authors:
   \item Harvey Andrusak [data contributor]
 }
 
+Other contributors:
+\itemize{
+  \item James Baxter [data contributor]
+  \item Rob Bison [data contributor]
+  \item Mike Ramsay [data contributor]
+  \item Habitat Conservation Trust Foundation [copyright holder, funder]
+  \item Fish and Wildlife Compensation Program [copyright holder, funder]
+  \item Freshwater Fish Society of BC [copyright holder, funder]
+  \item Ministry of Environment [copyright holder, data contributor]
+  \item Bonneville Power Administration [copyright holder, funder]
+  \item Idaho Department of Fish and Game [copyright holder]
+  \item Kootenai Tribe of Idaho [copyright holder]
+}
+
 }
 \keyword{internal}

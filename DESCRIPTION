@@ -10,7 +10,18 @@ Authors@R: c(
     person("Jeff", "Burrows", role = c("aut", "dtc")),
     person("Kerry", "Reed", role = c("aut", "dtc")),
     person("Robyn", "Irvine", role = c("aut", "dtc")),
-    person("Harvey", "Andrusak", role = c("aut", "dtc")))
+    person("Harvey", "Andrusak", role = c("aut", "dtc")),
+    person("James", "Baxter", role = "dtc"),
+    person("Rob", "Bison", role = "dtc"),
+    person("Mike", "Ramsay", role = "dtc"),
+    person("Habitat Conservation Trust Foundation", role = c("cph", "fnd")),
+    person("Fish and Wildlife Compensation Program", role = c("cph", "fnd")),
+    person("Freshwater Fish Society of BC", role = c("cph", "fnd")),
+    person("Ministry of Environment", role = c("cph", "dtc")),
+    person("Bonneville Power Administration", role = c("cph", "fnd")),
+    person("Idaho Department of Fish and Game", role = "cph"),
+    person("Kootenai Tribe of Idaho", role = "cph")
+    )
 Description: Six relational 'tibbles' from the Kootenay Lake Large Trout Exploitation study.
   The study which ran from 2008 to 2014 caught, tagged and released large Rainbow Trout and Bull Trout
   in Kootenay Lake by boat angling. 
@@ -18,7 +29,7 @@ Description: Six relational 'tibbles' from the Kootenay Lake Large Trout Exploit
   and subsequently detected by an acoustic receiver array as well as reported by anglers.
   The data are analysed by Thorley and Andrusak (1994) <doi:10.7717/peerj.2874>
   to estimate the natural and fishing mortality of both species.
-License: CC BY 4.0 + file LICENSE
+License: CC BY 4.0
 Depends:
     R (>= 3.3)
 Suggests:
