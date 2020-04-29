@@ -10,11 +10,14 @@ A tbl data frame:
 \item{Capture}{The unique fish code (fctr).}
 \item{DateTimeCapture}{The date and time of capture (time).}
 \item{SectionCapture}{The section code (fint).}
-\item{Species}{The fish species 'Bull Trout', 'Lake Trout' or 'Rainbow Trout' (fctr).}
+\item{Species}{The fish species 'Bull Trout', 'Lake Trout' or
+'Rainbow Trout' (fctr).}
 \item{Length}{The fork length in mm (int).}
 \item{Weight}{The wet mass in kg (dbl).}
-\item{Reward1}{The reward value of the first T-Bar tag in Canadian dollars (int).}
-\item{Reward2}{The reward value of the second T-Bar tag if present in Canadian dollars (int).}
+\item{Reward1}{The reward value of the first T-Bar tag
+in Canadian dollars (int).}
+\item{Reward2}{The reward value of the second T-Bar tag if present
+in Canadian dollars (int).}
 \item{DateTimeTagExpire}{The acoustic tag expiration date and time (time).}
 }
 }
