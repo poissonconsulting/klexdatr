@@ -12,12 +12,11 @@ release 4.0.0
 
 0 errors | 0 warnings | 1 note
 
-* This is a resubmission of a new release.
+* This is a resubmission (version 2) of a new release.
 
-> Please use a single license for all components of the package.
-If you are not permitted to relicense parts of the package so that you get a single license in the end, you may want to provide the functionality within separate packages.
+> Thanks, we see you listed copyright holders in your LICENSE file, where I am unsure that the copyright hodlers are part of the license itself for CC BY 4.0. In any case, you really should delcare copyright hodlersd also in the Authors@R field with a "cph" role.
 
-Done.
+Moved copyright holders to Authors@R field and replaced LICENCE with LICENSE.md which states terms of CC-BY 4 licence.
 
 > Possibly mis-spelled words in DESCRIPTION:
   Andrusak (19:40)
