@@ -12,7 +12,7 @@ status](https://github.com/poissonconsulting/klexdatr/workflows/R-CMD-check/badg
 [![Codecov test
 coverage](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr?branch=master)
 [![License:
-CC0](https://img.shields.io/badge/License-CC0-green.svg)](https://creativecommons.org/publicdomain/zero/1.0/legalcode)
+CCBY4](https://img.shields.io/badge/License-CCBY4-green.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![CRAN
 status](https://www.r-pkg.org/badges/version/klexdatr)](https://CRAN.R-project.org/package=klexdatr)
 <!-- badges: end -->
