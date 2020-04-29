@@ -6,7 +6,8 @@ test_that("data", {
     list(
       Section = factor(1),
       Habitat = factor(c("Lentic", "Lentic", "Lotic"),
-                       levels = c("Lentic", "Lotic")),
+        levels = c("Lentic", "Lotic")
+      ),
       Bounded = c(TRUE, TRUE, FALSE)
     ),
     key = "Section"
