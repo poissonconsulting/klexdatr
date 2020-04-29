@@ -90,8 +90,8 @@ The data are analysed by [Thorley and Andrusak
 fishing mortality of both species.
 
 There is also a [shiny
-app](http://poissonconsulting.shinyapps.io/klexdatr-movement) to view
-the fish movement data.
+app](https://www.poissonconsulting.ca/post/2018/klexdatr/) to view the
+fish movement data.
 
 ## Contribution
 
