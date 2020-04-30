@@ -86,7 +86,7 @@ external tags and subsequently detected by an acoustic receiver array as
 well as reported by anglers.
 
 The data are analysed by [Thorley and Andrusak
-(1994)](https://peerj.com/articles/2874/) to estimate the natural and
+(2017)](https://peerj.com/articles/2874/) to estimate the natural and
 fishing mortality of both species.
 
 There is also a [shiny
