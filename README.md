@@ -135,4 +135,4 @@ in conjunction with the Bonneville Power Administration (BPA) through
 the Northwest Power and Conservation Council’s Fish and Wildlife
 Program, in co-operation with the Idaho Department of Fish and Game
 (IDFG), and the Kootenai Tribe of Idaho (KTOI). The Freshwater Fish
-Society of British Columbia (FFSBC) provided tag rewards.
+Society of British Columbia (FFSBC) provided tag rewards
