@@ -22,7 +22,8 @@ test_that("data", {
     key = "Station"
   ))
 
-  expect_null(chk::chk_join(station, section, "Section"))
+  expect_null(chk::chk_join(tibble::as_tibble(station),
+                            tibble::as_tibble(section), "Section"))
 
   expect_null(chk::check_data(
     deployment,
@@ -35,7 +36,7 @@ test_that("data", {
     key = c("Station", "Receiver", "DateTimeReceiverIn")
   ))
 
-  expect_null(chk::chk_join(deployment, station, "Station"))
+  expect_null(chk::chk_join(deployment, tibble::as_tibble(station), "Station"))
 
   expect_null(chk::check_data(
     capture,
@@ -53,7 +54,7 @@ test_that("data", {
     key = c("Capture")
   ))
 
-  expect_null(chk::chk_join(capture, section, c("SectionCapture" = "Section")))
+  expect_null(chk::chk_join(capture, tibble::as_tibble(section), c("SectionCapture" = "Section")))
 
   expect_null(chk::check_data(
     recapture,
