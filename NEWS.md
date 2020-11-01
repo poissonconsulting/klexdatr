@@ -1,7 +1,7 @@
-# klexdatr 0.1.1.9000
+# klexdatr 0.1.1.9001
 
-- Same as previous version.
-
+- Converted station and section to sf objects (not just with sfc vectors).
+- Imported sf package so no problem printing sfc vectors.
 
 # klexdatr 0.1.1
 
@@ -9,7 +9,7 @@
 
 # klexdatr 0.1.0
 
-- Converted data sets to tibbles with simple features.
+- Converted data sets to tibbles with sfc vectors.
 
 # klexdatr 0.0.8
     ## Minor changes
