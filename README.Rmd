@@ -67,9 +67,9 @@ There is also a [shiny app](https://www.poissonconsulting.ca/post/2018/klexdatr/
 
 ## Contribution
 
-Please report any [issues](https://github.com/poissonconsulting/pkgtemplate/issues).
+Please report any [issues](https://github.com/poissonconsulting/klexdatr/issues).
 
-[Pull requests](https://github.com/poissonconsulting/pkgtemplate/pulls) are always welcome.
+[Pull requests](https://github.com/poissonconsulting/klexdatr/pulls) are always welcome.
 
 ## Code of Conduct
 
