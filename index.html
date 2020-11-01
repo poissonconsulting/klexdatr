@@ -75,31 +75,29 @@
 <!-- badges: start -->
 
 <p><code>klexdatr</code> is an R package of six relational tibbles from the Kootenay Lake Large Trout Exploitation study.</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode R"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a><span class="co">#&gt; Warning: package 'klexdatr' was built under R version 3.6.3</span></span></code></pre></div>
-<div class="sourceCode" id="cb2"><pre class="downlit">
+<div class="sourceCode" id="cb1"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/base/ls.html">ls</a></span><span class="op">(</span><span class="st">"package:klexdatr"</span><span class="op">)</span> <span class="co"># the six tibbles</span>
 <span class="co">#&gt; [1] "capture"    "deployment" "detection"  "recapture"  "section"   </span>
 <span class="co">#&gt; [6] "station"</span></pre></div>
-<div class="sourceCode" id="cb3"><pre class="downlit">
+<div class="sourceCode" id="cb2"><pre class="downlit">
 <span class="kw"><a href="https://rdrr.io/r/base/library.html">library</a></span><span class="op">(</span><span class="va"><a href="https://tibble.tidyverse.org/">tibble</a></span><span class="op">)</span> <span class="co"># for prettier printing</span>
-<span class="co">#&gt; Warning: package 'tibble' was built under R version 3.6.3</span>
 <span class="va">capture</span>
 <span class="co">#&gt; # A tibble: 245 x 9</span>
 <span class="co">#&gt;    Capture DateTimeCapture     SectionCapture Species Length Weight Reward1</span>
 <span class="co">#&gt;    &lt;fct&gt;   &lt;dttm&gt;              &lt;fct&gt;          &lt;fct&gt;    &lt;int&gt;  &lt;dbl&gt;   &lt;int&gt;</span>
-<span class="co">#&gt;  1 F075    2008-05-24 10:40:00 S25            Bull T~    545   1.75       0</span>
-<span class="co">#&gt;  2 F076    2008-05-24 11:10:00 S25            Bull T~    654   3.4        0</span>
-<span class="co">#&gt;  3 F084    2008-06-05 08:01:00 S16            Bull T~    553  NA          0</span>
-<span class="co">#&gt;  4 F100    2009-05-02 13:31:00 S21            Bull T~    643   2.75     100</span>
-<span class="co">#&gt;  5 F104    2009-05-03 11:17:00 S22            Bull T~    567   2        100</span>
-<span class="co">#&gt;  6 F129    2009-05-07 09:11:00 S21            Bull T~    703   3.9      100</span>
-<span class="co">#&gt;  7 F133    2009-05-07 13:58:00 S21            Bull T~    712   3.65     100</span>
-<span class="co">#&gt;  8 F137    2009-05-08 11:16:00 S21            Bull T~    572   1.9      100</span>
-<span class="co">#&gt;  9 F141    2009-05-20 15:13:00 S16            Bull T~    564   2.2      100</span>
-<span class="co">#&gt; 10 F143    2009-05-21 08:00:00 S16            Bull T~    595   2.4      100</span>
-<span class="co">#&gt; # ... with 235 more rows, and 2 more variables: Reward2 &lt;int&gt;,</span>
+<span class="co">#&gt;  1 F075    2008-05-24 10:40:00 S25            Bull T…    545   1.75       0</span>
+<span class="co">#&gt;  2 F076    2008-05-24 11:10:00 S25            Bull T…    654   3.4        0</span>
+<span class="co">#&gt;  3 F084    2008-06-05 08:01:00 S16            Bull T…    553  NA          0</span>
+<span class="co">#&gt;  4 F100    2009-05-02 13:31:00 S21            Bull T…    643   2.75     100</span>
+<span class="co">#&gt;  5 F104    2009-05-03 11:17:00 S22            Bull T…    567   2        100</span>
+<span class="co">#&gt;  6 F129    2009-05-07 09:11:00 S21            Bull T…    703   3.9      100</span>
+<span class="co">#&gt;  7 F133    2009-05-07 13:58:00 S21            Bull T…    712   3.65     100</span>
+<span class="co">#&gt;  8 F137    2009-05-08 11:16:00 S21            Bull T…    572   1.9      100</span>
+<span class="co">#&gt;  9 F141    2009-05-20 15:13:00 S16            Bull T…    564   2.2      100</span>
+<span class="co">#&gt; 10 F143    2009-05-21 08:00:00 S16            Bull T…    595   2.4      100</span>
+<span class="co">#&gt; # … with 235 more rows, and 2 more variables: Reward2 &lt;int&gt;,</span>
 <span class="co">#&gt; #   DateTimeTagExpire &lt;dttm&gt;</span></pre></div>
-<div class="sourceCode" id="cb4"><pre class="downlit">
+<div class="sourceCode" id="cb3"><pre class="downlit">
 <span class="va">recapture</span>
 <span class="co">#&gt; # A tibble: 54 x 8</span>
 <span class="co">#&gt;    DateTimeRecapture   Capture SectionRecapture TBarTag1 TBarTag2 TagsRemoved</span>
@@ -114,15 +112,15 @@
 <span class="co">#&gt;  8 2009-10-16 12:00:00 F111    S27              TRUE     TRUE     TRUE       </span>
 <span class="co">#&gt;  9 2010-01-23 12:00:00 F197    S27              TRUE     TRUE     TRUE       </span>
 <span class="co">#&gt; 10 2010-01-28 12:00:00 F075    S23              TRUE     TRUE     TRUE       </span>
-<span class="co">#&gt; # ... with 44 more rows, and 2 more variables: Released &lt;lgl&gt;, Public &lt;lgl&gt;</span></pre></div>
+<span class="co">#&gt; # … with 44 more rows, and 2 more variables: Released &lt;lgl&gt;, Public &lt;lgl&gt;</span></pre></div>
 <div id="installation" class="section level2">
 <h2 class="hasAnchor">
 <a href="#installation" class="anchor"></a>Installation</h2>
 <p>To install the latest release from <a href="https://cran.r-project.org">CRAN</a></p>
-<div class="sourceCode" id="cb5"><pre class="downlit">
+<div class="sourceCode" id="cb4"><pre class="downlit">
 <span class="fu"><a href="https://rdrr.io/r/utils/install.packages.html">install.packages</a></span><span class="op">(</span><span class="st">"klexdatr"</span><span class="op">)</span></pre></div>
 <p>To install the developmental version from <a href="https://github.com/poissonconsulting/klexdatr">GitHub</a></p>
-<div class="sourceCode" id="cb6"><pre class="downlit">
+<div class="sourceCode" id="cb5"><pre class="downlit">
 <span class="co"># install.packages("remotes")</span>
 <span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"poissonconsulting/klexdatr"</span><span class="op">)</span></pre></div>
 </div>
@@ -137,8 +135,8 @@
 <div id="contribution" class="section level2">
 <h2 class="hasAnchor">
 <a href="#contribution" class="anchor"></a>Contribution</h2>
-<p>Please report any <a href="https://github.com/poissonconsulting/pkgtemplate/issues">issues</a>.</p>
-<p><a href="https://github.com/poissonconsulting/pkgtemplate/pulls">Pull requests</a> are always welcome.</p>
+<p>Please report any <a href="https://github.com/poissonconsulting/klexdatr/issues">issues</a>.</p>
+<p><a href="https://github.com/poissonconsulting/klexdatr/pulls">Pull requests</a> are always welcome.</p>
 </div>
 <div id="code-of-conduct" class="section level2">
 <h2 class="hasAnchor">
