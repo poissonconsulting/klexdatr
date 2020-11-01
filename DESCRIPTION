@@ -32,6 +32,8 @@ Description: Six relational 'tibbles' from the Kootenay Lake Large Trout Exploit
 License: CC BY 4.0
 Depends:
     R (>= 3.3)
+Imports:
+    sf
 Suggests:
     chk,
     covr,
