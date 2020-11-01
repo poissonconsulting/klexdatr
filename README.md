@@ -20,6 +20,8 @@ status](https://www.r-pkg.org/badges/version/klexdatr)](https://CRAN.R-project.o
 `klexdatr` is an R package of six relational tibbles from the Kootenay
 Lake Large Trout Exploitation study.
 
+    #> Warning: package 'klexdatr' was built under R version 3.6.3
+
 ``` r
 ls("package:klexdatr") # the six tibbles
 #> [1] "capture"    "deployment" "detection"  "recapture"  "section"   
@@ -28,21 +30,22 @@ ls("package:klexdatr") # the six tibbles
 
 ``` r
 library(tibble) # for prettier printing
+#> Warning: package 'tibble' was built under R version 3.6.3
 capture
 #> # A tibble: 245 x 9
 #>    Capture DateTimeCapture     SectionCapture Species Length Weight Reward1
 #>    <fct>   <dttm>              <fct>          <fct>    <int>  <dbl>   <int>
-#>  1 F075    2008-05-24 10:40:00 S25            Bull T…    545   1.75       0
-#>  2 F076    2008-05-24 11:10:00 S25            Bull T…    654   3.4        0
-#>  3 F084    2008-06-05 08:01:00 S16            Bull T…    553  NA          0
-#>  4 F100    2009-05-02 13:31:00 S21            Bull T…    643   2.75     100
-#>  5 F104    2009-05-03 11:17:00 S22            Bull T…    567   2        100
-#>  6 F129    2009-05-07 09:11:00 S21            Bull T…    703   3.9      100
-#>  7 F133    2009-05-07 13:58:00 S21            Bull T…    712   3.65     100
-#>  8 F137    2009-05-08 11:16:00 S21            Bull T…    572   1.9      100
-#>  9 F141    2009-05-20 15:13:00 S16            Bull T…    564   2.2      100
-#> 10 F143    2009-05-21 08:00:00 S16            Bull T…    595   2.4      100
-#> # … with 235 more rows, and 2 more variables: Reward2 <int>,
+#>  1 F075    2008-05-24 10:40:00 S25            Bull T~    545   1.75       0
+#>  2 F076    2008-05-24 11:10:00 S25            Bull T~    654   3.4        0
+#>  3 F084    2008-06-05 08:01:00 S16            Bull T~    553  NA          0
+#>  4 F100    2009-05-02 13:31:00 S21            Bull T~    643   2.75     100
+#>  5 F104    2009-05-03 11:17:00 S22            Bull T~    567   2        100
+#>  6 F129    2009-05-07 09:11:00 S21            Bull T~    703   3.9      100
+#>  7 F133    2009-05-07 13:58:00 S21            Bull T~    712   3.65     100
+#>  8 F137    2009-05-08 11:16:00 S21            Bull T~    572   1.9      100
+#>  9 F141    2009-05-20 15:13:00 S16            Bull T~    564   2.2      100
+#> 10 F143    2009-05-21 08:00:00 S16            Bull T~    595   2.4      100
+#> # ... with 235 more rows, and 2 more variables: Reward2 <int>,
 #> #   DateTimeTagExpire <dttm>
 ```
 
@@ -61,7 +64,7 @@ recapture
 #>  8 2009-10-16 12:00:00 F111    S27              TRUE     TRUE     TRUE       
 #>  9 2010-01-23 12:00:00 F197    S27              TRUE     TRUE     TRUE       
 #> 10 2010-01-28 12:00:00 F075    S23              TRUE     TRUE     TRUE       
-#> # … with 44 more rows, and 2 more variables: Released <lgl>, Public <lgl>
+#> # ... with 44 more rows, and 2 more variables: Released <lgl>, Public <lgl>
 ```
 
 ## Installation
