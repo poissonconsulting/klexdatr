@@ -13,6 +13,8 @@ test_that("data", {
     key = "Section"
   ))
 
+  expect_null(chk::chk_is(section, "sf"))
+
   expect_null(chk::check_data(
     station,
     list(
@@ -21,6 +23,8 @@ test_that("data", {
     ),
     key = "Station"
   ))
+
+  expect_null(chk::chk_is(station, "sf"))
 
   expect_null(chk::chk_join(tibble::as_tibble(station),
                             tibble::as_tibble(section), "Section"))
