@@ -1,6 +1,6 @@
 Package: klexdatr
 Title: Kootenay Lake Exploitation Study Data
-Version: 0.1.1.9002
+Version: 0.1.2
 Authors@R: c(
     person("Joe", "Thorley", , "joe@poissonconsulting.ca", c("aut", "cre", "dtc"), comment = c(ORCID = "0000-0002-7683-4592")),
     person("Greg", "Andrusak", role = c("aut", "dtc")),

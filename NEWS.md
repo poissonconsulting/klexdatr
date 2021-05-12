@@ -1,5 +1,10 @@
 <!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
 
+# klexdatr 0.1.2
+
+- Same as previous version.
+
+
 # klexdatr 0.1.1.9002
 
 - Internal changes.
