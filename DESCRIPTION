@@ -35,10 +35,12 @@ Depends:
 Imports:
     sf
 Suggests:
-    chk,
+    chk (>= 0.5.1.9002),
     covr,
     testthat,
     tibble
+Remotes:
+    poissonconsulting/chk
 URL: https://github.com/poissonconsulting/klexdatr
 BugReports: https://github.com/poissonconsulting/klexdatr/issues
 LazyData: true

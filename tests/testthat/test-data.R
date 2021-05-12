@@ -1,5 +1,5 @@
 test_that("data", {
-  expect_null(chk::check_data(
+  expect_error(chk::check_data(
     section,
     list(
       Section = factor(1),
@@ -9,25 +9,25 @@ test_that("data", {
       Bounded = c(TRUE, TRUE, FALSE)
     ),
     key = "Section"
-  ))
+  ), NA)
 
-  expect_null(chk::chk_is(section, "sf"))
+  expect_error(chk::chk_is(section, "sf"), NA)
 
-  expect_null(chk::check_data(
+  expect_error(chk::check_data(
     station,
     list(
       Station = factor(1),
       Section = factor(1)
     ),
     key = "Station"
-  ))
+  ), NA)
 
-  expect_null(chk::chk_is(station, "sf"))
+  expect_error(chk::chk_is(station, "sf"), NA)
 
-  expect_null(chk::chk_join(tibble::as_tibble(station),
-                            tibble::as_tibble(section), "Section"))
+  expect_error(chk::chk_join(tibble::as_tibble(station),
+                            tibble::as_tibble(section), "Section"), NA)
 
-  expect_null(chk::check_data(
+  expect_error(chk::check_data(
     deployment,
     list(
       Station = factor(1),
@@ -36,11 +36,11 @@ test_that("data", {
       DateTimeReceiverOut = Sys.time()
     ),
     key = c("Station", "Receiver", "DateTimeReceiverIn")
-  ))
+  ), NA)
 
-  expect_null(chk::chk_join(deployment, tibble::as_tibble(station), "Station"))
+  expect_error(chk::chk_join(deployment, tibble::as_tibble(station), "Station"), NA)
 
-  expect_null(chk::check_data(
+  expect_error(chk::check_data(
     capture,
     list(
       Capture = factor(1),
@@ -54,11 +54,11 @@ test_that("data", {
       DateTimeTagExpire = Sys.time()
     ),
     key = c("Capture")
-  ))
+  ), NA)
 
-  expect_null(chk::chk_join(capture, tibble::as_tibble(section), c("SectionCapture" = "Section")))
+  expect_error(chk::chk_join(capture, tibble::as_tibble(section), c("SectionCapture" = "Section")), NA)
 
-  expect_null(chk::check_data(
+  expect_error(chk::check_data(
     recapture,
     list(
       DateTimeRecapture = Sys.time(),
@@ -71,14 +71,14 @@ test_that("data", {
       Public = TRUE
     ),
     key = c("DateTimeRecapture", "Capture")
-  ))
+  ), NA)
 
-  expect_null(chk::chk_join(recapture, capture, "Capture"))
+  expect_error(chk::chk_join(recapture, capture, "Capture"), NA)
   #  missing values
-  #  expect_null(chk::chk_join(recapture, section@data,
+  #  expect_error(chk::chk_join(recapture, section@data,
   #                                   c("SectionRecapture" = "Section")))
 
-  expect_null(chk::check_data(
+  expect_error(chk::check_data(
     detection,
     list(
       DateTimeDetection = Sys.time(),
@@ -87,7 +87,7 @@ test_that("data", {
       Detections = c(1L, 300L)
     ),
     key = c("DateTimeDetection", "Capture", "Receiver")
-  ))
+  ), NA)
 
-  expect_null(chk::chk_join(detection, capture, "Capture"))
+  expect_error(chk::chk_join(detection, capture, "Capture"), NA)
 })
