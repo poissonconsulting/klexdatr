@@ -2,11 +2,6 @@
 
 # klexdatr 0.1.2
 
-- Same as previous version.
-
-
-# klexdatr 0.1.1.9002
-
 - Internal changes.
 - station and section as sf objects.
 - Import sf so no problem printing sf objects.
