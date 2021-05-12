@@ -1,3 +1,12 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# klexdatr 0.1.1.9002
+
+- Updated tests for chk >= 0.5.1.9002
+- station and section as sf objects.
+- Import sf so no problem printing sf objects.
+
+
 # klexdatr 0.1.1.9001
 
 - Converted station and section to sf objects (not just with sfc vectors).
