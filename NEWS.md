@@ -2,10 +2,9 @@
 
 # klexdatr 0.1.1.9002
 
-- Updated tests for chk >= 0.5.1.9002
+- Internal changes.
 - station and section as sf objects.
 - Import sf so no problem printing sf objects.
-
 
 # klexdatr 0.1.1.9001
 
