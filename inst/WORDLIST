@@ -14,6 +14,7 @@ Lotic
 MFLNRO
 MULTIPOLYGON
 ORCID
+README
 SpatialPolygonsDataFrame
 VR
 analysed
@@ -22,6 +23,7 @@ doi
 fctr
 fint
 funder
+lexr
 lgl
 licence
 peerj
