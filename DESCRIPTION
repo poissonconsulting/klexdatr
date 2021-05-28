@@ -31,7 +31,7 @@ Description: Six relational 'tibbles' from the Kootenay Lake Large Trout Exploit
   to estimate the natural and fishing mortality of both species.
 License: CC BY 4.0
 Depends:
-    R (>= 3.3)
+    R (>= 3.4)
 Imports:
     sf
 Suggests:
