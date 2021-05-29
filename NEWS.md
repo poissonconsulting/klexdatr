@@ -1,3 +1,10 @@
+<!-- NEWS.md is maintained by https://cynkra.github.io/fledge, do not edit -->
+
+# klexdatr 0.1.2.9000
+
+- Same as previous version.
+
+
 # klexdatr 0.1.2
 
 - Converted `station` and `section` to `sf` objects (not just with `sfc` vectors).
