@@ -9,8 +9,6 @@
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
 [![R build
 status](https://github.com/poissonconsulting/klexdatr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/klexdatr/actions)
-[![Codecov test
-coverage](https://codecov.io/gh/poissonconsulting/klexdatr/branch/master/graph/badge.svg)](https://codecov.io/gh/poissonconsulting/klexdatr?branch=master)
 [![License:
 CCBY4](https://img.shields.io/badge/License-CCBY4-green.svg)](https://creativecommons.org/licenses/by/4.0/)
 [![CRAN
@@ -30,18 +28,18 @@ ls("package:klexdatr") # the six tibbles
 library(tibble) # for prettier printing
 capture
 #> # A tibble: 245 x 9
-#>    Capture DateTimeCapture     SectionCapture Species Length Weight Reward1
-#>    <fct>   <dttm>              <fct>          <fct>    <int>  <dbl>   <int>
-#>  1 F075    2008-05-24 10:40:00 S25            Bull T…    545   1.75       0
-#>  2 F076    2008-05-24 11:10:00 S25            Bull T…    654   3.4        0
-#>  3 F084    2008-06-05 08:01:00 S16            Bull T…    553  NA          0
-#>  4 F100    2009-05-02 13:31:00 S21            Bull T…    643   2.75     100
-#>  5 F104    2009-05-03 11:17:00 S22            Bull T…    567   2        100
-#>  6 F129    2009-05-07 09:11:00 S21            Bull T…    703   3.9      100
-#>  7 F133    2009-05-07 13:58:00 S21            Bull T…    712   3.65     100
-#>  8 F137    2009-05-08 11:16:00 S21            Bull T…    572   1.9      100
-#>  9 F141    2009-05-20 15:13:00 S16            Bull T…    564   2.2      100
-#> 10 F143    2009-05-21 08:00:00 S16            Bull T…    595   2.4      100
+#>    Capture DateTimeCapture     SectionCapture Species    Length Weight Reward1
+#>    <fct>   <dttm>              <fct>          <fct>       <int>  <dbl>   <int>
+#>  1 F075    2008-05-24 10:40:00 S25            Bull Trout    545   1.75       0
+#>  2 F076    2008-05-24 11:10:00 S25            Bull Trout    654   3.4        0
+#>  3 F084    2008-06-05 08:01:00 S16            Bull Trout    553  NA          0
+#>  4 F100    2009-05-02 13:31:00 S21            Bull Trout    643   2.75     100
+#>  5 F104    2009-05-03 11:17:00 S22            Bull Trout    567   2        100
+#>  6 F129    2009-05-07 09:11:00 S21            Bull Trout    703   3.9      100
+#>  7 F133    2009-05-07 13:58:00 S21            Bull Trout    712   3.65     100
+#>  8 F137    2009-05-08 11:16:00 S21            Bull Trout    572   1.9      100
+#>  9 F141    2009-05-20 15:13:00 S16            Bull Trout    564   2.2      100
+#> 10 F143    2009-05-21 08:00:00 S16            Bull Trout    595   2.4      100
 #> # … with 235 more rows, and 2 more variables: Reward2 <int>,
 #> #   DateTimeTagExpire <dttm>
 ```
