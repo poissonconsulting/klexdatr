@@ -6,6 +6,8 @@
 \alias{klexdatr-package}
 \title{klexdatr: Kootenay Lake Exploitation Study Data}
 \description{
+\if{html}{\figure{logo.png}{options: align='right' alt='logo' width='120'}}
+
 Six relational 'tibbles' from the Kootenay Lake Large Trout Exploitation study.
   The study which ran from 2008 to 2014 caught, tagged and released large Rainbow Trout and Bull Trout
   in Kootenay Lake by boat angling. 

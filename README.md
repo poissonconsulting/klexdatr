@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# klexdatr
+# klexdatr <img src="man/figures/logo.png" align="right" />
 
 <!-- badges: start -->
 
@@ -27,7 +27,7 @@ ls("package:klexdatr") # the six tibbles
 ``` r
 library(tibble) # for prettier printing
 capture
-#> # A tibble: 245 x 9
+#> # A tibble: 245 × 9
 #>    Capture DateTimeCapture     SectionCapture Species    Length Weight Reward1
 #>    <fct>   <dttm>              <fct>          <fct>       <int>  <dbl>   <int>
 #>  1 F075    2008-05-24 10:40:00 S25            Bull Trout    545   1.75       0
@@ -46,7 +46,7 @@ capture
 
 ``` r
 recapture
-#> # A tibble: 54 x 8
+#> # A tibble: 54 × 8
 #>    DateTimeRecapture   Capture SectionRecapture TBarTag1 TBarTag2 TagsRemoved
 #>    <dttm>              <fct>   <fct>            <lgl>    <lgl>    <lgl>      
 #>  1 2009-04-05 12:00:00 F006    S25              TRUE     TRUE     TRUE       
