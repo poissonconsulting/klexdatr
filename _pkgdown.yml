@@ -1,5 +1,4 @@
 destination: docs
 url: https://poissonconsulting.github.io/klexdatr/
 template:
-  bootstrap: 5
   package: poissontemplate
