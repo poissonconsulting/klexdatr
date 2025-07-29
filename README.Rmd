@@ -17,9 +17,8 @@ knitr::opts_chunk$set(
 
 <!-- badges: start -->
 [![Lifecycle: stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R build status](https://github.com/poissonconsulting/klexdatr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/klexdatr/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/klexdatr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/klexdatr/actions/workflows/R-CMD-check.yaml)
 [![License: CCBY4](https://img.shields.io/badge/License-CCBY4-green.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![CRAN status](https://www.r-pkg.org/badges/version/klexdatr)](https://CRAN.R-project.org/package=klexdatr)
 <!-- badges: end -->
 
 `klexdatr` is an R package of six relational tibbles from the Kootenay Lake Large Trout Exploitation study.

@@ -7,12 +7,9 @@
 
 [![Lifecycle:
 stable](https://img.shields.io/badge/lifecycle-stable-brightgreen.svg)](https://lifecycle.r-lib.org/articles/stages.html#stable)
-[![R build
-status](https://github.com/poissonconsulting/klexdatr/workflows/R-CMD-check/badge.svg)](https://github.com/poissonconsulting/klexdatr/actions)
+[![R-CMD-check](https://github.com/poissonconsulting/klexdatr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/poissonconsulting/klexdatr/actions/workflows/R-CMD-check.yaml)
 [![License:
 CCBY4](https://img.shields.io/badge/License-CCBY4-green.svg)](https://creativecommons.org/licenses/by/4.0/)
-[![CRAN
-status](https://www.r-pkg.org/badges/version/klexdatr)](https://CRAN.R-project.org/package=klexdatr)
 <!-- badges: end -->
 
 `klexdatr` is an R package of six relational tibbles from the Kootenay
@@ -40,8 +37,8 @@ capture
 #>  8 F137    2009-05-08 11:16:00 S21            Bull Trout    572   1.9      100
 #>  9 F141    2009-05-20 15:13:00 S16            Bull Trout    564   2.2      100
 #> 10 F143    2009-05-21 08:00:00 S16            Bull Trout    595   2.4      100
-#> # … with 235 more rows, and 2 more variables: Reward2 <int>,
-#> #   DateTimeTagExpire <dttm>
+#> # ℹ 235 more rows
+#> # ℹ 2 more variables: Reward2 <int>, DateTimeTagExpire <dttm>
 ```
 
 ``` r
@@ -59,7 +56,8 @@ recapture
 #>  8 2009-10-16 12:00:00 F111    S27              TRUE     TRUE     TRUE       
 #>  9 2010-01-23 12:00:00 F197    S27              TRUE     TRUE     TRUE       
 #> 10 2010-01-28 12:00:00 F075    S23              TRUE     TRUE     TRUE       
-#> # … with 44 more rows, and 2 more variables: Released <lgl>, Public <lgl>
+#> # ℹ 44 more rows
+#> # ℹ 2 more variables: Released <lgl>, Public <lgl>
 ```
 
 ## Installation
